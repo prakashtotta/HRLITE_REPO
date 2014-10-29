@@ -1,0 +1,57 @@
+package com.common;
+
+public class ErrorCodes
+{
+  public static final String EMPLOYEE_CODE_REQUIRED = "U100";
+  public static final String FIRST_NAME_REQUIRED = "U101";
+  public static final String LAST_NAME_REQUIRED = "U102";
+  public static final String EMAIL_ID_REQUIRED = "U103";
+  public static final String LOCALE_ID_REQUIRED = "U104";
+  public static final String TIMEZONE_ID_REQUIRED = "U105";
+  public static final String ORGANIZATION_ID_REQUIRED = "U106";
+  public static final String DEPARTMENT_REQUIRED = "U107";
+  public static final String PASSWORD_REQUIRED = "U108";
+  public static final String ROLE_ID_REQUIRED = "U109";
+  public static final String LOCALE_ID_INCORRECT = "U110";
+  public static final String TIMEZONE_ID_INCORRECT = "U111";
+  public static final String COUNTRY_ID_REQUIRED = "U112";
+  public static final String ORGANIZATION_ID_INCORRECT = "U113";
+  public static final String DEPARTMENT_ID_INCORRECT = "U114";
+  public static final String PROJECTCODE_ID_INCORRECT = "U115";
+  public static final String DESIGNATION_ID_INCORRECT = "U116";
+  public static final String COUNTRY_ID_INCORRECT = "U117";
+  public static final String STATE_ID_INCORRECT = "U118";
+  public static final String ROLE_ID_INCORRECT = "U119";
+  public static final String USER_NAME_INCORRECT = "U120";
+  public static final String SHARED_SECRET_INCORRECT = "A100";
+  public static final String AUTHONTICATION_FAIL = "1000";
+  public static final String USER_SUSPENDED_DELETED = "1001";
+  public static final String PERMISSION_FAIL = "1002";
+  public static final String EMAIL_ID_ALREADY_EXIST = "1004";
+  public static final String EMPLOYEE_CODE_ALREADY_EXIST = "1005";
+  public static final String USERNAME_ALREADY_EXIST = "1006";
+  public static final String SYSTEM_EXCEPTION = "99999999";
+  public static final String ORGANIZATION_IS_IN_USE_NOT_DELETED = "ER100";
+  public static final String VARIABLE_IS_IN_USE_NOT_DELETED = "ER101";
+  public static final String FILTER_CRITERIA_IS_IN_USE_NOT_DELETED = "ER102";
+  public static final String DEPARTMENT_IS_IN_USE_NOT_DELETED = "ER103";
+  public static final String PROJECT_CODE_IS_IN_USE_NOT_DELETED = "ER104";
+  public static final String LOCATION_IS_IN_USE_NOT_DELETED = "ER105";
+  public static final String JOB_TITLE_IS_IN_USE_NOT_DELETED = "ER106";
+  public static final String JOB_CATEGORY_IS_IN_USE_NOT_DELETED = "ER107";
+  public static final String CATEGORY_IS_IN_USE_NOT_DELETED = "ER108";
+  public static final String JOB_TYPE_IS_IN_USE_NOT_DELETED = "ER109";
+  public static final String JOB_GRADE_IS_IN_USE_NOT_DELETED = "ER110";
+  public static final String WORK_SHIFT_IS_IN_USE_NOT_DELETED = "ER111";
+  public static final String SALARY_PLAN_IS_IN_USE_NOT_DELETED = "ER112";
+  public static final String BUDGET_CODE_IS_IN_USE_NOT_DELETED = "ER113";
+  public static final String REFERRAL_BUDGET_CODE_IS_IN_USE_NOT_DELETED = "ER114";
+  public static final String REFERRAL_SCHEME_IS_IN_USE_NOT_DELETED = "ER115";
+  public static final String ONBOARDING_TASK_DEFINITION_IS_IN_USE_NOT_DELETED = "ER116";
+  public static final String ONBOARDING_TEMPLATE_IS_IN_USE_NOT_DELETED = "ER117";
+  public static final String APPLICANT_FILTER_IS_IN_USE_NOT_DELETED = "ER118";
+  public static final String MEMBERSHIP_TYPE_IS_IN_USE_NOT_DELETED = "ER119";
+  public static final String LANGUAGE_IS_IN_USE_NOT_DELETED = "ER120";
+  public static final String LICENCE_TYPE_IS_IN_USE_NOT_DELETED = "ER121";
+  public static final String ETHNIC_RACE_IS_IN_USE_NOT_DELETED = "ER122";
+}

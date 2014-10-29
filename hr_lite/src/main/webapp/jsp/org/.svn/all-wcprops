@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/org
+END
+orgListPageAjax.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/org/orgListPageAjax.jsp
+END
+deptlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/org/deptlistpage.jsp
+END
+createDepartment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/org/createDepartment.jsp
+END
+orgdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/orgdetails.jsp
+END
+orgListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/org/orgListBody.jsp
+END
+projectCodeSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/projectCodeSelector.jsp
+END
+departmentSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/departmentSelector.jsp
+END
+organizationSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3371/trunk/hr_lite/jsp/org/organizationSelector.jsp
+END
+jobcodeSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/jobcodeSelector.jsp
+END
+budgetcodeSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/budgetcodeSelector.jsp
+END
+deptListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/org/deptListBody.jsp
+END
+salaryplanSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/salaryplanSelector.jsp
+END
+locationSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3371/trunk/hr_lite/jsp/org/locationSelector.jsp
+END
+locationpreview.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/locationpreview.jsp
+END
+createOrg.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/org/createOrg.jsp
+END
+jobgradeSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/jobgradeSelector.jsp
+END
+departmentInfo.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/org/departmentInfo.jsp
+END
+orglistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/org/orglistpage.jsp
+END
+orgListBody1.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/org/orgListBody1.jsp
+END

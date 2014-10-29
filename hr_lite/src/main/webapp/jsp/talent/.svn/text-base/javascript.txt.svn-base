@@ -1,0 +1,1021 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Art Online Home</title>
+
+<meta http-equiv="pragma" content="no-cache" />
+<META NAME='Keywords' CONTENT='Pakistani Artists, Indian Artists, iranian artists, arab art, Pakistani art,indian art, iranian art,pakistani paintings,pakistani artists,middle east artists,arab artists,arab art,soth asian artists,south asian art,Arab artists,Islamic calligraphy,Ahmed Khan,Gulgee,Saeed Akhtar,Mashkoor paintings'> <META NAME='Description' CONTENT='Pakistani Artists, Middle eastern Artists,Indian artists'> <META NAME='Artists Within Reach' CONTENT=' Pakistani Artists,Pakistani Art,Indian Artists'>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="css/dat.css" title="Monitor Styles" media="screen" />
+<link rel="stylesheet" href="css/new.css" title="Monitor Styles" media="screen" />
+
+
+<script src="js/scripts.js" type="text/javascript" language="javascript"></script>
+
+</head>
+<!-- this is the main template of the pages -->
+
+<div id="wrapper">
+ <div class=header align=center><a href="index.jsp" ><img src="images/logo.jpg" alt="'Pakistani Artists, Indian Artists, iranian artists, arab art, Pakistani art,indian art, iranian art,pakistani paintings,pakistani artists,middle east artists,arab artists,arab art,soth asian artists,south asian art,Arab artists,Islamic calligraphy,Ahmed Khan,Gulgee,Saeed Akhtar,Mashkoor paintings'" width="515" height="69" hspace="5" vspace="0" border="0" /></a></div>
+</div>
+
+<div class="NavButton">
+ <div class="Button" onmouseover="P7_autoShowHide(0,'BuyersMenu')">&nbsp;<a href="buyers.jsp">Buyers</a></div>|
+ <div class="Button" onmouseover="P7_autoShowHide(0,'SellersMenu')"><a href="seller.jsp">Sellers</a></div>|
+ <div class="Button" onmouseover="P7_autoShowHide(0,'FeaturesMenu')"><a href="features.jsp">Features</a></div>|
+ <div class="Button" onmouseover="P7_autoShowHide(0,'HelpMenu')"><a href="help.jsp">Help</a></div>|
+ <div class="Button" onmouseover="MM_showHideLayers('HelpMenu','','hide')"><a href="sitemap.jsp">Site Map</a></div>
+</div>
+
+<div id="BuyersMenu">
+ <ul>
+  <li><a href="artistList.jsp" title="Browse Artists">Browse Artists</a></li>
+  <li style="border-bottom: none;"><a href="artList.jsp?by=title" title="Browse Art">Browse Art</a></li>
+  <!--<li style="border-bottom: none;"><a href="reg.jsp?role=MEMBER" title="Browse Art">Buyer Registration</a></li>
+  <li style="border-bottom: none;"><a href="login.jsp" title="Buyer Log In">Log In</a></li>-->
+  <!-- <li><a href="buyers/index/content/register" title="Register">Register</a></li> -->
+  <!-- <li><a href="buyers/index/content/login" title="Browse Artists">Log In</a></li> -->
+  <!-- <li><a href="buyers/index/content/newsletter" title="Newsletter">Newsletter</a></li> -->
+ </ul>
+</div>
+
+<div id="SellersMenu">
+ <ul>
+  <li><a href="membership.jsp" title="Membership Information">Membership Info</a></li>
+  <li><a href="reg.jsp?role=PAINTER" title="Join Our Community">Artist Registration</a></li>
+  <li style="border-bottom: none;"><a href="login.jsp" title="Member Log In">Log In</a></li>
+ </ul>
+</div>
+
+<div id="FeaturesMenu">
+ <ul>
+  <!-- <li><a href="features/forum/" title="Visit The Forums">Forums</a></li> -->
+  <li><a href="epostcardInfo.jsp" title="Send an e-Postcard">e-Postcards</a></li>
+  <li><a href="tellaFriend.jsp" title="Recommend This Site">Tell A Friend</a></li>
+  <!-- <li><a href="features/index/content/newsletter">Newsletter</a></li> -->
+ 
+ </ul>
+</div>
+
+<div id="HelpMenu">
+ <ul>
+  <li><a href="contact.jsp" title="Contact Us">Contact Us</a></li>
+  <li style="border-bottom: none;"><a href="faq.jsp" title="Read The FAQ's">FAQ's</a></li>
+ </ul>
+</div>
+
+
+
+<form name=reg123 >
+<div id="LeftSide">
+<p>Members Menu</p>
+ <div class="MenuItem" align="center"><a href="home.jsp">Members Home</a></div>
+ <div class="MenuItem" align="center"><a href="registration.jsp">Your Profile</a></div>
+ <div class="MenuItem" align="center"><a href="addbio.jsp">Your Bio</a></div>
+  <div class="MenuItem" align="center"><a href="addnetwork.jsp">Your Artwork</a></div>
+ <div class="MenuItem" align="center"><a href="stat.jsp">Your Stats</a></div>
+
+  <div class="MenuItem" align="center"><a href="login.jsp">Log Out</a></div>
+ <div class="MenuItem" align="center"><a href="#" onClick="deleteprofile()">Delete My Profile</a></div>
+
+</div>
+</form>
+<script language="javascript">
+function deleteprofile() {
+		 var doyou = confirm("Do you want to delete your profile ? ( OK=Yes Cancel=No )");
+	  if (doyou == true){
+	  	document.reg123.action ="/jsp/fgdrfcshfcsfhtyenlf?cmd=deleteprofile";
+		document.reg123.submit();
+	   }
+	}
+
+</script><script type="text/javascript">
+function load()
+{
+	var im = "null";
+	
+	if(im == 'null'){
+		
+		document.regform.Operation.disabled=true;
+		document.regform.title.readOnly=true;
+		document.regform.imgDetails.readOnly=true;
+		document.regform.ItemPrice.readOnly=true;
+		document.regform.ItemHeight.readOnly=true;
+		document.regform.ItemWidth.readOnly=true;
+	}else {
+		
+		document.regform.Operation.disabled=false;
+		document.regform.title.readOnly=false;
+		document.regform.imgDetails.readOnly=false;
+		document.regform.ItemPrice.readOnly=false;
+		document.regform.ItemHeight.readOnly=false;
+		document.regform.ItemWidth.readOnly=false;
+	}
+}
+</script>
+
+
+<body onload="load()">
+
+<form name="regform1" method="post"> 
+
+<div id="content">
+  <div id="LeftColumn">
+   <h1>Your Artwork</h1>
+   <div style="color:red; font-weight:bold; padding:5px;">Upload image first then enter details of your Artwork. </div>
+<p>You currently have 11 items listed.</p>
+	  <p>You Account allows you 20 items.<br /></p>
+      <h1>Add An Item</h1>
+	   <p>To add an item, fill in the form below.</p>
+     </div>
+  <div id="RightColumn">
+   <h1>Edit An Item</h1>
+   <p>To edit or delete your items, select one from the list below and click Edit Item button</p>
+  
+    <select class="EditArtworkInput" name="offset">
+     <option value="0">create profile</option>
+	  <option value="49">not sell only show</option>
+	 <option value="50">not sell only show</option>
+	 <option value="51">not sell only show</option>
+	 <option value="52">not sell only show</option>
+	 <option value="53">not sell only show</option>
+	 <option value="54">not sell only show</option>
+	 <option value="55">not sell only show</option>
+	 <option value="56">not sell only show</option>
+	 <option value="57">not sell only show</option>
+	 <option value="58">not sell only show</option>
+	 <option value="357">test</option>
+	 </select>
+    <input type="submit" class="SmallWhiteButton" name="Operation" value="Edit Item" onClick="editItem()"/>
+  </form>
+  </div>
+  <br clear="all" />
+   <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" id="ArtworkTable">
+   <tr align="left" valign="top">
+    <td width="225" valign="top">
+	
+     <h1>Step 1: Upload Your Image</h1>
+	 <div style="color:red; font-weight:bold; padding:5px;">Add/upload an image of your Artwork in JPG format and fill in details related to your Artwork in the fields.</div>
+<p>Step 2:Click the browse button below to upload an image for this item.</p>
+     <div style="color:red; font-weight:bold; padding:5px;">NOTE: Your images MUST be saved with a maximum file size of 500K and MUST be saved in .jpg format before uploading</div>
+	 <p class="AlertText">
+     <form name="regform2" method="post"  enctype="multipart/form-data"> 
+     <input type="hidden" name="MAX_FILE_SIZE" value="2000000" />
+     <input type="file" name="ImageFile" id="ImageFile"  onChange="uploadImage()"/>
+	 </form>
+    </td>
+    <td style="padding-left: 16px;" align="left" valign="top">
+      <form name="regform" method="post"> 
+      <h3>Title: <span class="AlertText">(Required)</span></h3>Please do NOT quote your titles
+      <input type="text" class="EditArtworkInput" name="title" value=""  maxlength=30/>
+      <h3>Description: <span class="AlertText">(Required)</span></h3>
+      <textarea name="imgDetails" class="EditArtworkInput" rows="6" cols="30"></textarea>
+      <h3>Price: <span>(Required)</span></h3>
+	  ( art cost + shipping cost + 10% commission)</br>
+numbers only ( example - 1500 OR 800.50).<br />
+       <input type="text" name="ItemPrice" size="5" class="EditArtworkInput" maxlength="11" value=""/>
+	   <h3>Currency: <span>(Optional)</span></h3>
+	   <select name="typecurrency" class="EditArtworkInput" onChange="makeRead()">
+       <option value="US dollar">US dollar</option>      
+       <option value="Sold">Sold</option>
+	   
+      </select> 
+	 
+	  
+	  
+      <h3>Height: <span>(Optional)</span></h3>numbers only, in inches<br />
+      <input type="text" name="ItemHeight" class="EditArtworkInput" maxlength="5" value="0" />
+      <h3>Width: <span>(Optional)</span></h3>numbers only, in inches<br />
+      <input type="text" name="ItemWidth" class="EditArtworkInput" maxlength="5" value="0" />
+      <h3>Subject: <span>(Optional)</span></h3>
+      <select name="Subject" id="SubjectsMenu" class="EditArtworkInput">
+       <option value="0">Choose A Subject</option>
+	   <option value="1">Abstract</option>
+       <option value="2">Animals</option>
+       <option value="3">Architecture</option>
+       <option value="4">Automotive</option>
+       <option value="5">Aviation</option>
+       <option value="6">Birds</option>
+       <option value="7">Botanical</option>
+       <option value="8">Cats</option>
+       <option value="9">Calligraphy</option>
+       <option value="10">Children</option>
+       <option value="11">Circus</option>
+       <option value="12">Cityscape</option>
+       <option value="13">Communication</option>
+       <option value="14">Computers</option>
+       <option value="15">Culture</option>
+       <option value="16">Dance</option>
+       <option value="17">Design</option>
+       <option value="18">Dogs</option>
+       <option value="19">Equine</option>
+       <option value="20">Ethnic</option>
+       <option value="21">Family</option>
+       <option value="22">Fantasy</option>
+       <option value="23">Fashion</option>
+       <option value="24">Figurative</option>
+       <option value="25">Fish</option>
+       <option value="26">Floral</option>
+       <option value="27">Food</option>
+       <option value="28">Geometric</option>
+       <option value="29">Healing</option>
+       <option value="30">History</option>
+       <option value="31">Humor</option>
+       <option value="32">Inspirational</option>
+       <option value="33">Interior</option>
+       <option value="34">Landscape</option>
+       <option value="35">Life</option>
+       <option value="36">Love</option>
+       <option value="37">Marine</option>
+       <option value="38">Mask</option>
+       <option value="39">Military</option>
+       <option value="40">Music</option>
+       <option value="41">Mythology</option>
+       <option value="42">Nature</option>
+       <option value="43">Nudes</option>
+       <option value="44">Optical</option>
+       <option value="45">Other</option>
+       <option value="46">Political</option>
+       <option value="47">Portrait</option>
+       <option value="48">Poverty</option>
+       <option value="49">Religious</option>
+       <option value="50">Representational</option>
+       <option value="51">Romance</option>
+       <option value="52">Satire</option>
+       <option value="53">Science</option>
+       <option value="54">Seascape</option>
+       <option value="55">Southasian</option>
+       <option value="56">Sports</option>
+       <option value="57">Still</option>
+       <option value="58">Life</option>
+       <option value="59">Technology</option>
+       <option value="60">Theater</option>
+       <option value="61">Trains</option>
+       <option value="62">Transportation</option>
+       <option value="63">Travel</option>
+       <option value="64">Undecided</option>
+       <option value="65">Urban</option>
+       <option value="66">Vehicles</option>
+       <option value="67">Visionary</option>
+       <option value="68">War</option>
+       <option value="69">Western</option>
+       <option value="70">Wildlife</option>
+       </select>
+      <h3>Medium: <span>(Optional)</span></h3>
+      <select name="Medium" id="MediumsMenu" class="EditArtworkInput">
+       <option value="0">Choose A Medium</option>
+      
+        <option value="1">Acrylic</option>
+       <option value="2">Animation</option>
+       <option value="3">Ceramics</option>
+       <option value="4">Charcoal</option>
+       <option value="5">Collage</option>
+       <option value="6">Computer Animation</option>
+       <option value="7">Computer Art</option>
+       <option value="8">Digital Art</option>
+       <option value="9">Drawing</option>
+       <option value="10">Encaustic</option>
+       <option value="11">Fiber</option>
+       <option value="12">Glass Fused</option>
+       <option value="13">Glass Stained</option>
+       <option value="14">Gouache</option>
+       <option value="15">Graphic Design</option>
+       <option value="16">Illustration</option>
+       <option value="17">Jewelry</option>
+       <option value="18">Leather</option>
+       <option value="19">Metalsmith</option>
+       <option value="20">Mixed Media</option>
+       <option value="21">Mosiac</option>
+       <option value="22">Oil</option>
+       <option value="23">Other</option>
+       <option value="24">Painting Other</option>
+       <option value="25">Paper</option>
+       <option value="26">Pastel</option>
+       <option value="27">Pen and Ink</option>
+       <option value="28">Pencil</option>
+       <option value="29">Photography</option>
+       <option value="30">Pottery</option>
+       <option value="31">Printmaking</option>
+       <option value="32">Sculpture</option>
+       <option value="33">Tempera</option>
+       <option value="34">Textile</option>
+       <option value="35">Watercolor</option>
+       </select>
+      <br /><br /><input name="Operation" type="button" class="SmallWhiteButton"  value="Add Artwork" onClick="add()"/>
+   </td>
+  </tr>
+ </table>
+ </form>
+		  
+</body>
+<div id="LinkFooter"><a href="index.jsp"><font color=maroon>Home</font></a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="buyers.jsp"><font color=maroon>Buyers</font></a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="seller.jsp"><font color=maroon>Sellers</font></a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="features.jsp"><font color=maroon>Features</font></a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="help.jsp"><font color=maroon>Help</font></a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="sitemap.jsp"><font color=maroon>Site Map</font></a></div>
+
+ <br clear="all" />
+ <div id="footer"><font color=maroon>&copy; Art Online Home </font>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="privacy.jsp"><font color=maroon>Privacy Statement</font></a>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;<a href="termsofuse.jsp"><font color=maroon>Terms of Use</font></a>&nbsp;&nbsp;&nbsp;&nbsp;|</div>
+</div>
+
+
+<div id="RightSide">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7493737808172769";
+/* 200x200, created 7/13/09 */
+google_ad_slot = "8499830077";
+google_ad_width = 200;
+google_ad_height = 200;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+<H5>Browse Art By Subject:</H5>
+	   <H5>
+   <A  href="allArtListBySub.jsp?subId=1"><font color=maroon>Abstract</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=2"><font color=maroon>Animals</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=3"><font color=maroon>Architecture</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=4"><font color=maroon>Automotive</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=5"><font color=maroon>Aviation</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=6"><font color=maroon>Birds</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=7"><font color=maroon>Botanical</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=8"><font color=maroon>Cats</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=9"><font color=maroon>Calligraphy</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=10"><font color=maroon>Children</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=11"><font color=maroon>Circus</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=12"><font color=maroon>Cityscape</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=13"><font color=maroon>Communication</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=14"><font color=maroon>Computers</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=15"><font color=maroon>Culture</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=16"><font color=maroon>Dance</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=17"><font color=maroon>Design</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=18"><font color=maroon>Dogs</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=19"><font color=maroon>Equine</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=20"><font color=maroon>Ethnic</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=21"><font color=maroon>Family</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=22"><font color=maroon>Fantasy</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=23"><font color=maroon>Fashion</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=24"><font color=maroon>Figurative</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=25"><font color=maroon>Fish</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=26"><font color=maroon>Floral</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=27"><font color=maroon>Food</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=28"><font color=maroon>Geometric</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=29"><font color=maroon>Healing</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=30"><font color=maroon>History</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=31"><font color=maroon>Humor</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=32"><font color=maroon>Inspirational</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=33"><font color=maroon>Interior</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=34"><font color=maroon>Landscape</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=35"><font color=maroon>Life</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=36"><font color=maroon>Love</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=37"><font color=maroon>Marine</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=38"><font color=maroon>Mask</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=39"><font color=maroon>Military</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=40"><font color=maroon>Music</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=41"><font color=maroon>Mythology</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=42"><font color=maroon>Nature</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=43"><font color=maroon>Nudes</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=44"><font color=maroon>Optical</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=45"><font color=maroon>Other</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=46"><font color=maroon>Political</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=47"><font color=maroon>Portrait</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=48"><font color=maroon>Poverty</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=49"><font color=maroon>Religious</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=50"><font color=maroon>Representational</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=51"><font color=maroon>Romance</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=52"><font color=maroon>Satire</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=53"><font color=maroon>Science</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=54"><font color=maroon>Seascape</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=55"><font color=maroon>Southasian</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=56"><font color=maroon>Sports</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=57"><font color=maroon>Still</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=58"><font color=maroon>Life</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=59"><font color=maroon>Technology</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=60"><font color=maroon>Theater</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=61"><font color=maroon>Trains</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=62"><font color=maroon>Transportation</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=63"><font color=maroon>Travel</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=64"><font color=maroon>Undecided</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=65"><font color=maroon>Urban</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=66"><font color=maroon>Vehicles</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=67"><font color=maroon>Visionary</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=68"><font color=maroon>War</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=69"><font color=maroon>Western</font></A></H5>
+	  
+    
+
+   
+ <H5>
+   <A  href="allArtListBySub.jsp?subId=70"><font color=maroon>Wildlife</font></A></H5>
+	  
+    
+
+   
+ <!-- this file displays the content in the right hand column -->
+<p style="padding-top: 23px; padding-bottom: 22px;"></p>
+ 
+<br /><br />
+
+</div>
+
+</div>
+</body>
+</html>
+<!-- GoStats JavaScript Based Code -->
+<script type="text/javascript" src="http://gostats.com/js/counter.js"></script>
+<script type="text/javascript">_gos='c4.gostats.com';_goa=335222;
+_got=5;_goi=1;_goz=0;_gol='web analytics';_GoStatsRun();</script>
+<noscript><a target="_blank" title="web analytics" 
+href="http://gostats.com"><img alt="web analytics" 
+src="http://c4.gostats.com/bin/count/a_335222/t_5/i_1/counter.png" 
+style="border-width:0" /></a></noscript>
+<!-- End GoStats JavaScript Based Code -->
+<script language="javascript">
+
+var reFloat = "/^((\d+(\.\d*)?)|((\d*\.)?\d+))$/";
+
+	function add() {
+		var limitcount = "20";
+		var a = parseInt(limitcount);
+		var count = "11";
+		var b = parseInt(count);
+		if(b >= a){
+            alert("You Account allows you "+limitcount+" items.");
+			return false;
+		}
+			 var showalert = false;
+		 var alertstr = "";
+		var title = document.regform.title.value;
+		
+		var imgDetails = document.regform.imgDetails.value;
+
+		var ItemPrice = document.regform.ItemPrice.value;
+		var ItemHeight = document.regform.ItemHeight.value;
+		var ItemWidth = document.regform.ItemWidth.value;
+		
+		
+		if(title == "" || title == null){
+     	alertstr = alertstr + "Title is  mandatory.\n\n";
+		showalert = true;
+		}
+
+		if(imgDetails == "" || imgDetails == null){
+     	alertstr = alertstr + "Description is  mandatory.\n\n";
+		showalert = true;
+		}
+
+		if(ItemPrice == "" || ItemPrice == null){
+     	alertstr = alertstr + "Price is  mandatory.\n\n";
+		showalert = true;
+		}
+
+				
+       
+         if (showalert){
+     	alert(alertstr);
+        return false;
+          }
+		  
+		//var val= parseFloat(ItemPrice);
+		//var val= parseInt(val);
+		
+		if(isNaN(parseFloat(ItemPrice))){
+            alert("Price should be an Number");
+			return false;
+		}
+
+		if(isNaN(parseFloat(ItemHeight))){
+			  alert("Height should be an Number");
+			   return false;
+		  }
+
+		  if(isNaN(parseFloat(ItemWidth))){
+			  alert("Width should be an Number");
+			   return false;
+		  }
+
+         
+		  
+		  
+		
+		
+		
+		document.regform.action ="/jsp/artadmin?cmd=uploadimage";
+		document.regform.submit();
+	}
+		
+
+	function editItem() {
+			
+		var id = document.regform1.offset.value;
+		//alert(id);
+		if( id == 0){
+			return false;
+			}
+		document.regform1.action ="editartwork.jsp?imgId="+id;
+		document.regform1.submit();
+	}	
+		
+	function uploadImage() {
+		
+		var limitcount = "20";
+		var a = parseInt(limitcount);
+		var count = "11";
+		var b = parseInt(count);
+		if(b >= a){
+            alert("You Account allows you "+limitcount+" items.");
+			return false;
+		}
+					
+		var filename = document.regform2.ImageFile.value;
+		
+		if(filename == "" || filename == null){
+			return false;
+		}
+		 if (isImageFile(document.regform2.ImageFile.value)) {
+	        //do nothing for now;
+	        //return true;
+	    }
+	    else {
+	        alert("Your images MUST be saved in .jpg format before uploading.");
+	        document.regform2.ImageFile.value="";
+			return false;
+	    }
+
+		/*document.regform.Operation.disabled=true;
+		document.regform.title.readOnly=true;
+		document.regform.imgDetails.readOnly=true;
+		document.regform.ItemPrice.readOnly=true;
+		document.regform.ItemHeight.readOnly=true;
+		document.regform.ItemWidth.readOnly=true;*/
+
+		
+		document.regform2.action ="/jsp/artadmin?cmd=uploadimageOnly&filename="+filename;
+		document.regform2.submit();
+	}
+	
+	
+
+	function checkImage() {
+	    if (isImageFile(document.regform2.ImageFile.value)) {
+	        //do nothing for now;
+	        return true;
+	    }
+	    else {
+	        alert("Your images MUST be saved in .jpg format before uploading.");
+	        document.regform2.ImageFile.value="";
+	    }
+	    return false;
+	}
+	
+	function isImageFile(fileName) {
+	    if (fileName == "") {
+	        return true;
+	    }
+	
+	    var pos = fileName.lastIndexOf(".");
+	    if (pos != -1) {
+	        var ext = fileName.substring(pos + 1, fileName.length).toLowerCase();
+	        return (ext == "jpg" || ext == "jpeg" || ext == "jpe" || ext == "jfif");
+	    }
+	    return false;
+	}
+
+
+function validateNNInt(s)
+   {
+      
+      switch(isNonnegativeInteger(s))
+      {
+         case true:
+            alert(s + " is non-negative");
+            break;
+         case false:
+            alert(s + " is not non-negative");
+      }
+   }
+
+function isFloat (s)
+
+{   if (isEmpty(s)) 
+       if (isFloat.arguments.length == 1) return false;
+       else return (isFloat.arguments[1] == true);
+
+    return reFloat.test(s)
+}
+
+function isNonnegativeInteger (s)
+   {   var secondArg = false;
+
+       if (isNonnegativeInteger.arguments.length > 1)
+        secondArg = isNonnegativeInteger.arguments[1];
+
+       // The next line is a bit byzantine.  What it means is:
+       // a) s must be a signed integer, AND
+       // b) one of the following must be true:
+       //    i)  s is empty and we are supposed to return true for
+       //        empty strings
+       //    ii) this is a number >= 0
+
+       return (isSignedInteger(s, secondArg)
+            && ( (isEmpty(s) && secondArg)  || (parseInt (s) >= 0) ) );
+   }
+
+   function isSignedInteger (s)
+
+   {   if (isEmpty(s))
+      if (isSignedInteger.arguments.length == 1) return false;
+      else return (isSignedInteger.arguments[1] == true);
+
+      else {
+         var startPos = 0;
+         var secondArg = false;
+
+         if (isSignedInteger.arguments.length > 1)
+            secondArg = isSignedInteger.arguments[1];
+
+         // skip leading + or -
+         if ( (s.charAt(0) == "-") || (s.charAt(0) == "+") )
+            startPos = 1;
+         return (isInteger(s.substring(startPos, s.length), secondArg))
+      }
+   }
+
+
+function isInteger (s)
+   {
+      var i;
+
+      if (isEmpty(s))
+      if (isInteger.arguments.length == 1) return 0;
+      else return (isInteger.arguments[1] == true);
+
+      for (i = 0; i < s.length; i++)
+      {
+         var c = s.charAt(i);
+
+         if (!isDigit(c)) return false;
+      }
+
+      return true;
+   }
+
+   function isEmpty(s)
+   {
+      return ((s == null) || (s.length == 0))
+   }
+
+   function isDigit (c)
+   {
+      return ((c >= "0") && (c <= "9"))
+   }
+
+
+function makeRead(){
+	var dept = document.regform.typecurrency.options[document.regform.typecurrency.selectedIndex].value;
+	if( dept == "Contact for Pricing"){
+		document.regform.ItemPrice.value="0";
+  document.regform.ItemPrice.readOnly=true;
+	}
+}
+
+	</script>	

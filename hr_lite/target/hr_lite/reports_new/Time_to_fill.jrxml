@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Time_to_fill" language="groovy" pageWidth="900" pageHeight="842" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.8250000000000012"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Chart Dataset">
+		<parameter name="Org_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="dept_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Hiring_mgr" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="year" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="super_user_key" class="java.lang.Long">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="job_grade_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="jb_req_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="recruiter_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="catagory_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT '< 1 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) <= 30) THEN 1
+ELSE NULL
+END))
+AS `< 1 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 2 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 30
+AND datediff(closed_date, published_date) <= 60)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 2 month`
+FROM job_requisition
+ WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 3 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 60
+AND datediff(closed_date, published_date) <= 90)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 3 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 4 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 90
+AND datediff(closed_date, published_date) <= 120)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 4 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 5 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 120
+AND datediff(closed_date, published_date) <= 150)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 5 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 6 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 150
+AND datediff(closed_date, published_date) <= 180)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 6 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 7 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 180
+AND datediff(closed_date, published_date) <= 210)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 7 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 8 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 210
+AND datediff(closed_date, published_date) <= 240)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 8 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 9 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 240
+AND datediff(closed_date, published_date) <= 270)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 9 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 10 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 270
+AND datediff(closed_date, published_date) <= 300)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 10 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 11 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 300
+AND datediff(closed_date, published_date) <= 330)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 11 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '< 12 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 330
+AND datediff(closed_date, published_date) <= 360)
+THEN
+1
+ELSE
+NULL
+END))
+AS `< 12 month`
+FROM job_requisition
+WHERE
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+UNION ALL
+SELECT '> 12 month' AS Months,
+count(
+(CASE
+WHEN (datediff(closed_date, published_date) > 360)
+THEN
+1
+ELSE
+NULL
+END))
+AS `> 12 month`
+FROM job_requisition
+WHERE
+
+     $X{ IN ,`org_id`,Org_id}
+     and $X{ IN ,`department_id`,dept_id}
+     and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+     and $X{ IN ,(YEAR(`published_date`)),year}
+     and (`super_user_key` = $P{super_user_key}
+     or $P{super_user_key} IS null
+     Or $P{super_user_key} = 0)
+and status = "Closed"
+and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}]]>
+		</queryString>
+		<field name="Months" class="java.lang.String"/>
+		<field name="&lt; 1 month" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="Org_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dept_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Hiring_mgr" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="super_user_key" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="job_grade_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="jb_req_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="recruiter_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="catagory_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select jb_req_name,published_date,closed_date,recruiter_name,
+(select IFNULL(department_name,'') from department where department_id = job_requisition.department_id)as Dept_name
+from job_requisition
+where status = "Closed"
+	and  $X{ IN ,`org_id`,Org_id}
+	and $X{ IN ,`department_id`,dept_id}
+	and $X{ IN ,`hiring_mgr_id`,Hiring_mgr}
+	and $X{ IN ,(YEAR(`published_date`)),year}
+	and $X{ IN ,`job_grade_id`,job_grade_id}
+	and $X{ IN ,`jb_req_id`,jb_req_id}
+	and $X{ IN ,`recruiter_id`,recruiter_id}
+	and $X{ IN ,`catagory_id`,catagory_id}
+	and (`super_user_key` = $P{super_user_key}
+	or $P{super_user_key} IS null
+	Or $P{super_user_key} = 0)]]>
+	</queryString>
+	<field name="jb_req_name" class="java.lang.String"/>
+	<field name="published_date" class="java.sql.Timestamp"/>
+	<field name="closed_date" class="java.sql.Timestamp"/>
+	<field name="recruiter_name" class="java.lang.String"/>
+	<field name="Dept_name" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="485" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="62" width="860" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<bar3DChart>
+				<chart isShowLegend="true" evaluationTime="Report">
+					<reportElement x="29" y="95" width="809" height="373"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend position="Right"/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="Chart Dataset">
+							<datasetParameter name="Org_id">
+								<datasetParameterExpression><![CDATA[$P{Org_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="dept_id">
+								<datasetParameterExpression><![CDATA[$P{dept_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="Hiring_mgr">
+								<datasetParameterExpression><![CDATA[$P{Hiring_mgr}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="year">
+								<datasetParameterExpression><![CDATA[$P{year}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="super_user_key">
+								<datasetParameterExpression><![CDATA[$P{super_user_key}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="job_grade_id">
+								<datasetParameterExpression><![CDATA[$P{job_grade_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="jb_req_id">
+								<datasetParameterExpression><![CDATA[$P{jb_req_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="recruiter_id">
+								<datasetParameterExpression><![CDATA[$P{recruiter_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="catagory_id">
+								<datasetParameterExpression><![CDATA[$P{catagory_id}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{Months}]]></seriesExpression>
+						<categoryExpression><![CDATA[""]]></categoryExpression>
+						<valueExpression><![CDATA[$F{< 1 month}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot isShowLabels="true">
+					<plot/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					<categoryAxisFormat>
+						<axisFormat>
+							<labelFont/>
+							<tickLabelFont/>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat>
+							<labelFont/>
+							<tickLabelFont/>
+						</axisFormat>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+			<frame>
+				<reportElement mode="Opaque" x="-1" y="0" width="861" height="60" backcolor="#CCCCCC"/>
+				<staticText>
+					<reportElement x="41" y="24" width="303" height="21"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Time to fill]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="677" y="4" width="173" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27">
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="530" y="0" width="165" height="27" backcolor="#CCCCFE"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Publish date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="365" y="0" width="165" height="27" backcolor="#CCCCFE"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Department name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="201" y="0" width="164" height="27" backcolor="#CCCCFE"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Recruiter name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="695" y="0" width="165" height="27" backcolor="#CCCCFE"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Close date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="0" y="0" width="201" height="27" backcolor="#CCCCFE"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[   Job requisition name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="0" y="0" width="201" height="23"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["   " + $F{jb_req_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="201" y="0" width="164" height="23"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["   " + $F{recruiter_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="365" y="0" width="165" height="23"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["   " + $F{Dept_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="695" y="0" width="165" height="23"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["   " + $F{closed_date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="530" y="0" width="165" height="23"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["   " + $F{published_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="758" y="24" width="80" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

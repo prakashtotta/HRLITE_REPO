@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+ 
+  
+  
+  
+  <bean id="krabotransactionInterceptor" 
+       class="org.springframework.transaction.interceptor.TransactionInterceptor">
+	<property name="transactionManager" ref="transactionManager" />
+	<property name="transactionAttributes">
+	   <props>
+		<prop key="*">PROPAGATION_REQUIRED</prop>
+	   </props>
+	</property>
+    </bean>
+    
+  <bean id="goalbotransactionInterceptor" 
+       class="org.springframework.transaction.interceptor.TransactionInterceptor">
+	<property name="transactionManager" ref="transactionManager" />
+	<property name="transactionAttributes">
+	   <props>
+		<prop key="*">PROPAGATION_REQUIRED</prop>
+	   </props>
+	</property>
+    </bean>
+  
+  <bean id="kraboProxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="krabo" />
+		<property name="interceptorNames">
+			<list>
+				<value>krabotransactionInterceptor</value>
+			</list>
+		</property>
+   	</bean>
+   	
+  <bean id="goalboProxy"
+		class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="goalbo" />
+		<property name="interceptorNames">
+			<list>
+				<value>goalbotransactionInterceptor</value>
+			</list>
+		</property>
+   	</bean>
+  
+  <bean id="krabo" class="com.performance.bo.KRABO" >
+   		<property name="kradao" ref="kradao"></property>  	
+  </bean>  
+  <bean id="goalbo" class="com.performance.bo.GoalBO" >
+   		<property name="goaldao" ref="goaldao"></property>  	
+  </bean> 
+  
+  <bean id="kradao" class="com.performance.dao.KRADAO" >
+   		<property name="sessionFactory" ref="sessionFactory"></property>
+  </bean>  
+  <bean id="goaldao" class="com.performance.dao.GoalDAO" >
+   		<property name="sessionFactory" ref="sessionFactory"></property>
+  </bean>
+ 
+</beans>
+

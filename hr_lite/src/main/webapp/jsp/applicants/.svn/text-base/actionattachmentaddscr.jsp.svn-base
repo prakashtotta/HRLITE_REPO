@@ -1,0 +1,207 @@
+<%@ include file="../common/include.jsp" %>
+  <%
+
+String datepattern = Constant.getValue("defaultdateformat");
+
+com.bean.Locale locale=null;
+com.bean.Timezone timezone = null;
+
+
+User userAg = (User)request.getSession().getAttribute(Common.AGENCY_DATA);
+User user = (User)request.getSession().getAttribute(Common.USER_DATA);
+RefferalEmployee userEmp = (RefferalEmployee)request.getSession().getAttribute(Common.EMPLOYEE_REFFERAL_DATA);
+ApplicantUser appuser = (ApplicantUser)request.getSession().getAttribute(Common.APPLICANT_USER_DATA);
+
+if(userAg != null){
+
+datepattern = DateUtil.getDatePatternFormat(userAg.getLocale());
+locale = userAg.getLocale();
+timezone = userAg.getTimezone();
+}else if(user != null){
+	datepattern = DateUtil.getDatePatternFormat(user.getLocale());
+    locale = user.getLocale();
+	timezone = user.getTimezone();
+}else if(userEmp != null){
+	datepattern = DateUtil.getDatePatternFormat(userEmp.getLocale());
+	locale = userEmp.getLocale();
+    timezone = userEmp.getTimezone();
+}else if(appuser != null){
+	datepattern = DateUtil.getDatePatternFormat(appuser.getLocale());
+	locale = appuser.getLocale();
+    timezone = appuser.getTimezone();
+}else{
+String refuserid = (String)session.getAttribute("refuserid");
+if(refuserid != null && !refuserid.equals("null")&& !refuserid.equals("external-jobpost")){
+RefferalEmployee refEmp = RefBO.getRefferalEmployee(refuserid);
+locale= refEmp.getLocale();
+timezone = refEmp.getTimezone();
+ }else{
+	 String locale_code = (String)session.getAttribute("locale_code");
+	 locale= new com.bean.Locale();
+	locale.setLocaleCode(locale_code);
+ }
+
+
+}
+
+System.out.println("satyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"+locale);
+String actionName = (String)request.getAttribute("action_name");
+String idvalue = (String)request.getAttribute("idvalue");
+%>
+
+<bean:define id="form" name="applicantForm" type="com.form.ApplicantForm" />
+
+<script language="javascript">
+function closerefresh(){
+	
+	//window.opener.location.reload(true);
+
+	//window.opener.location.href= window.opener.location.href+"&fromattachmentpage=yes"+"&applicantId=<%=form.getApplicantId()%>";
+	//var ddd = window.opener.location.href+"&fromattachmentpage=yes"+"&applicantId=<%=form.getApplicantId()%>";
+	
+	//window.opener.location.replace(url);
+  window.close();
+	
+}
+
+function deleteAttachment(url){
+	var doyou = confirm("<%=Constant.getResourceStringValue("hr.methods.deletemsg",locale)%>");
+	  if (doyou == true){
+		
+		  document.applicantForm.action = url;
+	   document.applicantForm.submit();
+	  // window.location.reload();
+	 
+	   } 
+}
+
+function addattachment(url){
+
+	
+	var alertstr = "";
+  var showalert=false;
+	var filename = document.applicantForm.attachmentdata.value;
+	var filedetails = document.applicantForm.filedetails.value;
+	
+	if(filename == "" || filename == null){
+     	alertstr = alertstr + "Please select a file.<br>";
+		showalert = true;
+		}
+
+	
+	 
+	 if (showalert){
+     	alert(alertstr);
+        return false;
+          }
+ 	 document.applicantForm.action = url;
+	   document.applicantForm.submit();
+}
+
+
+</script>
+
+<%
+
+String attachmentsizeexceed = (String)request.getAttribute("attachmentsizeexceed");
+
+if(attachmentsizeexceed != null && attachmentsizeexceed.equals("yes")){
+	int limitfileSize =  new Integer(Constant.getValue("attachment.file.size.limit")).intValue();
+	 limitfileSize = limitfileSize / (1024*1024);
+	 String mbsize= String.valueOf(limitfileSize) + "MB";
+	String[] mbargs = {mbsize};
+%>
+<div align="center">
+	<table border="0" width="100%">
+	
+	
+	<tr>
+			<td><font color="red"><%=Constant.getResourceStringValue("aquisition.applicant.attachmentsize.exceed",locale,mbargs)%></font> </td>
+		
+		</tr>
+		
+	</table>
+</div>
+
+<%}%>
+<br>
+<html:form action="/applicantuserops.do?method=actionattachmentaddscr" enctype="multipart/form-data">
+<div class="div">
+<table valign="top" border="0" width="80%">
+<%
+String attachurl = "applicantuserops.do?method=actionattachmentadd&idvalue="+idvalue+"&action="+actionName+"&applicantId="+form.getApplicantId()+"&secureid="+form.getUuid();
+%>
+<tr>
+<td>File details : </td><td> <input type="text" name="filedetails" value=""></td>
+<td>File : </td><td> <html:file property="attachmentdata"/> </td>
+<td><a class="button" href="#" onClick="addattachment('<%=attachurl%>');return false">Add</a></td>
+
+</tr>
+ </table>
+
+</div>
+<br>
+<div class="div">
+
+<b><%=Constant.getResourceStringValue("hr.applicant.attachments",locale)%></b>
+<br>
+<div class="div">
+
+	<table border="0" width="100%"> 
+
+		<tr>
+<td></td>
+<td>
+<%
+List appattachmentList = form.getActionAttachmentList();
+
+if(appattachmentList != null && appattachmentList.size()>0){
+	//ActionsAttachment actionattach = (ActionsAttachment)appattachmentList.get(0);
+	%>
+	<table cellspacing="5">
+	<tr>
+	<td><%=Constant.getResourceStringValue("hr.applicant.attachment.details",locale)%></td>
+	<td><%=Constant.getResourceStringValue("hr.applicant.attachment.name",locale)%></td>	
+	<td><%=Constant.getResourceStringValue("hr.applicant.action.added.on",locale)%></td>
+	<td>
+	<%=Constant.getResourceStringValue("hr.applicant.action.added.by",locale)%>
+	</td>
+	</tr>
+
+<%
+		for(int i=0;i<appattachmentList.size();i++){
+		ActionsAttachment actionattach = (ActionsAttachment)appattachmentList.get(i);
+		String dleteurl = request.getContextPath()+"/applicantuserops.do?method=deleteattachmentpopup&actionname="+actionName+"&applicantId="+form.getApplicantId()+"&idvalue="+actionattach.getIdvalue()+"&uuid="+actionattach.getUuid();
+		
+
+%>
+<tr>
+<td><%=(actionattach.getAttahmentdetails()==null)?"":actionattach.getAttahmentdetails()%></td>
+<td>
+<a href="applicantuserops.do?method=attachmentdetails&uuid=<%=actionattach.getUuid()%>"><%=actionattach.getAttahmentname()%></a>
+<a href="#" onClick="deleteAttachment('<%=dleteurl%>')"><img src="jsp/images/delete.gif" border="0" alt="delete attachment" 
+title="<%=Constant.getResourceStringValue("Requisition.delete.attachment",locale)%>" height="10"  width="9"/></a>
+</td>
+<td>
+<% if(timezone != null){%>
+<%=DateUtil.convertSourceToTargetTimezone(actionattach.getCreatedDate(),timezone.getTimezoneCode(), locale)%>
+<%}else{%>
+<%=DateUtil.convertDateDisplayFormat(actionattach.getCreatedDate(),locale)%>
+<%}%>
+</td>
+<td>
+<%//if(! actionattach.getCreatedBy().equals(Constant.getResourceStringValue("refferal.user",locale))) {%>
+<%=actionattach.getCreatedBy()%>
+<%//}%>
+</td>
+</tr>
+<%}%>
+</table>
+<%}%>
+
+</table>
+</div>
+<br>
+<a class="closelink" href="#" onClick="closerefresh()" >close window </a>
+
+ </html:form>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VendorWiseApplicant" language="groovy" pageWidth="800" pageHeight="842" columnWidth="760" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.7513148009015779"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.callouts" value="##Sat Apr 28 11:39:52 PDT 2012"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1"/>
+	<parameter name="Vendor_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="yearlist" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="super_user_key" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select ud.user_id,ud.first_name,
+count((case when (`ja`.`interview_state` in ('Offer Accepted','On Board - Joined')) then 1 else NULL end)) AS `Hires`,
+count((case when (`ja`.`interview_state` in ('In Screening','Cleared-In Screening','Cleared-Interview Round-1','Cleared-Interview Round-2',
+'Cleared-Interview Round-3','Cleared-Interview Round-4','Cleared-Interview Round-5','Cleared-Interview Round-6','Cleared-Interview Round-7',
+'Cleared-Interview Round-8','Cleared-Interview Round-9','Interview Round-1','Interview Round-2','Interview Round-3','Interview Round-4','Interview Round-5',
+'Interview Round-6','Interview Round-7','Interview Round-8','Interview Round-9','Offer Initiated-In Approval','Offer Released','Ready for Release Offer',
+'Offer Accepted','Offer Declined','Offer Canceled','Rejected-Interview Round-1','Rejected-Interview Round-2','Rejected-Interview Round-3',
+'Rejected-Interview Round-4','Rejected-Interview Round-5','Rejected-Interview Round-6','Rejected-Interview Round-7','Rejected-Interview Round-8',
+'Rejected-Interview Round-9','Rejected-In Screening','Offer rejected by approver','OnHold-Interview Round-1','OnHold-Interview Round-2',
+'OnHold-Interview Round-3','OnHold-Interview Round-4','OnHold-Interview Round-5','OnHold-Interview Round-6','OnHold-Interview Round-7',
+'OnHold-Interview Round-8','OnHold-Interview Round-9','OnHold-In Screening','On Board - Joined','Offer In Negotiation')) then 1 else NULL end)) AS `Screens`,
+
+count((case when (`ja`.`interview_state` in ('Offer Initiated-In Approval','Offer Released','Ready for Release Offer','Offer Accepted',
+'Offer Declined','Offer Canceled','Offer rejected by approver','On Board - Joined','Offer In Negotiation')) then 1 else NULL end)) AS `Offers`,
+
+count((case when (`ja`.`interview_state` in ('Cleared-Interview Round-1','Cleared-Interview Round-2','Cleared-Interview Round-3',
+'Cleared-Interview Round-4','Cleared-Interview Round-5','Cleared-Interview Round-6','Cleared-Interview Round-7','Cleared-Interview Round-8',
+'Cleared-Interview Round-9','Interview Round-1','Interview Round-2','Interview Round-3','Interview Round-4','Interview Round-5','Interview Round-6',
+'Interview Round-7','Interview Round-8','Interview Round-9','Offer Initiated-In Approval','Offer Released','Ready for Release Offer','Offer Accepted',
+'Offer Declined','Offer Canceled','Rejected-Interview Round-1','Rejected-Interview Round-2','Rejected-Interview Round-3','Rejected-Interview Round-4',
+'Rejected-Interview Round-5','Rejected-Interview Round-6','Rejected-Interview Round-7','Rejected-Interview Round-8','Rejected-Interview Round-9',
+'Offer rejected by approver','OnHold-Interview Round-1','OnHold-Interview Round-2','OnHold-Interview Round-3','OnHold-Interview Round-4',
+'OnHold-Interview Round-5','OnHold-Interview Round-6','OnHold-Interview Round-7','OnHold-Interview Round-8',
+'OnHold-Interview Round-9','On Board - Joined','Offer In Negotiation')) then 1 else NULL end)) AS `Interviews`,
+count(`ja`.`application_id`) AS `Resumes`
+from (`job_applications` `ja` join `job_requisition` `jr` Join `user_data` `ud`) where (`ja`.`jb_req_id` = `jr`.`jb_req_id`)
+and (`ja`.`vendor_id` = `ud`.`user_id`)
+and ja.resume_source_type_id=5
+and $X{IN, `ja`.`vendor_id`, Vendor_id}
+and $X{IN, YEAR(`jr`.`published_date`), yearlist}
+and (`jr`.`super_user_key`=$P{super_user_key} or $P{super_user_key} is null Or $P{super_user_key}=0)
+Group By ja.vendor_id]]>
+	</queryString>
+	<field name="user_id" class="java.math.BigInteger"/>
+	<field name="first_name" class="java.lang.String"/>
+	<field name="Hires" class="java.lang.Long"/>
+	<field name="Screens" class="java.lang.Long"/>
+	<field name="Offers" class="java.lang.Long"/>
+	<field name="Interviews" class="java.lang.Long"/>
+	<field name="Resumes" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="397" splitType="Stretch">
+			<multiAxisChart>
+				<chart evaluationTime="Report">
+					<reportElement x="30" y="108" width="700" height="274"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<multiAxisPlot>
+					<plot/>
+					<axis>
+						<bar3DChart>
+							<chart>
+								<reportElement x="0" y="0" width="0" height="0" backcolor="#FFFFFF"/>
+								<chartTitle color="#000000"/>
+								<chartSubtitle color="#000000"/>
+								<chartLegend textColor="#000000" backgroundColor="#FFFFFF"/>
+							</chart>
+							<categoryDataset>
+								<categorySeries>
+									<seriesExpression><![CDATA["Resumes"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{first_name}]]></categoryExpression>
+									<valueExpression><![CDATA[($F{Resumes}!=0?($F{Resumes}/$F{Resumes}*100):0)]]></valueExpression>
+									<labelExpression><![CDATA[$F{Resumes}]]></labelExpression>
+								</categorySeries>
+								<categorySeries>
+									<seriesExpression><![CDATA["Screens"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{first_name}]]></categoryExpression>
+									<valueExpression><![CDATA[($F{Resumes}!=0?($F{Screens}/$F{Resumes}*100):0)]]></valueExpression>
+									<labelExpression><![CDATA[$F{Screens}]]></labelExpression>
+								</categorySeries>
+								<categorySeries>
+									<seriesExpression><![CDATA["Inteviews"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{first_name}]]></categoryExpression>
+									<valueExpression><![CDATA[($F{Resumes}!=0?($F{Interviews}/$F{Resumes}*100):0)]]></valueExpression>
+									<labelExpression><![CDATA[$F{Interviews}]]></labelExpression>
+								</categorySeries>
+								<categorySeries>
+									<seriesExpression><![CDATA["Offers"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{first_name}]]></categoryExpression>
+									<valueExpression><![CDATA[($F{Resumes}!=0?($F{Offers}/$F{Resumes}*100):0)]]></valueExpression>
+									<labelExpression><![CDATA[$F{Offers}]]></labelExpression>
+								</categorySeries>
+								<categorySeries>
+									<seriesExpression><![CDATA["Hires"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{first_name}]]></categoryExpression>
+									<valueExpression><![CDATA[($F{Resumes}!=0?($F{Hires}/$F{Resumes}*100):0)]]></valueExpression>
+									<labelExpression><![CDATA[$F{Hires}]]></labelExpression>
+								</categorySeries>
+							</categoryDataset>
+							<bar3DPlot isShowLabels="true">
+								<plot/>
+								<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+								<categoryAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</categoryAxisFormat>
+								<valueAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</valueAxisFormat>
+							</bar3DPlot>
+						</bar3DChart>
+					</axis>
+				</multiAxisPlot>
+			</multiAxisChart>
+			<line>
+				<reportElement x="0" y="62" width="760" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<frame>
+				<reportElement mode="Opaque" x="-1" y="0" width="761" height="60" backcolor="#CCCCCC"/>
+				<staticText>
+					<reportElement x="41" y="24" width="303" height="21"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Vendorwise Performance Comparison]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="578" y="4" width="173" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27">
+			<frame>
+				<reportElement mode="Opaque" x="30" y="0" width="700" height="27" backcolor="#CCCCFF"/>
+				<staticText>
+					<reportElement style="table_TD" mode="Opaque" x="400" y="0" width="100" height="27" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[In interviews]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="table_TD" mode="Opaque" x="600" y="0" width="99" height="27" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Hires]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="table_TD" mode="Opaque" x="500" y="0" width="100" height="27" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Offers]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="table_TD" mode="Opaque" x="300" y="0" width="100" height="27" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[In screens]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="table_TD" mode="Opaque" x="200" y="0" width="100" height="27" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Toatal Resumes]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="table_TD" mode="Opaque" x="0" y="0" width="201" height="27" backcolor="#CCCCFF"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[  Vendor Name]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25">
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" mode="Opaque" x="30" y="0" width="201" height="24" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["   "+$F{first_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" mode="Opaque" x="231" y="0" width="99" height="24" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Resumes}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" mode="Opaque" x="430" y="0" width="100" height="24" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Interviews}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" mode="Opaque" x="530" y="0" width="100" height="24" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Offers}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" mode="Opaque" x="630" y="0" width="99" height="24" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Hires}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" mode="Opaque" x="330" y="0" width="100" height="24" backcolor="#CCFFCC"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Screens}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="32">
+			<textField>
+				<reportElement x="670" y="10" width="80" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

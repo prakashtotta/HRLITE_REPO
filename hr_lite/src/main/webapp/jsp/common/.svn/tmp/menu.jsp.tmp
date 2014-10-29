@@ -1,0 +1,477 @@
+     <link href="jsp/vimco/css/dropdown/themes/vimeo.com/helper.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="jsp/vimco/css/dropdown/dropdown.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="jsp/vimco/css/dropdown/themes/vimeo.com/default.advanced.css" media="screen" rel="stylesheet" type="text/css" />
+
+<%@ page import="java.util.*"%>
+<%@ page import="com.bean.*"%>
+<%@ page import="com.common.*"%>
+<%@ page import="com.util.*"%>
+<%@ page import="com.resources.*"%>
+ 
+
+<%
+String superUserKey="0";
+User usernenu = (User)session.getAttribute(Common.USER_DATA);
+
+Menu  menu = null;
+if(usernenu != null){
+ menu = usernenu.getMenu();
+ superUserKey = EncryptDecrypt.encrypt(String.valueOf(usernenu.getSuper_user_key()));
+}
+   
+%>
+
+
+
+    <script language="JavaScript">
+var menureqid;
+var menureqname;
+function setReqMenuValue(retval){
+			menureqid = retval;
+		}
+function setReqMenuSearchValue(retval){
+			menureqname = retval;
+		}
+
+
+
+function searchparameset(idval){
+	if(idval == 'reqno'){
+		document.searchformtemp.search.value="Requistion Number!";
+	}
+	if(idval == 'reqcode'){
+		document.searchformtemp.search.value="Requistion Code!";
+	}
+	if(idval == 'reqname'){
+		document.searchformtemp.search.value="Requistion Name!";
+	}
+	if(idval == 'appno'){
+		document.searchformtemp.search.value="Applicant Number!";
+	}
+	if(idval == 'appname'){
+		document.searchformtemp.search.value="Applicant Name!";
+	}
+	if(idval == 'appsum'){
+		document.searchformtemp.search.value="Applicant Summary by Req No!";
+	}
+	
+	document.searchformtemp.searchtypeval.value=idval;
+    
+	return false;
+}
+
+function serachmenu(){
+	var typeval = document.searchformtemp.searchtypeval.value;
+	var searchid = document.searchformtemp.search.value;
+    if(typeval == 'reqno'){
+	var url = "jobreq.do?method=searchmenuheader&searchtypeval="+typeval+"&search="+searchid;
+	//parent.setPopTitle1("Create Requisition");
+	parent.showPopWin(url, 600, 300, editreqmenu);
+	
+	}else if(typeval == 'reqcode'){
+
+	var url = "jobreq.do?method=searchmenuheader&searchtypeval="+typeval+"&search="+searchid;
+	parent.showPopWin(url, 600, 300, editreqmenu);
+
+	}else if(typeval == 'reqname'){
+ 	var url = "jobreq.do?method=searchmenuheader&searchtypeval="+typeval+"&search="+searchid;
+	parent.showPopWin(url, 600, 300, norefreshmenusearch);
+	}else{
+	
+	document.searchformtemp.action = "applicant.do?method=searchmenuheader";
+	document.searchformtemp.submit();
+	}
+	
+}
+
+function norefreshmenusearch(){
+	
+      if(menureqname != null){
+		  location.href="jobreq.do?method=jobreqList&req_name="+menureqname;
+	  }else{
+	 editreqmenu(menureqid);
+	  }
+}
+
+function messageretmenu(){
+}
+function addReqMenu(){
+	var url = "<%=request.getContextPath()%>/jobreq.do?method=createjobreq";
+	parent.setPopTitle1("Create Requisition");
+	parent.showPopWin(url, 600, 300, editreqmenu);
+}
+   
+function editreqmenu(retval){
+	var url = "<%=request.getContextPath()%>/jobreq.do?method=editjobreq&jobreqId="+menureqid;
+	//window.open(url, "SearchBudgetCode","location=0,status=0,scrollbars=1,menubar=0,resizable=1,width=800,height=600");
+	GB_showFullScreen('Create Requisition', url, messageretmenu);
+}
+
+function createapplicantMenu(){
+
+	var url = "<%=request.getContextPath()%>/applicant.do?method=createPage";
+	//parent.setPopTitle1("Create applicant");
+	GB_showFullScreen('Add applicant',url,messageretmenu);
+}
+
+function addTemplateMenu(){
+	var url = "<%=request.getContextPath()%>/jobtemplate.do?method=createtemplate";
+	//parent.showPopWin(url, 800, 600, showmessage,true);
+	GB_showFullScreen('Create Template', url, messageretmenu);
+}
+    	function openurl(url){
+			
+  //$.blockUI({ message: '<h1><img src="jsp/images/loading_circle.gif" /> Please wait...</h1>' });
+  url = url+"&ddd="+(new Date).getTime();
+	location.href=url;
+	}
+    </script>
+
+<script language="javascript">	
+
+
+function openTalentPool(url){
+ 
+ var url = "jsp/jtree/talentPool.jsp";
+  
+    var url1 = "jsp/emp/temp.jsp?reurl="+encodeURIComponent(url);
+ 
+  window.open(url, "TalentPool","location=0,status=0,scrollbars=1,menubar=0,resizable=1,left=10, top=10, height=700, width=1200");
+
+}
+</script>
+<%if(usernenu != null){%>
+   <ul id="nav" class="dropdown dropdown-horizontal">
+	<a href="#" onClick="openurl('<%=request.getContextPath()%>/dashboard.do?method=dashboardlist')"><img border="0" style="float:left;" alt="" src="jsp/vimco/menu_left.png" title="Hires360"/></a>
+	<% if(menu != null && menu.isAdmin()){%>
+	<li class="dir">Admin
+		<ul>
+		  <% if(menu != null && menu.isOrganizationHeader()){%>
+			<li class="first"><a href="#" class="dir">Company Info</a>
+				<ul>
+				<% if(menu != null && menu.isOrganizations()){%>
+					<li class="first"><a href="<%=request.getContextPath()%>/org.do?method=orglist">Organization</a></li>
+				<%}%>
+				<% if(menu != null && menu.isProjectCodes()){%>
+					<li><a href="<%=request.getContextPath()%>/projectcodes.do?method=projectcodelist">Project</a></li>
+				<%}%>
+				<% if(menu != null && menu.isLocations()){%>
+					<li class="last"><a href="<%=request.getContextPath()%>/location.do?method=locationlist">Location</a></li>
+				<%}%>
+				</ul>
+			</li>
+			<%}%>
+			
+			<% if(menu != null && menu.isJobHeader()){%>
+			<li><a href="#" class="dir">Job</a>
+				<ul>
+				<% if(menu != null && menu.isJobTitle()){%>
+					<li class="first"><a href="<%=request.getContextPath()%>/designation.do?method=designationslist">Job title</a></li>
+				<%}%>
+				<% if(menu != null && menu.isJobTitle()){%>
+					<li><a href="<%=request.getContextPath()%>/jobcategory.do?method=jobCategoryList">Job category</a></li>
+				<%}%>
+				<% if(menu != null && menu.isJobTitle()){%>
+					<li><a href="<%=request.getContextPath()%>/catagory.do?method=catagorylist">Job sector</a></li>
+				<%}%>
+				<% if(menu != null && menu.isJobTitle()){%>
+					<li><a href="<%=request.getContextPath()%>/jobtype.do?method=jobtypelist">Employment status</a></li>
+				<%}%>
+				<% if(menu != null && menu.isJobGrade()){%>
+					<li><a href="<%=request.getContextPath()%>/jobgrade.do?method=jobGradelist">Job grade</a></li>
+				<%}%>
+				<% if(menu != null && menu.isJobTitle()){%>
+					<li><a href="<%=request.getContextPath()%>/workshift.do?method=workshiftlist">Work shift</a></li>
+				<%}%>
+
+				<% if(menu != null && menu.isSalaryPlan()){%>
+					<li><a href="<%=request.getContextPath()%>/salaryplan.do?method=salarylist">Salary plan</a></li>
+				<%}%>
+				<% if(menu != null && menu.isBudgetCode()){%>
+					<li class="last"><a href="<%=request.getContextPath()%>/budgetcode.do?method=budgetCodelist">Budget</a></li>
+				<%}%>
+				</ul>
+			</li>
+			<%}%>
+
+		 <% if(menu != null && menu.isSecurity()){%>
+			<li><a href="#" class="dir">Users</a>
+				<ul>
+				<% if(menu != null && menu.isUser()){%>
+					<li class="first"><a href="<%=request.getContextPath()%>/user.do?method=userListwithPag">Users</a></li>
+				<%}%>
+				<% if(menu != null && menu.isUser()){%>
+					<li><a href="<%=request.getContextPath()%>/usergroup.do?method=usergrouplist">Groups</a></li>
+				<%}%>
+				<% if(menu != null && menu.isUser()){%>
+				<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"uploaduserxls")){%>
+					<li><a href="<%=request.getContextPath()%>/user.do?method=uploademployee">Upload users</a></li>
+				<%}%>
+				<%}%>
+				<% if(menu != null && menu.isRoles()){%>
+				<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"roles")){%>
+					<li class="last"><a href="<%=request.getContextPath()%>/role.do?method=rolelist">Roles</a></li>
+				<%}%>
+				<%}%>
+				</ul>
+			</li>
+			<%}%>
+
+		 <% if(menu != null && menu.isRererral()){%>
+		 <%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"redemptions")){%>
+			<li><a href="#" class="dir">Referral</a>
+				<ul>
+				<% if(menu != null && menu.isRererralBudgetCode()){%>
+					<li class="first"><a href="<%=request.getContextPath()%>/refferalBudgetcode.do?method=refferalbudgetCodelist">Budget</a></li>
+				<%}%>
+				
+				<% if(menu != null && menu.isRererralScheme()){%>
+					<li class="last"><a href="<%=request.getContextPath()%>/refferalscheme.do?method=refferalSchemelist">Scheme</a></li>
+				<%}%>
+				</ul>
+			</li>
+			<%}%>
+			<%}%>
+
+
+          <% if(menu != null && menu.isOnBoardMgmt()){%>
+		  	<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"onboarding")){%>
+		  <li><a href="<%=request.getContextPath()%>/OnBoardingTaskDefi.do?method=OnBoardingTaskDefilist">Onboarding</a></li>
+		  <%}%>
+		   <%}%>
+			
+		 <% if(menu != null && menu.isConfigurations()){%>
+			<li><a href="#" class="dir">Configurations</a>
+				<ul>
+				
+					<li class="first"><a href="<%=request.getContextPath()%>/variable.do?method=variablelist">Custom Field</a></li>				
+					<li><a href="<%=request.getContextPath()%>/screenfield.do?method=screenFieldScreen">Screen field</a></li>
+					<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"filter")){%>
+					<li><a href="<%=request.getContextPath()%>/businessrule.do?method=filterList">Filter criteria</a></li>
+					<li class="last"><a href="<%=request.getContextPath()%>/businessrule.do?method=applicantFilters">Applicant filter</a></li>
+					<%}%>
+							
+				</ul>
+			</li>
+			<%}%>
+
+
+
+		<% if(menu != null && menu.isNotificationHeader()){%>
+			<li><a href="#" class="dir">Notifications</a>
+				<ul>
+				<li class="first"><a href="<%=request.getContextPath()%>/emailnotificationsetting.do?method=emailnotificationsetting">Watcher notifications</a></li>
+				<li class="last"><a href="<%=request.getContextPath()%>/orgemailtemplate.do?method=orgemailTemplatelistNew">Templates Mapping</a></li>
+
+				</ul>
+			</li>
+			<%}%>
+		<% if(menu != null && menu.isLovs()){%>
+		    <li><a href="#" class="dir">LOV</a>
+				<ul>
+					<li class="first"><a href="<%=request.getContextPath()%>/char.do?method=charlist">Competency</a></li>
+					<li><a href="<%=request.getContextPath()%>/accomplishment.do?method=Accomplishmentlist">Accomplishment</a></li>
+					<li><a href="<%=request.getContextPath()%>/technicalskills.do?method=technicalskillslist">Skills</a></li>
+					<li><a href="<%=request.getContextPath()%>/education.do?method=educationlist">Education</a></li>
+					<!--<li><a href="<%=request.getContextPath()%>/membershiptypes.do?method=membershipTypesList">Membership Type</a></li>-->
+					<li><a href="<%=request.getContextPath()%>/languages.do?method=languageslist">Language</a></li>
+					<li><a href="<%=request.getContextPath()%>/tags.do?method=taglist">Tags</a></li>
+					<!--<li><a href="<%=request.getContextPath()%>/licensetype.do?method=licensetypelist">License Type</a></li>-->
+					<li><a href="<%=request.getContextPath()%>/ethnicrace.do?method=ethnicRaceList">Ethnic Race</a></li>
+					<li class="last"><a href="<%=request.getContextPath()%>/declinedresons.do?method=declinedResonslist">Decline/Cancel Offer Reason</a></li>
+				</ul>
+			</li>
+		<%}%>
+			<% if(menu != null && menu.isCompetenciesQuestions()){%>
+			<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"questionnaire")){%>
+			<li><a href="<%=request.getContextPath()%>/questiongroup.do?method=questionsgrouplist">Questionnaire</a></li>
+			<%}%>
+			<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"exam")){%>
+			<li><a href="<%=request.getContextPath()%>/mockquestionset.do?method=mockquestionsetListpage">Exams</a></li>
+			<%}%>
+             <%}%>
+			 <% if(menu != null && menu.isEmailCampaignCrud()){%>
+			 <%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"emailcampaign")){%>
+			<li><a href="<%=request.getContextPath()%>/emailcampaign.do?method=emailCampaignLovList">Email Campaign</a></li>
+			<%}%>
+			<%}%>
+			<% if(menu != null && menu.isTalentPoolCrud()){%>
+			<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"talentPool")){%>
+			<li><a href="<%=request.getContextPath()%>/talentpool.do?method=talentpoolListpage">Talent pool</a></li>
+			<%}%>
+			<%}%>
+			<% if(menu != null && menu.isMassEmail()){%>
+			<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"massemail")){%>
+			<li><a href="<%=request.getContextPath()%>/massemail.do?method=massEmailListpage">Mass Email</a></li>
+<<<<<<< .mine
+			<%}%>
+			<%}%>			
+=======
+			<%}%>
+			<% if(menu != null && menu.isMassEmail()){%>
+			<li><a href="<%=request.getContextPath()%>/reguser.do?method=registerUserListpage">Register Users</a></li>
+			<%}%>				
+>>>>>>> .r3192
+			<% if(menu != null && menu.isSystemRule()){%>
+			<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"systemrule")){%>
+			<li class="last"><a href="<%=request.getContextPath()%>/sysrule.do?method=sysruleorglist">System rules</a></li>
+			<%}%>
+			<%}%>
+		</ul>
+	</li>
+	<%} // isAdmin check %>
+<% if(menu != null && (menu.isRequisitionTemplateCreate() || menu.isRequisitionCreate() || menu.isApplicantCreate() )){%>
+	<li class="dir">New
+		<ul>	
+			<% if(menu != null && menu.isRequisitionCreate()){%>
+			<li class="first"><a href="#" onClick="addReqMenu()">Requistion</a></li>	
+			<%}%>
+			<% if(menu != null && menu.isApplicantCreate()){%>
+			<li><a href="#" onClick="createapplicantMenu()">Applicant</a></li>	
+			<%}%>
+			<% if(menu != null && menu.isRequisitionTemplateCreate()){%>
+			<li class="last"><a href="#" onClick="addTemplateMenu()">Template</a></li>
+			<%}%>
+			
+		</ul>
+	</li>
+<%}%>
+<% if(menu != null && menu.isRequistionMenu()){%>
+	<li class="dir">Requisition
+		<ul>
+		<% if(menu != null && menu.isReqTemplates()){%>
+			<li class="first"><a href="<%=request.getContextPath()%>/jobtemplate.do?method=templateList">Templates</a></li>
+		<%}%>
+		<% if(menu != null && (menu.isAllRequisitions() || menu.isAllRequisitionsRead())){%>
+			<li class="last"><a href="<%=request.getContextPath()%>/jobreq.do?method=jobreqList">Search</a></li>
+		<%}else if(menu != null && menu.isOwnOrganizationRequistions()){%>
+			<li class="last"><a href="<%=request.getContextPath()%>/jobreq.do?method=ownorgjobreqList">Search</a></li>
+		<%}%>
+
+		<!--<li class="last"><a href="<%=request.getContextPath()%>/jobs.do?method=jobsearch&l_code=en_US&superUserKey=<%=superUserKey%>" target="new">Job Search</a></li>-->
+		</ul>
+	</li>
+	<%}%>
+	
+	<% if(menu != null && menu.isApplicantHeader()){%>
+	<li class="dir">Applicants
+		<ul>
+		<% if(menu != null && menu.isAllApplicants()){%>
+			<li class="first"><a href="<%=request.getContextPath()%>/applicant.do?method=applicantsbyvendor">Search</a></li>
+		<%}%>
+		<% if(menu != null && menu.isOnBoardMgmt()){%>
+		<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"onboarding")){%>
+		<li><a href="<%=request.getContextPath()%>/applicant.do?method=onboardingapplicants">Onboarding</a></li>
+		<%}%>
+		<%}%>
+
+		<% if(menu != null && menu.isApplicantUsers()){%>
+		<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"applicantUser")){%>
+			<li><a href="<%=request.getContextPath()%>/applicantUser.do?method=applicantUsersList">Applicant logins</a></li>
+		<%}%>
+		<%}%>
+		<!--<li><a href="<%=request.getContextPath()%>/reports.do?method=firstpage">My applicant tracking</a></li>-->
+			<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"talentPool")){%>
+			<li class="last"><a href="#" onClick="javascript:openTalentPool()">Talent pool</a></li>
+			<%}%>
+		</ul>
+	</li>
+    <%}%>
+	<% if(menu != null && menu.isAgencyList()){%>
+	<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"redemptions")){%>
+	<li><a href="<%=request.getContextPath()%>/user.do?method=vendorlist">Agencies</a></li>
+	<%}%>
+	<%}%>
+	<% if(menu != null && menu.isRedemption()){%>
+	<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"redemptions")){%>
+    <li class="dir">Redemptions
+		<ul>
+		<% if(menu != null && menu.isAgencyRedemption()){%>
+			<li class="first"><a href="<%=request.getContextPath()%>/agencyredemptionsummary.do?method=agencyredemptionlist">Agency</a></li>
+		<%}%>
+		
+		<% if(menu != null && menu.isReferralRedemption()){%>
+			<li class="last"><a href="<%=request.getContextPath()%>/referralredemptionsummary.do?method=referralredemptionlist">Referral</a></li>
+		<%}%>
+			
+		</ul>
+	</li>
+   <%}%>
+   <%}%>
+	<% if(menu != null && menu.isReports()){%>
+	<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"reports")){%>
+	<li><a href="<%=request.getContextPath()%>/reports.do?method=firstpage">Reports</a></li>
+		<%}%>
+	<%}%>
+	<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"redemptions")){%>
+	<li><a href="<%=request.getContextPath()%>/reflogin.do?method=switchtorefferal">Refferal portal</a></li>
+	 <%}%>
+    <li class="dir">Tasks
+		<ul>
+			<li class="first"><a href="<%=request.getContextPath()%>/dashboard.do?method=dashboardlist">My tasks</a></li>
+			<% if(menu != null && menu.isCalendarAccess()){%>
+			<%if(!StringUtils.isNullOrEmpty(usernenu.getPackagetaken()) && Constant.isPackageContainFunction(usernenu.getPackagetaken(),"calendar")){%>
+			<li><a href="<%=request.getContextPath()%>/calendar.do?method=calendarView">Calendar</a></li>
+			<%}%>
+			<%}%>
+			<li class="last"><a href="<%=request.getContextPath()%>/bulkuploadtask.do?method=mybulktasklist">Cronjobs</a></li>
+		</ul>
+	</li>
+	<li class="dir last">
+		<form method="post" name="searchformtemp"  onSubmit="serachmenu();return false;">
+			
+				<label for="search">Search:</label>
+				<input type="text" id="search" name="search" class="text" value="Search!" onfocus="if (this.value == 'Search!' || this.value == 'Requistion Number!' || this.value == 'Requistion Code!' || this.value == 'Requistion Name!' || this.value == 'Applicant Number!' || this.value == 'Applicant Name!' || this.value == 'Applicant Summary by Req No!') this.value = '';" onblur="if (this.value == '') this.value = 'Search!';" maxlength="255" />
+				<input type="image" src="jsp/vimco/images/vimeo.com/btn_search.png" class="button" />
+			    <input type="hidden" name="searchtypeval" value=""/>
+			</form>
+		<ul>
+			<li class="first"><input type="radio" name="searchtype" value="reqno" onClick="searchparameset('reqno')"/>Requistion Number</li>
+                    <li><input  type="radio" name="searchtype" value="reqcode" onClick="searchparameset('reqcode')"/>Requistion Code</li>
+					 <li><input type="radio" name="searchtype" value="reqname" onClick="searchparameset('reqname')"/>Requistion Name</li>
+                     <li><input type="radio" name="searchtype" value="appno" onClick="searchparameset('appno')"/>Applicant Number</li>
+			<li><input type="radio" name="searchtype" value="appname" onClick="searchparameset('appname')"/>Applicant Name</li>
+			<li class="last"><input type="radio" name="searchtype" value="appsum" onClick="searchparameset('appsum')"/>Applicant Summary by Req No</li>
+		</ul>
+		
+	
+	</li>
+
+</ul>
+
+<ul class="rightside">
+<table>
+<tr>
+<td>
+<div style="height:20px;">
+<a href="user.do?method=mydetails" title="My profile"><%=usernenu.getFirstName()+" "+usernenu.getLastName()%></a>
+</div>
+
+
+</td>
+<td>
+<a href="#" onClick="openurl('<%=request.getContextPath()%>/dashboard.do?method=dashboardlist')">
+<img src="jsp/images/home.png" width="20" height="20" alt="Home" title="Home" style="border:2px solid black;"  />
+</a>
+</td>
+<td>
+<a href="login.do?method=logout">
+<img src="jsp/images/Log-Out-icon.png" width="20" height="20" alt="Logout" title="Logout" style="border:2px solid black;"  />
+</a>
+</td>
+</tr>
+</table>
+</ul>
+
+<%}else{//end of menu %>
+
+
+  <ul id="nav" class="dropdown dropdown-horizontal">
+	<img style="float:left;" alt="" src="jsp/vimco/menu_left.png"/>
+</ul>
+
+<%}%>
+
+  <link rel="stylesheet" type="text/css" href="jsp/css/subModal.css" />
+	<script type="text/javascript" src="jsp/js/common.js"></script>
+	<script type="text/javascript" src="jsp/js/subModal.js"></script>

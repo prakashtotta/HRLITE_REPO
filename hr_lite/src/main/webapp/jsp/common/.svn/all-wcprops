@@ -1,0 +1,215 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/common
+END
+layoutblank.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/layoutblank.jsp
+END
+menu_agency.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/menu_agency.jsp
+END
+sessionvalidate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3291/trunk/hr_lite/jsp/common/sessionvalidate.jsp
+END
+Footer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csolutions/!svn/ver/3457/trunk/hr_lite/jsp/common/Footer.jsp
+END
+menu_applicant.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/common/menu_applicant.jsp
+END
+csrfInjection.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/csrfInjection.jsp
+END
+resize.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/resize.jsp
+END
+upgradeplan.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/common/upgradeplan.jsp
+END
+captcha.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csolutions/!svn/ver/3432/trunk/hr_lite/jsp/common/captcha.jsp
+END
+yahooincludes.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/common/yahooincludes.jsp
+END
+template.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/template.jsp
+END
+onlyImport.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/onlyImport.jsp
+END
+yahooonly.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/yahooonly.jsp
+END
+expiring.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3291/trunk/hr_lite/jsp/common/expiring.jsp
+END
+includejava.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/includejava.jsp
+END
+browsercompatibility.html
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/common/browsercompatibility.html
+END
+menu_referral.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3269/trunk/hr_lite/jsp/common/menu_referral.jsp
+END
+jplot.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/csolutions/!svn/ver/3457/trunk/hr_lite/jsp/common/jplot.jsp
+END
+error.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/csolutions/!svn/ver/3234/trunk/hr_lite/jsp/common/error.jsp
+END
+templateLeftPane.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/templateLeftPane.jsp
+END
+dashboardinclude.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/dashboardinclude.jsp
+END
+exception.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/common/exception.jsp
+END
+cache.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/cache.jsp
+END
+menu.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/csolutions/!svn/ver/3457/trunk/hr_lite/jsp/common/menu.jsp
+END
+tooltipnew.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/common/tooltipnew.jsp
+END
+fancybox.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3203/trunk/hr_lite/jsp/common/fancybox.jsp
+END
+jscontroltag.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/jscontroltag.jsp
+END
+includeLogin.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3395/trunk/hr_lite/jsp/common/includeLogin.jsp
+END
+packageexpired.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/packageexpired.jsp
+END
+tooltipnewcss.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/tooltipnewcss.jsp
+END
+layout.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/common/layout.jsp
+END
+templatejobboard.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/common/templatejobboard.jsp
+END
+error404.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3232/trunk/hr_lite/jsp/common/error404.jsp
+END
+ajaxtaginclude.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/common/ajaxtaginclude.jsp
+END
+include.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/common/include.jsp
+END

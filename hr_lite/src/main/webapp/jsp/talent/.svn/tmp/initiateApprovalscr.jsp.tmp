@@ -1,0 +1,312 @@
+<%@ include file="../common/include.jsp" %>
+<%@ include file="../common/illegelredirection.jsp" %>
+<%@ include file="../common/autocomplete.jsp" %>
+<%
+User user1 = (User)session.getAttribute(Common.USER_DATA);
+
+%>
+<html>
+<title><%=Constant.getResourceStringValue("Requisition.initiate.approval",user1.getLocale())%></title>
+<bean:define id="jobreqform" name="jobRequisitionForm" type="com.form.JobRequisitionForm" />
+
+<script language="javascript"> 
+
+window.name = 'myModal';
+</script>
+
+
+<script language="javascript">
+
+function discard(){
+	 window.close();
+	}
+
+function closewindow(){
+	//window.opener.location.reload(true);
+	//window.opener.document.location.href="jobreq.do?method=editjobreq&jobreqId=<%=jobreqform.getJobreqId()%>";
+	//window.opener.document.location.href=window.opener.document.location.href;
+	 window.close();
+	}
+
+function savedata(){
+	document.jobRequisitionForm.action = "jobreq.do?method=initiateApproval&jobreqId=<%=jobreqform.getJobreqId()%>";
+	document.jobRequisitionForm.submit();
+	//window.location.reload(true);
+	 //window.close();
+	
+}
+
+
+function deleteApprovers(id){
+
+	var url="jobtemplate.do?method=deleteApprovers&id="+id;
+
+  	if (window.XMLHttpRequest) { 
+	    req = new XMLHttpRequest();    	// Non-IE browsers
+    	req.onreadystatechange = processStateChangeNo;
+
+	    try {
+
+    		req.open("GET", url, true);
+			
+	    } catch (e) {}
+	    req.send(null);
+  	} else if (window.ActiveXObject) {
+       	req = new ActiveXObject("Microsoft.XMLHTTP");// IE
+    	if (req) {
+	    	req.onreadystatechange=processStateChangeNo;
+	        req.open("GET", url, true);
+		    req.send();
+			
+    	}
+  	}
+
+       setTimeout("retrieveApprovers()",200);
+}
+
+function processApprovers() {
+	if (req.readyState == 4) { // Complete
+	    if (req.status == 200) { // OK response
+	       	//document.getElementById("states").innerHTML = req.responseText;
+    	    //Split the text response into Span elements
+    		spanElements = splitTextIntoSpan(req.responseText);
+
+    		//Use these span elements to update the page
+		    replaceExistingWithNewHtmlApprovers(spanElements);
+			
+		    //onOtherStateSel();
+    	} 
+    	//document.getElementById("loading6").style.visibility = "hidden";	
+  	}
+}
+
+function replaceExistingWithNewHtmlApprovers(newTextElements){
+	//loop through newTextElements ffffffffff
+  	for(var i=newTextElements.length-1;i>=0;--i){	//check that this begins with <span
+     	if(newTextElements[i].indexOf("<span")>-1){
+	      	//get the span name - sits between the 1st and 2nd quote mark Make sure your spans are in the format
+    	  	//<span id="someName">NewContent</span>
+	    	  startNamePos=newTextElements[i].indexOf('"')+1;
+	    	  endNamePos=newTextElements[i].indexOf('"',startNamePos);
+		      name=newTextElements[i].substring(startNamePos,endNamePos);
+    	                    
+	    	  //get the content - everything  after the first > mark
+		      startContentPos=newTextElements[i].indexOf('>')+1; 
+    		  content=newTextElements[i].substring(startContentPos);
+                        
+	    	 //Now update the existing Document with this element, checking that this element exists in the document
+	    	  if(document.getElementById(name)){
+				  
+		    	  if(name="approverdetails")
+   					document.getElementById(name).innerHTML = content;
+			  }	   			
+   	 	}
+	}
+}
+
+	function processStateChangeNo() {
+	if (req.readyState == 4) { // Complete
+	    if (req.status == 200) { // OK response
+	       	
+    	} 
+    	
+  	}
+}
+
+	function retrieveApprovers() {
+		
+    //document.getElementById("loading6").style.visibility = "visible";
+	var url="jobtemplate.do?method=getApproversForInitiate&id=<%=jobreqform.getJobreqId()%>&type=job";
+
+  	//Do the AJAX call
+  	if (window.XMLHttpRequest) { 
+	    req = new XMLHttpRequest();    	// Non-IE browsers
+    	req.onreadystatechange = processApprovers;
+
+	    try {
+    		req.open("GET", url, true);
+			
+	    } catch (e) {}
+	    req.send(null);
+  	} else if (window.ActiveXObject) {
+       	req = new ActiveXObject("Microsoft.XMLHTTP");// IE
+    	if (req) {
+	    	req.onreadystatechange=processApprovers;
+	        req.open("GET", url, true);
+		    req.send();
+			
+    	}
+  	}
+	
+}
+
+function splitTextIntoSpan(textToSplit){
+	//Split the document
+  	returnElements=textToSplit.split("</span>")
+        
+  	//Process each of the elements        
+  	for(var i=returnElements.length-1;i>=0;--i){  //Remove everything before the 1st span
+	    spanPos = returnElements[i].indexOf("<span");               
+                
+    	//if we find a match, take out everything before the span
+    	if(spanPos>0){
+        	  subString=returnElements[i].substring(spanPos);
+	          returnElements[i]=subString;
+    	} 
+  	}
+  	return returnElements;
+}
+
+
+</script>
+
+<%
+String mandatoryValuesNotFilled = (String)request.getAttribute("mandatoryValuesNotFilled");
+String initiateApproval = (String)request.getAttribute("initiateApproval");
+if(mandatoryValuesNotFilled != null && mandatoryValuesNotFilled.equals("yes")){
+%>
+<div align="center">
+	<table border="0" width="100%">
+	
+	
+	<tr>
+			<td><font color="red"><b><%=Constant.getResourceStringValue("requisition.Initiated.approval.mandatory.values.not.filled",user1.getLocale())%></b></font>
+			<a href="#" onClick="closewindow()"><%=Constant.getResourceStringValue("hr.button.close_window",user1.getLocale())%></a></td>
+			<td> </td>
+		</tr>
+		
+	</table>
+</div>
+<%
+	List errorList = (List)request.getAttribute(Common.ERROR_LIST);
+	if(errorList != null && errorList.size()>0){%>
+<div align="center">
+	<table border="0" width="100%">
+	
+<% for(int i=0;i<errorList.size();i++){
+	String errorval = (String)errorList.get(i);
+%>	
+	        <tr>
+			<td><font color="red"><li><%=errorval%></li></font></td>
+			
+			</tr>
+		
+<%}%>
+		
+	</table>
+</div>
+<%}%>
+
+
+<%
+}else if(initiateApproval != null && initiateApproval.equals("yes")){
+%>
+<div align="center">
+	<table border="0" width="100%">
+	
+	
+	<tr>
+			<td><%=Constant.getResourceStringValue("requisition.Initiated.approval.success",user1.getLocale())%>
+			<a href="#" onClick="closewindow()"><%=Constant.getResourceStringValue("hr.button.close_window",user1.getLocale())%></a></td>
+			<td> </td>
+		</tr>
+		
+	</table>
+</div>
+<%}else{%>
+
+<html:form action="jobreq.do?method=initiateApproval" target='myModal'>
+<BR>
+
+<%
+List approverList = jobreqform.getApproversList();
+
+%>
+<% if(approverList != null && approverList.size()>0){%>
+	<fieldset><legend><%=Constant.getResourceStringValue("Requisition.Approvers",user1.getLocale())%></legend>
+
+   <span id="approverdetails">
+    <table border="0" bgcolor="#f3f3f3" width="100%">
+    <tr>
+	
+	<td width="50px"><b><%=Constant.getResourceStringValue("Requisition.Level",user1.getLocale())%></b></td><td width="350px"><b><%=Constant.getResourceStringValue("Requisition.Users",user1.getLocale())%></b></td>
+	<td width="150px"><b><%=Constant.getResourceStringValue("hr.requistion.approver.system.defind",user1.getLocale())%></b></td>
+	<td width="50px"></td>
+	
+	</tr>
+
+
+
+<%	
+	int k=1;
+for(int i=0;i<approverList.size();i++){
+	JobTemplateApprovers japp = (JobTemplateApprovers)approverList.get(i);
+%>
+<tr>
+
+		<%
+		String approverurl ="";
+        if(!StringUtils.isNullOrEmpty(japp.getIsGroup()) && japp.getIsGroup().equals("Y")){
+			approverurl = "<img src='jsp/images/User-Group-icon.png'><a href='#' onClick=window.open("+"'"+"usergroup.do?method=editusergroup&readPreview=2&usergroupid="+japp.getUserId()+"'"+","+ "'"+"userperview"+ "'"+","+"'"+"location=0,status=0,scrollbars=1,menubar=0,resizable=1,width=600,height=430"+"'"+")>"+japp.getApproverName()+"</a>";
+		}else{
+			approverurl = "<img src='jsp/images/user.gif'><a href='#' onClick=window.open("+"'"+"user.do?method=edituser&readPreview=2&userId="+japp.getUserId()+"'"+","+ "'"+"userperview"+ "'"+","+"'"+"location=0,status=0,scrollbars=1,menubar=0,resizable=1,width=600,height=430"+"'"+")>"+japp.getApproverName()+"</a>";
+		}
+    
+
+	
+
+		%>
+<td width="50px"><%=k%></td><td width="350px" wrap><%=approverurl%></td>
+
+
+<td width="100px"><%=japp.getIsFromSystemRule()%></td>
+<td width="50px">
+<% if(japp.getIsFromSystemRule() != null && japp.getIsFromSystemRule().equals("Y")){
+}else{	
+%>
+<a href="#" onClick="deleteApprovers('<%=japp.getJbTmplApproverId()%>')"><img src="jsp/images/delete.gif" border="0" alt="delete approvers" title="<%=Constant.getResourceStringValue("Requisition.Delete_Approvers",user1.getLocale())%>" height="20"  width="19"/></a>
+<%}%>
+</td>
+</tr>
+<%
+	k++;
+}
+%>
+    </table>
+	</span>
+
+	</fieldset>
+<%
+}else{%>
+
+<table><tr><td><font color="red">
+No requisition approval rule is configured - so 
+this requisition can be published without any approvals.
+</font>
+</td></tr></table>
+<%}%>
+<br>
+
+<table>
+<tr>
+<td width="10%">
+<%=Constant.getResourceStringValue("Requisition.Comment",user1.getLocale())%>
+</td>
+<td >
+<TEXTAREA NAME="comment" COLS=70 ROWS=4></TEXTAREA>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<input type="button" name="login1" value="<%=Constant.getResourceStringValue("aquisition.applicant.Initiate",user1.getLocale())%>" onclick=" return savedata()">
+
+</td>
+<td>
+<input type="button" name="login" value="<%=Constant.getResourceStringValue("hr.button.cancel",user1.getLocale())%>" onClick="discard()"></td>
+</td>
+</tr>
+</table>
+</html:form>
+
+<%}%>

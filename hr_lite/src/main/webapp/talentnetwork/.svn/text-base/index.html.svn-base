@@ -1,0 +1,237 @@
+
+<!doctype html>
+
+<html>
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="A brief statement describing your company or product." />
+	<meta name="keywords" content="keywords, related to, your company, or your product" />
+
+	<link href="css/reset.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/core.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/colors_blue_and_green.css" rel="stylesheet" type="text/css" title="Blue and green" media="screen" />
+	<link href="css/colors_black_and_orange.css" rel="alternate stylesheet" type="text/css" title="Black and orange" media="screen" />
+	<link href="css/colors_green_and_brown.css" rel="alternate stylesheet" type="text/css" title="Green and brown" media="screen" />
+	<link href="css/colors_yellow_and_black.css" rel="alternate stylesheet" type="text/css" title="Yellow and black" media="screen" />
+	<link href="css/colors_teal_and_brown.css" rel="alternate stylesheet" type="text/css" title="Teal and brown" media="screen" />
+	<link href="css/colors_cherry_and_yellow.css" rel="alternate stylesheet" type="text/css" title="Cherry and yellow" media="screen" />
+	<link href="css/slider.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+	<!--[if lte IE 8]>
+		<link href="css/ie.css" rel="stylesheet" type="text/css" media="screen" />
+	<![endif]-->
+	<link href="http://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet" type="text/css" media="screen" />
+
+	<script type="text/javascript" src="jsp/scripts/styleswitcher.js"></script>
+	<script type="text/javascript" src="jsp/scripts/lightbox.js"></script>
+	<script src="jsp/scripts/jquery_minimized_core.js"></script>
+	<script src="jsp/scripts/jquery_slider.js"></script>
+	<script type="text/javascript" src="jsp/scripts/date.format.js"></script>
+		 <script src="http://connect.facebook.net/en_US/all.js"> </script>
+
+
+	<title>TalentNetwork</title>
+
+</head>
+
+<body>
+
+	<div id="header_wrap">
+
+		<div id="header">
+
+			<h1 id="logo"><a href="index.html" title="Go to Spark homepage">Spark</a></h1>
+
+			<ol id="nav">
+				<li><a class="current_page" href="index.html">Peoples</a></li>
+				<li><a href="tour.html">Jobs</a></li>
+				
+				</li>
+			</ol>
+			
+			<div class="clear"></div>
+
+		</div> <!-- End of header -->
+
+	</div> <!-- End of header wrap -->
+		
+	<div id="pitch_wrap">
+
+		<div id="pitch">
+		
+	       
+
+			
+			<div class="ie7_sliderFix"></div> <!-- Empty div added in order to fix bug in Internet Explorer 7 -->
+			<div class="clear"></div>
+
+		</div> <!-- End of pitch -->
+
+	</div> <!-- End of pitch wrap -->
+
+	<div id="addendum_wrap">
+
+		<div id="addendum">
+
+			<div id="callout" class="box_wide separator_r">
+
+				<a href="screenshots/screenshot_large_01.jpg" rel="lightbox"><img src="screenshots/screenshot_small_01.jpg" width="190" height="60" alt="" /></a>
+				<h3>An important feature</h3>
+				<p>This area will contain either one of the  most important features or one of the top benefits of using your product or choosing your company. This paragraph could be accompanied by one screenshot exempifying that feature.</p>
+
+			</div>	
+
+			<div id="testimonials" class="box_wide">
+
+				<h3>Here&#39;s what the customers are saying</h3>
+				<blockquote class="separator_r">"This is a short quote from one of your customers. It highlights why the customer was satisified."<cite>Mike Mikington, Mike Inc.<img src="photos/customer_01.jpg" width="30" height="30" alt="Mike Mikington" /></cite></blockquote>
+				<blockquote>"This is a short quote from one of your customers. It highlights why the customer was satisified."<cite>Serious Samy, Solaris<img src="photos/customer_02.jpg" width="30" height="30" alt="Serious Sam" /></cite></blockquote>
+
+			</div>
+
+			<div class="clear"></div>
+
+		</div> <!-- End of addendum -->
+
+	</div> <!-- End of addendum wrap -->
+
+	<div id="content_wrap">
+
+		<div id="content">
+
+			<div id="main_content_wide" class="left">
+
+				<div class="box_medium feature separator_r">
+
+					<img src="images/icon_feature_01.png" width="60" height="55" alt="" />
+					<h3>Another feature</h3>
+					<p>A short sentence describing just one of the many fantastic features that your product has.</p>
+
+				</div>
+
+				<div class="box_medium feature">
+
+					<img src="images/icon_feature_02.png" width="60" height="55" alt="" />
+					<h3>Some other feature</h3>
+					<p>A short sentence describing just one of the many fantastic features that your product has.</p>
+
+				</div>
+
+				<div class="box_medium feature separator_r">
+
+					<img src="images/icon_feature_03.png" width="60" height="55" alt="" />
+					<h3>Yet another one</h3>
+					<p>A short sentence describing just one of the many fantastic features that your product has.</p>
+
+				</div>
+
+				<div class="box_medium feature">
+
+					<img src="images/icon_feature_04.png" width="60" height="55" alt="" />
+					<h3>And the last one</h3>
+					<p>A short sentence describing just one of the many fantastic features that your product has.</p>
+
+				</div>
+
+				<div id="blurb">
+
+					<p>Are you convinced now? You can get all this and much more starting from just $35/month. <a href="signup.html">Sign up right now</a></p>
+
+				</div>
+
+			</div> <!-- End of main content -->
+
+			<div id="aside_medium" class="right">
+
+				<div id="latest_posts" class="box_medium">
+
+					<h3>Latest blog posts</h3>
+					<ol>
+						<li>
+							<a href="blog_post.html">An entry from the company&#39;s blog</a>
+							<p>Short excerpt from the start of the blog post. It contains only several lines of text.</p>
+						</li>
+						<li>
+							<a href="blog_post.html">Title for some other entry from the blog</a>
+							<p>Another short excerpt from the start of the post. It contains only several lines of text.</p>							
+						</li>
+					</ol>
+
+				</div>
+
+				<div id="newsletter" class="box_medium">
+
+					<h3>Newsletter</h3>
+					<p>Stay up to date with the latest news about us.</p>
+					<form action="" method="post">
+						<fieldset>
+							<input type="text" name="" />
+							<button type="submit">subscribe</button>
+						</fieldset>	
+					</form>
+
+				</div>
+
+			</div> <!-- End of aside -->
+			
+			<div class="clear"></div>
+
+		</div> <!-- End of content -->
+
+	</div> <!-- End of content wrap -->
+
+	<div id="footer_wrap">
+
+		<div id="footer">
+
+			<div class="box_wide separator_r">
+
+				<ol id="nav_footer">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="tour.html">Tour</a></li>
+					<li><a href="pricing.html">Pricing &amp; Signup</a></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.php">Contact</a></li>
+					<li><a href="login.html">Login</a></li>
+				</ol>
+
+				<ul id="nav_policies">
+					<li><a href="simple_text.html">Security information</a></li>
+					<li><a href="simple_text.html">Privacy policy</a></li>
+					<li><a href="simple_text.html">Legal stuff</a></li>					
+				</ul>
+				
+				<p id="copyright">Copyright &copy; 2009-2010 Your Site, LLC - All Rights Reserved</p>
+
+			</div>
+
+			<div id="social_info" class="box_small separator_r">
+
+				<ul>
+					<li id="twitter"><a href="#">follow us</a> on twitter</li>
+					<li id="facebook"><a href="#">become a fan</a> on facebook</li>
+				</ul>
+
+			</div>
+
+			<div id="contact_info" class="box_small">
+
+				<h5>Contact</h5>
+				<ul>
+					<li>555 443 3221</li>
+					<li><a href="#">contact@yourcompany.com</a></li>
+				</ul>
+
+			</div>
+			
+			<div class="clear"></div>
+
+		</div> <!-- End of footer -->
+
+	</div> <!-- End of footer wrap -->
+
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/jobboard
+END
+editjobboardBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/jobboard/editjobboardBody.jsp
+END
+editjobboard.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3167/trunk/hr_lite/jsp/jobboard/editjobboard.jsp
+END
+searchJobBodyList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3432/trunk/hr_lite/jsp/jobboard/searchJobBodyList.jsp
+END
+searchJobList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/jobboard/searchJobList.jsp
+END
+regUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3457/trunk/hr_lite/jsp/jobboard/regUser.jsp
+END
+jobdetailsBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3432/trunk/hr_lite/jsp/jobboard/jobdetailsBody.jsp
+END
+uploadPhoto.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3167/trunk/hr_lite/jsp/jobboard/uploadPhoto.jsp
+END
+jobdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3294/trunk/hr_lite/jsp/jobboard/jobdetails.jsp
+END

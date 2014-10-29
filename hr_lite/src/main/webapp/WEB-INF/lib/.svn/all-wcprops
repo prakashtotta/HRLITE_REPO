@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/csolutions/!svn/ver/3423/trunk/hr_lite/WEB-INF/lib
+END
+commons-pool-1.6.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3215/trunk/hr_lite/WEB-INF/lib/commons-pool-1.6.jar
+END
+hr.jar
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/csolutions/!svn/ver/3423/trunk/hr_lite/WEB-INF/lib/hr.jar
+END
+webservice.jar
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3423/trunk/hr_lite/WEB-INF/lib/webservice.jar
+END
+commons-dbcp-1.4.jar
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3215/trunk/hr_lite/WEB-INF/lib/commons-dbcp-1.4.jar
+END

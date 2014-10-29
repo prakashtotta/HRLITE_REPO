@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+	<!-- Data Sources -->
+	<data-sources>
+	</data-sources>
+
+
+	<!-- Form Beans -->
+
+	<form-beans>
+	<form-bean name="faceBookUserForm" type="network.form.FaceBookUserForm"/>
+	<form-bean name="fbJobsForm" type="network.form.FbJobsForm"/>
+	<form-bean name="fbUserCertificationsForm" type="network.form.FbUserCertificationsForm"/>
+	
+	
+
+	
+	
+	<!-- performance start -->
+	
+	<!-- performance end -->
+	
+		
+	</form-beans>
+
+	<!-- Global Exceptions -->
+<global-exceptions> 
+   <exception key="error.required" type="java.lang.Exception"
+              path="/jsp/common/error.jsp"/>
+</global-exceptions>
+
+	<!-- Global Forwards -->
+	<global-forwards>
+   <forward   name="logonfail"                path="/login.do?method=login"/>
+    <forward   name="reflogonfail"                path="/login.do?method=login"/>
+   <forward   name="alogonfail"                path="/alogin.do?method=login"/>
+   <forward   name="aplogonfail"                path="/applicantlogin.do?method=login"/>
+   <forward name="exception"                   path="/jsp/common/exception.jsp" />
+    <forward   name="reflogonfailold"                path="/reflogin.do?method=login"/>
+   </global-forwards>
+ 
+
+	<!-- Action Mappings -->
+	<action-mappings>
+	
+	<action path="/networkhome"
+			type="network.action.NetworkHomeAction"
+            name="faceBookUserForm"
+			parameter="method"
+			input="/jsp/home/index.jsp"
+			scope="request"
+			validate="false">
+			<forward name="home" 	path="/talentnetwork/home/home.jsp"/>
+			<forward name="askForEndorsement" 	path="/talentnetwork/home/askForEndorsement.jsp"/>
+			<forward name="endorsementScreen" 	path="/talentnetwork/home/endorsementScreen.jsp"/>
+			<forward name="endorseReceived" 	path="/talentnetwork/home/endorseReceived.jsp"/>
+			<forward name="endorseGiven" 	path="/talentnetwork/home/endorseGiven.jsp"/>
+			<forward name="search" 	path="/talentnetwork/home/userSearch.jsp"/>			
+			<forward name="failure" 	path="/jsp/home/index.jsp" />
+			<forward name="editFBUserProfile" 	path="/talentnetwork/home/editFbUserProfile.jsp"/>
+			
+			
+			
+			
+	</action>
+	<action path="/companies"
+			type="network.action.ComaniesAction"
+            name="faceBookUserForm"
+			parameter="method"
+			input="/jsp/home/index.jsp"
+			scope="request"
+			validate="false">
+			<forward name="home" 	path="/talentnetwork/companies/companies.jsp"/>
+			<forward name="search" 	path="/talentnetwork/companies/serachComaniesResult.jsp"/>
+			
+	</action>	
+
+	<action path="/fbjobs"
+			type="network.action.JobsAction"
+            name="faceBookUserForm"
+			parameter="method"
+			input="/jsp/home/index.jsp"
+			scope="request"
+			validate="false">
+			<forward name="search" 	path="/talentnetwork/jobs/serachJobsResult.jsp"/>
+			<forward name="savedjobs" 	path="/talentnetwork/jobs/savedJobs.jsp"/>
+			<forward name="jobdetails" 	path="/talentnetwork/jobs/jobdetails.jsp"/>
+			
+			
+			
+	</action>	
+
+	
+		<action path="/fbjob"
+			type="network.action.FbJobsAction"
+            name="fbJobsForm"
+			parameter="method"
+			input="/jsp/home/index.jsp"
+			scope="request"
+			validate="false">
+			<forward name="postJob" 	path="/talentnetwork/home/postJob.jsp"/>
+			<forward name="manageJob" 	path="/talentnetwork/home/manageJob.jsp"/>
+			<forward name="applicantlist" 	path="/talentnetwork/jobs/applicantlist.jsp"/>
+			
+			
+			
+	</action>
+			<action path="/fbuserfertifications"
+			type="network.action.FbUserCertificationsAction"
+            name="fbUserCertificationsForm"
+			parameter="method"
+			input="/jsp/home/index.jsp"
+			scope="request"
+			validate="false">
+			<forward name="updateFBUserCertifications" 	path="/talentnetwork/home/updateFBUserCertifications.jsp"/>
+			
+			
+			
+	</action>		
+	
+	
+	
+
+    <!-- Action Mappings for leave start-->
+
+
+	
+    <!-- Action Mappings for leave end-->
+				
+	
+
+	</action-mappings>
+
+	<!-- Message Resources -->
+	
+
+
+  
+
+
+</struts-config>

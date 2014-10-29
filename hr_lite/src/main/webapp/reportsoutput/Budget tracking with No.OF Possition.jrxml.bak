@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Budget tracking with No.OF Possition" language="groovy" pageWidth="900" pageHeight="842" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.7513148009015778"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1">
+		<parameter name="Budget_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="super_user_key" class="java.lang.Long">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     budget_tracking.`budget_id` AS budget_tracking_budget_id,
+     budget_tracking.`budget_code` AS budget_tracking_budget_code,
+     budget_tracking.`budgetamount` AS budget_tracking_budgetamount,
+     budget_tracking.`jb_req_name` AS budget_tracking_jb_req_name,
+     budget_tracking.`number_of_opening` AS budget_tracking_number_of_opening,
+     budget_tracking.`Max_Total_Forecast` AS budget_tracking_Max_Total_Forecast,
+     budget_tracking.`Min_Total_Forecast` AS budget_tracking_Min_Total_Forecast,
+     budget_tracking.`department_name` AS budget_tracking_department_name,
+     budget_tracking.`org_name` AS budget_tracking_org_name
+FROM
+     `budget_tracking` budget_tracking
+WHERE  $X{IN, budget_tracking.`budget_id`, Budget_id}
+     and (`budget_tracking`.`super_user_key`=$P{super_user_key} or $P{super_user_key} is null Or $P{super_user_key}=0)]]>
+		</queryString>
+		<field name="budget_tracking_budget_id" class="java.math.BigInteger"/>
+		<field name="budget_tracking_budget_code" class="java.lang.String"/>
+		<field name="budget_tracking_budgetamount" class="java.lang.Long"/>
+		<field name="budget_tracking_jb_req_name" class="java.lang.String"/>
+		<field name="budget_tracking_number_of_opening" class="java.lang.Integer"/>
+		<field name="budget_tracking_Max_Total_Forecast" class="java.lang.Long"/>
+		<field name="budget_tracking_Min_Total_Forecast" class="java.lang.Long"/>
+		<field name="budget_tracking_department_name" class="java.lang.String"/>
+		<field name="budget_tracking_org_name" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="Budget_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="super_user_key" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     budget_tracking.`budget_id` AS budget_tracking_budget_id,
+     budget_tracking.`budget_code` AS budget_tracking_budget_code,
+     budget_tracking.`budgetamount` AS budget_tracking_budgetamount,
+     SUM(budget_tracking.`Max_Total_Forecast`)AS Max_Total_Forecast,
+     SUM(budget_tracking.`Min_Total_Forecast`)AS Min_Total_Forecast,
+     budget_tracking.`org_id` AS budget_tracking_org_id
+FROM
+     `budget_tracking` budget_tracking
+WHERE
+$X{IN, budget_tracking.`budget_id`, Budget_id}
+     and (`budget_tracking`.`super_user_key`=$P{super_user_key} or $P{super_user_key} is null Or $P{super_user_key}=0)
+GROUP BY
+     budget_tracking.`budget_id`]]>
+	</queryString>
+	<field name="budget_tracking_budget_id" class="java.math.BigInteger"/>
+	<field name="budget_tracking_budget_code" class="java.lang.String"/>
+	<field name="budget_tracking_budgetamount" class="java.lang.Long"/>
+	<field name="Max_Total_Forecast" class="java.math.BigDecimal"/>
+	<field name="Min_Total_Forecast" class="java.math.BigDecimal"/>
+	<field name="budget_tracking_org_id" class="java.math.BigInteger"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="420" splitType="Stretch">
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="50" y="130" width="185" height="33" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Budget Code    :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="50" y="183" width="185" height="33" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Total Amount Allocated    :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="50" y="286" width="185" height="33" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Maximum Budget Forecast    :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TD" mode="Opaque" x="50" y="236" width="185" height="33" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="12" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Minimum Budget Forecast    :]]></text>
+			</staticText>
+			<multiAxisChart>
+				<chart evaluationTime="Report">
+					<reportElement x="416" y="130" width="432" height="226"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<multiAxisPlot>
+					<plot/>
+					<axis>
+						<bar3DChart>
+							<chart>
+								<reportElement x="0" y="0" width="0" height="0" backcolor="#FFFFFF"/>
+								<chartTitle color="#000000"/>
+								<chartSubtitle color="#000000"/>
+								<chartLegend textColor="#000000" backgroundColor="#FFFFFF"/>
+							</chart>
+							<categoryDataset>
+								<categorySeries>
+									<seriesExpression><![CDATA["Total alloument amount"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{budget_tracking_budget_code}]]></categoryExpression>
+									<valueExpression><![CDATA[$F{budget_tracking_budgetamount}]]></valueExpression>
+								</categorySeries>
+								<categorySeries>
+									<seriesExpression><![CDATA["Maximum Budget Forecast"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{budget_tracking_budget_code}]]></categoryExpression>
+									<valueExpression><![CDATA[$F{Max_Total_Forecast}]]></valueExpression>
+								</categorySeries>
+								<categorySeries>
+									<seriesExpression><![CDATA["Minimum Budget Forecast"]]></seriesExpression>
+									<categoryExpression><![CDATA[$F{budget_tracking_budget_code}]]></categoryExpression>
+									<valueExpression><![CDATA[$F{Min_Total_Forecast}]]></valueExpression>
+								</categorySeries>
+							</categoryDataset>
+							<bar3DPlot>
+								<plot/>
+								<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+								<categoryAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</categoryAxisFormat>
+								<valueAxisFormat>
+									<axisFormat>
+										<labelFont/>
+										<tickLabelFont/>
+									</axisFormat>
+								</valueAxisFormat>
+							</bar3DPlot>
+						</bar3DChart>
+					</axis>
+				</multiAxisPlot>
+			</multiAxisChart>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="245" y="183" width="154" height="33"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Long"><![CDATA[$F{budget_tracking_budgetamount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="245" y="130" width="154" height="33"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{budget_tracking_budget_code}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="245" y="286" width="154" height="33"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{Max_Total_Forecast}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement style="table_TD" stretchType="RelativeToBandHeight" x="245" y="236" width="154" height="33"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{Min_Total_Forecast}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="370" width="860" height="50"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset 1">
+						<datasetParameter name="Budget_id">
+							<datasetParameterExpression><![CDATA[$P{Budget_id}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="super_user_key">
+							<datasetParameterExpression><![CDATA[$P{super_user_key}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="163">
+						<jr:columnHeader style="table_CH" height="33" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="163" height="33" backcolor="#CCCCFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Requisition Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="163" height="30" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{budget_tracking_jb_req_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="158">
+						<jr:columnHeader style="table_CH" height="33" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="158" height="33" backcolor="#CCCCFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Department Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="158" height="30" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{budget_tracking_department_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="163">
+						<jr:columnHeader style="table_CH" height="33" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="163" height="33" backcolor="#CCCCFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Organization name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="163" height="30" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{budget_tracking_org_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="130">
+						<jr:columnHeader style="table_CH" height="33" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="130" height="33" backcolor="#CCCCFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total Allowment Amount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="130" height="30" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{budget_tracking_budgetamount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="128">
+						<jr:columnHeader style="table_CH" height="33" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="128" height="33" backcolor="#CCCCFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total Minimum Forecast]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="128" height="30" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{budget_tracking_Min_Total_Forecast}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="118">
+						<jr:columnHeader style="table_CH" height="33" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="118" height="33" backcolor="#CCCCFF"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="true"/>
+								</textElement>
+								<text><![CDATA[Total Maximum Forecast]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="30" rowSpan="1">
+							<textField>
+								<reportElement stretchType="RelativeToTallestObject" mode="Opaque" x="0" y="0" width="118" height="30" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.Long"><![CDATA[$F{budget_tracking_Max_Total_Forecast}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<line>
+				<reportElement x="0" y="62" width="860" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<frame>
+				<reportElement mode="Opaque" x="-1" y="0" width="860" height="60" backcolor="#CCCCCC"/>
+				<staticText>
+					<reportElement x="41" y="24" width="303" height="21"/>
+					<textElement>
+						<font size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Budget Tracking]]></text>
+				</staticText>
+				<textField pattern="MMMMM dd, yyyy">
+					<reportElement x="687" y="4" width="173" height="20"/>
+					<textElement textAlignment="Center">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="768" y="30" width="80" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

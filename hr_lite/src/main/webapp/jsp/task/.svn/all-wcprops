@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/task
+END
+mypendingtaskcommon.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/task/mypendingtaskcommon.jsp
+END
+pendingtasksBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/task/pendingtasksBody.jsp
+END
+mypendingtaskslistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3167/trunk/hr_lite/jsp/task/mypendingtaskslistpage.jsp
+END
+bulktasklistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/task/bulktasklistBody.jsp
+END
+addtask.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/csolutions/!svn/ver/3449/trunk/hr_lite/jsp/task/addtask.jsp
+END
+mypendingtasksBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/task/mypendingtasksBody.jsp
+END
+mybulktasklistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/task/mybulktasklistBody.jsp
+END
+mybulktasklist.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3229/trunk/hr_lite/jsp/task/mybulktasklist.jsp
+END

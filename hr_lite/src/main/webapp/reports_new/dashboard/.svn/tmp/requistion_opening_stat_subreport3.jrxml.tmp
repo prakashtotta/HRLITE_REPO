@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="requistion_opening_stat_subreport3" language="groovy" pageWidth="350" pageHeight="200" columnWidth="350" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Org_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="super_user_key" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    job_requisition.`org_id` AS job_requisition_org_id,
+(YEAR(`job_requisition`.`published_date`)) as year,
+     job_requisition.`department_id` AS job_requisition_department_id,
+     (select IFNULL(department_name,'') from department where department_id = job_requisition.department_id) AS department_department_name,
+    sum(job_requisition.`number_of_opening`) AS job_requisition_number_of_opening,
+   sum(job_requisition.`number_of_remaining`) AS job_requisition_number_of_remaining,
+organization.org_name
+FROM
+     `job_requisition` job_requisition,
+organization organization
+where
+`job_requisition`.`org_id` = organization.org_id
+ AND  $X{IN, `job_requisition`.`org_id`, Org_id}
+and $X{IN,(YEAR(`job_requisition`.`published_date`)), year}
+and (`job_requisition`.`super_user_key`=$P{super_user_key} or $P{super_user_key} is null Or $P{super_user_key}=0)
+group by (YEAR(`job_requisition`.`published_date`))
+ORDER BY
+   (YEAR(`job_requisition`.`published_date`)) ASC]]>
+	</queryString>
+	<field name="job_requisition_org_id" class="java.math.BigInteger"/>
+	<field name="year" class="java.lang.Integer"/>
+	<field name="job_requisition_department_id" class="java.math.BigInteger"/>
+	<field name="department_department_name" class="java.lang.String"/>
+	<field name="job_requisition_number_of_opening" class="java.math.BigDecimal"/>
+	<field name="job_requisition_number_of_remaining" class="java.math.BigDecimal"/>
+	<field name="org_name" class="java.lang.String"/>
+	<group name="department_department_name">
+		<groupExpression><![CDATA[$F{department_department_name}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="178" splitType="Stretch">
+			<pie3DChart>
+				<chart isShowLegend="true" evaluationTime="Report" theme="default">
+					<reportElement x="0" y="0" width="350" height="178"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{year}]]></keyExpression>
+					<valueExpression><![CDATA[$F{job_requisition_number_of_remaining}]]></valueExpression>
+					<labelExpression><![CDATA[$F{job_requisition_number_of_remaining}]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot isCircular="false">
+					<plot/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</title>
+</jasperReport>

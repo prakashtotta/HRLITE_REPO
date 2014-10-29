@@ -1,0 +1,248 @@
+<%@ page import="com.bo.*"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.util.*"%>
+<%@ page import="com.common.*"%>
+<%@ page import="com.bean.*"%>
+<%@ page import="com.bean.lov.*"%>
+<%@ page import="com.bean.dto.*"%>
+<%@ page import="com.bean.system.*"%>
+<%@ page import="com.resources.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="java.text.*"%>
+<%@ page import="com.dao.*"%>
+<%@ page import="com.security.*"%>
+
+<%
+User user1 = (User)request.getSession().getAttribute(Common.USER_DATA);
+
+%>
+
+<%@ include file="calendarCommon.jsp" %>
+<%@ include file="../common/greybox.jsp" %>
+<html>
+<script language="javascript">
+function taskdetails(idvalue,uuid,tasktype){
+    
+
+	var url = "";
+	//parent.setPopTitle1("Create applicant");
+	//parent.showPopWin(url, 700, 600, null,true);
+
+var ty = unescape(tasktype);
+if(ty == '<%=Common.MANUAL_ADD_TASK%>'){
+edittask(idvalue);
+}
+if(ty == '<%=Common.APPLICANT_IN_QUEUE%>'){
+location.href="applicant.do?method=applicantDetails&backtolisturl=task.do?method=mypendingtasks&applicantId="+idvalue+"&secureid="+uuid;
+}
+if(ty == '<%=Common.OFFER_APPROVAL_TASK%>'){
+location.href="applicant.do?method=applicantDetails&backtolisturl=task.do?method=mypendingtasks&applicantId="+idvalue+"&secureid="+uuid;
+}
+if(ty == '<%=Common.APPLICANT_REVIEW_TASK%>'){
+location.href="applicant.do?method=applicantDetails&backtolisturl=task.do?method=mypendingtasks&applicantId="+idvalue+"&secureid="+uuid;
+}
+if(ty == '<%=Common.APPLICANT_INTERVIEW_TASK%>'){
+location.href="applicant.do?method=applicantDetails&backtolisturl=task.do?method=mypendingtasks&applicantId="+idvalue+"&secureid="+uuid;
+}
+if(ty == '<%=Common.OFFER_RELEASE_TASK%>'){
+location.href="applicant.do?method=applicantDetails&backtolisturl=task.do?method=mypendingtasks&applicantId="+idvalue+"&secureid="+uuid;
+}
+if(ty == '<%=Common.REFERENCE_CHECK_TASK%>'){
+location.href="applicant.do?method=applicantDetails&backtolisturl=task.do?method=mypendingtasks&applicantId="+idvalue+"&secureid="+uuid;
+}
+if(ty == '<%=Common.REQUISTION_APPROVAL_TASK%>'){
+var url = "<%=request.getContextPath()%>/jobreq.do?method=editjobreq&jobreqId="+idvalue;
+    //parent.setPopTitle1("Job requisition");
+	//parent.showPopWin(url, 850, 650, null,true);
+	GB_showFullScreen('<%=Constant.getResourceStringValue("Requisition.jobrequisition",user1.getLocale())%>', url, messageret);
+}
+if(ty == '<%=Common.REQUISTION_PUBLISH_TASK%>'){
+var url = "<%=request.getContextPath()%>/jobreq.do?method=editjobreq&jobreqId="+idvalue;
+    //parent.setPopTitle1("Job requisition");
+	//parent.showPopWin(url, 850, 650, null,true);
+	GB_showFullScreen('<%=Constant.getResourceStringValue("Requisition.jobrequisition",user1.getLocale())%>', url, messageret);
+}
+
+if(ty == '<%=Common.ONBOARDING_TASK%>'){
+var url = "<%=request.getContextPath()%>/onboarding.do?method=loadTask&taskid="+idvalue+"&secureid="+uuid;
+    //parent.setPopTitle1("Job requisition");
+	//parent.showPopWin(url, 850, 650, null,true);
+	GB_showFullScreen('<%=Constant.getResourceStringValue("aquisition.applicant.onboarding.task",user1.getLocale())%>', url, messageret);
+}
+}
+
+
+function addtask(){
+	
+	var url = "<%=request.getContextPath()%>/task.do?method=addtasksrc";
+	
+	GB_showCenter("<%=Constant.getResourceStringValue("hr.add.task",user1.getLocale())%>",url,400,650, messageretApp);
+}
+
+function edittask(id){
+	
+	var url = "<%=request.getContextPath()%>/task.do?method=edittask&tasdkid="+id;
+	
+	GB_showCenter("<%=Constant.getResourceStringValue("hr.update.task",user1.getLocale())%>",url,400,650, messageretApp);
+}
+
+function messageretApp(){
+	 //window.location.reload();
+}
+function messageret(){
+	 //window.location.reload();
+}
+</script>
+<body id="print_view_page">
+
+<table id="calendar_nav_table" border="0">
+  <tr>
+    <td id="prev_link">
+      <form method="post">
+        <input type="submit" name="PREV" value=" << <%=monthNames[prevMonth]%> <%=prevYear%> ">
+        <input type="hidden" name="month" value="<%=prevMonth%>">
+        <input type="hidden" name="year" value="<%=prevYear%>">
+      </form>
+    </td>
+	
+    <td>
+      <font size="4" color="green"><b> [<%=monthName%>, <%=intYear%>] </b></font>
+    </td>
+	
+    <td id="next_link">
+      <form method="post">
+        <input type="submit" name="NEXT" value=" <%=monthNames[nextMonth]%> <%=nextYear%> >> ">
+        <input type="hidden" name="month" value="<%=nextMonth%>">
+        <input type="hidden" name="year" value="<%=nextYear%>">
+      </form>
+    </td>
+
+	 <td width="500px">
+     
+    </td>
+
+   <td align="right">
+      <form method="post">
+        <input type="button" name="add task" value=" add task " onClick="addtask()" class="button">
+        </form>
+    </td>
+  </tr>
+</table>
+
+<div id="calendar_print_view_main_div">
+<table border="1" cellspacing="0" cellpadding=4 width="1400" height="900" id="calendar_table">
+
+  <tr class="week_header_row">
+    <th width="14%" height="20">Sun</th>
+    <th width="14%" height="20">Mon</th>
+    <th width="14%" height="20">Tue</th>
+    <th width="14%" height="20">Wed</th>
+    <th width="14%" height="20">Thu</th>
+    <th width="15%" height="20">Fri</th>
+    <th width="15%" height="20">Sat</th>
+  </tr>
+<%
+
+List tasklist =  TaskBO.getAllTaskBySuperUserKeyWithCurrentMonth(user1.getSuper_user_key(),intMonth+1,intYear);
+//{
+  Month aMonth = Month.getMonth( Integer.parseInt(currentMonthString), Integer.parseInt(currentYearString) );
+  int [][] days = aMonth.getDays();
+  for( int i=0; i<aMonth.getNumberOfWeeks(); i++ )
+  {%>
+    <tr>
+    <%
+    for( int j=0; j<7; j++ )
+    {
+      if( days[i][j] == 0 )
+      {
+	%>
+        <td class="empty_day_cell" bgcolor="#D8D8D8">&nbsp;</td>
+      <%} else if(days[i][j] == currentDayInt) {%>
+        <td valign="top" class="day_cell" bgcolor="#99FFCC">
+		<%
+       List ntaskList = TaskBO.getAllTaskByDay(tasklist,days[i][j]);
+			String heightbox="200px";
+		if(ntaskList.size()>10 && ntaskList.size()<=20){
+			heightbox="400px";
+		}
+		if(ntaskList.size()>20){
+			heightbox="500px";
+		}
+		%>
+		<table width="100%">
+		<tr>
+		<td align="right" valign="top" bgcolor="#66CCFF"> <%=days[i][j]%></td>
+		</tr>
+		</table>
+		<table width="100%" <%=heightbox%>>
+		<tr>
+		<td>
+		<% for(int p=0;p<ntaskList.size();p++){
+			TaskData task =(TaskData)ntaskList.get(p);
+		%>
+        <a href="#" onClick="taskdetails('<%=task.getIdvalue()%>','<%=task.getUuid()%>','<%=task.getTasktype()%>')">
+		<% if(task.getStatus().equals("C")){%>
+		<img src="jsp/images/taskcomplete.png" border="0" height="12" width="12"/>
+		<%}else{%>
+		<img src="jsp/images/taskdue.png" border="0" height="12" width="12"/>
+		<%}%>		
+		<span STYLE="font-size: smaller;"><%=task.getTaskname() + "-"+task.getTasktype()%></span></a><br>
+		
+		<%}%>
+		</td>
+		</tr>
+		</table>
+		</td>
+	  <%} else {%>
+        <td  valign="top" class="day_cell">
+		<table width="100%" valign="top">
+		<tr>
+		<td align="right" valign="top" bgcolor="#66CCFF"><%=days[i][j]%></td>
+		</tr>
+		</table>
+		<%
+       List ntaskList1 = TaskBO.getAllTaskByDay(tasklist,days[i][j]);
+		String heightbox="200px";
+		if(ntaskList1.size()>10 && ntaskList1.size()<=20){
+			heightbox="400px";
+		}
+		if(ntaskList1.size()>20){
+			heightbox="500px";
+		}
+		%>
+		<table width="100%" height="<%=heightbox%>" overflow="true">
+		<tr>
+		<td>
+		
+		<% for(int k=0;k<ntaskList1.size();k++){
+			TaskData task =(TaskData)ntaskList1.get(k);
+		%>
+		 <a href="#" onClick="taskdetails('<%=task.getIdvalue()%>','<%=task.getUuid()%>','<%=task.getTasktype()%>')">
+		<% if(task.getStatus().equals("C")){%>
+		<img src="jsp/images/taskcomplete.png" border="0" height="12" width="12"/>
+		<%}else{%>
+		<img src="jsp/images/taskdue.png" border="0" height="12" width="12"/>
+		<%}%>
+     
+		
+		<span STYLE="font-size: smaller;"><%=task.getTaskname() + "-"+task.getTasktype()%></span></a><br>
+		
+		<%}%>
+		</td>
+		</tr>
+		</table>
+		
+		</td>
+	 <%}%>
+       <%
+      
+    } // end for %>
+    </tr>
+  <%}
+//}
+%>
+</table>
+</div>
+
+</body>
+</html>

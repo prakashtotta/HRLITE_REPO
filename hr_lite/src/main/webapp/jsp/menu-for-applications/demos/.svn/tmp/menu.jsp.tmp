@@ -1,0 +1,394 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<%@ page import="java.util.*"%>
+<%@ page import="com.bean.*"%>
+<%@ page import="com.common.*"%>
+<%@ page import="com.util.*"%>
+<%@ page import="com.resources.*"%>
+ 
+<%@ include file="/jsp/common/greybox.jsp" %>
+
+
+
+
+
+<%
+String superUserKey="0";
+User user = (User)session.getAttribute(Common.USER_DATA);
+String req_id_for_menu= (String)session.getAttribute("req_id_for_menu");
+if(req_id_for_menu != null){
+	session.removeAttribute("req_id_for_menu");
+}
+Menu  menu = null;
+if(user != null){
+ menu = user.getMenu();
+ superUserKey = EncryptDecrypt.encrypt(String.valueOf(user.getSuper_user_key()));
+}
+   
+%>
+
+
+
+
+<script language="javascript">	
+var req_id_for_menu = "<%=req_id_for_menu%>";
+
+if(req_id_for_menu != null && req_id_for_menu != 'null'){
+	editreqCommon();
+}
+	function gotourlm(url){
+ //alert(url);
+ var urlnew = "jsp/emp/temp.jsp?reurl="+encodeURIComponent(url);
+  location.href=urlnew;
+}
+function messageret(){
+}
+function createapplicant(){
+
+	var url = "<%=request.getContextPath()%>/applicant.do?method=createPage";
+	//parent.setPopTitle1("Create applicant");
+	GB_showFullScreen('<%=Constant.getResourceStringValue("aquisition.applicant.createapplicant",user.getLocale())%>',url,messageret);
+}
+function addRequisition(){
+	var url = "<%=request.getContextPath()%>/jobreq.do?method=createjobreq";
+	//parent.setPopTitle1("<%=Constant.getResourceStringValue("Requisition.createjobreq",user.getLocale())%>");
+	//parent.showPopWin(url, 600, 300, editreqCommon);
+	GB_showCenter('<%=Constant.getResourceStringValue("Requisition.createjobreq",user.getLocale())%>',url,400,600, messageret);
+}
+
+function editreqCommon(){
+	var url = "<%=request.getContextPath()%>/jobreq.do?method=editjobreq&jobreqId=<%=req_id_for_menu%>";	
+	GB_showFullScreen('<%=Constant.getResourceStringValue("Requisition.createjobreq",user.getLocale())%>', url, messageret);
+}
+
+function addTemplate(){
+	var url = "<%=request.getContextPath()%>/jobtemplate.do?method=createtemplate";
+	//parent.showPopWin(url, 800, 600, showmessage,true);
+	GB_showFullScreen('<%=Constant.getResourceStringValue("Requisition.createtemp",user.getLocale())%>', url, messageret);
+}
+function openTalentPool(url){
+ 
+ var url = "jsp/jtree/talentPool.jsp";
+  
+    var url1 = "jsp/emp/temp.jsp?reurl="+encodeURIComponent(url);
+ 
+  window.open(url, "TalentPool","location=0,status=0,scrollbars=1,menubar=0,resizable=1,left=10, top=10,width=1200,height=700");
+// window.showModalDialog(url,"<%=Constant.getResourceStringValue("aquisistion.talent.pool",user.getLocale())%>","dialogHeight: 850px; dialogWidth: 1250px; dialogTop: 50px; dialogLeft: 301px; edge: Raised; menubar=no; toolbar=no; center: Yes; resizable: Yes; status: off;");
+
+}
+
+</script>
+	<link rel="stylesheet" href="jsp/menu-for-applications/demos/css/demos.css" media="screen" type="text/css">
+	<script type="text/javascript" src="jsp/menu-for-applications/js/menu-for-applications.js"></script>
+	<style type="text/css">
+	body{
+		margin:0px;
+	}
+	#otherMenu{
+		width:500px;
+		border-left:1px solid #000;
+		border-right:1px solid #000;
+	}
+	#thirdMenu{
+		width:600px;
+		
+	}
+	
+	#fourthmenu{
+		width:230px;
+		height:230px;
+	}
+	</style>
+
+
+ <BODY>
+<%if(user != null){%>
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr valign="top" class="DHTMLSuite_menuBar_top">
+     	  <td width="70%">
+ 
+<!-- This <ul><li> list is the source of a menuModel object -->
+<ul id="menuModel5">
+ <% if(menu != null && menu.isAdmin()){%>
+	<li id="50000"><a href="#" title="Admin">Admin</a>
+		<ul width="150">
+
+       <% if(menu != null && menu.isSecurity()){%>
+	<li id="500010"><a href="#" title="Security">Security</a>
+		<ul width="180">
+		<% if(menu != null && menu.isUser()){%>
+			<li id="5000101"><a href="<%=request.getContextPath()%>/user.do?method=userListwithPag" title="Users">Users</a></li>
+			<%}%>
+		<% if(menu != null && menu.isRoles()){%>
+			<li id="5000102"><a href="<%=request.getContextPath()%>/role.do?method=rolelist" title="Roles">Roles</a></li>
+		<%}%>
+		<li id="5000103"><a href="<%=request.getContextPath()%>/usergroup.do?method=usergrouplist" title="User groups">User groups</a></li>
+		<li id="5000104"><a href="<%=request.getContextPath()%>/user.do?method=uploademployee" title="Upload employee">Upload employee</a></li>
+		</ul>
+	</li>
+	<%}%>
+
+    <% if(menu != null && menu.isOrganizationHeader()){%>
+	<li id="50009"><a href="#" title="Organization">Organization</a>
+		<ul width="180">
+		<% if(menu != null && menu.isOrganizations()){%>
+			<li id="500091"><a href="<%=request.getContextPath()%>/org.do?method=orglist" title="Organizations">Organizations</a></li>
+			<%}%>
+		<% if(menu != null && menu.isProjectCodes()){%>
+			<li id="500092"><a href="<%=request.getContextPath()%>/projectcodes.do?method=projectcodelist" title="Project codes">Project codes</a></li>
+		<%}%>
+		<% if(menu != null && menu.isOrgEmailTmpl()){%>
+			<!-- <li id="500093"><a href="<%=request.getContextPath()%>/orgemailtemplate.do?method=orgemailTemplatelist" title="Email templates mapping">Email templates mapping</a></li> -->
+			<li id="500093"><a href="<%=request.getContextPath()%>/orgemailtemplate.do?method=orgemailTemplatelistNew" title="Email templates mapping">Email Templates Mapping</a></li>	
+		
+		<%}%>
+		<% if(menu != null && menu.isOrgEmailTmpl()){%>
+			<li id="500094"><a href="<%=request.getContextPath()%>/location.do?method=locationlist" title="Locations">Locations</a></li>
+		<%}%>
+		<% if(menu != null && menu.isOrgEmailTmpl()){%>
+			<li id="500095"><a href="<%=request.getContextPath()%>/designation.do?method=designationslist" title="Designations">Designations</a></li>
+		<%}%>
+		</ul>
+	</li>
+	<%}%>	
+			
+			
+			
+			<% if(menu != null && menu.isRererral()){%>
+			<li id="500003"><a href="#" title="Referral">Referral</a>
+				<ul width="150">
+				<% if(menu != null && menu.isRererralBudgetCode()){%>
+					<li id="5000031"><a href="<%=request.getContextPath()%>/refferalBudgetcode.do?method=refferalbudgetCodelist" title="Budget code">Budget code</a>
+								<%}%>
+				<% if(menu != null && menu.isRererralSchemeType()){%>
+					<li id="5000032"><a href="<%=request.getContextPath()%>/refferalschemetype.do?method=refferalSchemelist" title="UOM definition">UOM definition</a>
+								<%}%>
+								<li id="50000411"><a href="<%=request.getContextPath()%>/rulelovlist.do?method=ruleLovelist" title="Redemption Rule">Redemption Rule</a>
+				<% if(menu != null && menu.isRererralScheme()){%>
+					<li id="5000033"><a href="<%=request.getContextPath()%>/refferalscheme.do?method=refferalSchemelist" title="Scheme">Scheme</a>
+								<%}%>
+					
+
+				</ul>
+			</li>
+            <%}%>
+           <% if(menu != null && menu.isSystemSetting()){%>
+		   <li id="500005"><a href="#" title="System settings">System settings</a>
+			<ul width="170">
+					<% if(menu != null && menu.isSalaryPlan()){%>
+					<li id="5000045"><a href="<%=request.getContextPath()%>/salaryplan.do?method=salarylist" title="Salary Plan">Salary Plan</a>
+					<%}%>
+					<% if(menu != null && menu.isBudgetCode()){%>
+					<li id="5000047"><a href="<%=request.getContextPath()%>/budgetcode.do?method=budgetCodelist" title="Budget code">Budget code</a>
+					<%}%>
+					<% if(menu != null && menu.isJobCode()){%>
+					<!--<li id="5000048"><a href="<%=request.getContextPath()%>/jobcode.do?method=jobCodelist">Job code</a>-->
+					<%}%>
+					<% if(menu != null && menu.isJobGrade()){%>
+					<li id="5000049"><a href="<%=request.getContextPath()%>/jobgrade.do?method=jobGradelist" title="Job grade">Job grade</a>	
+					<%}%>
+					
+					
+					<li id="50000412"><a href="<%=request.getContextPath()%>/OnBoardingTaskDefi.do?method=OnBoardingTaskDefilist" title="On - Board">On - Board</a>
+					<li id="50000413"><a href="<%=request.getContextPath()%>/sysrule.do?method=sysruleorglist&orgId=1" title="System rules">System rules</a>
+                    <li id="50000414"><a href="<%=request.getContextPath()%>/variable.do?method=variablelist" title="Custom Field">Custom Field</a>
+                    <li id="50000416"><a href="<%=request.getContextPath()%>/screenfield.do?method=screenFieldScreen" title="Screen field">Screen field</a>
+                    <li id="50000417"><a href="<%=request.getContextPath()%>/businessrule.do?method=filterList" title="Filter criteria">Filter criteria</a>
+					<li id="50000418"><a href="<%=request.getContextPath()%>/businessrule.do?method=applicantFilters" title="Applicant filter">Applicant filter</a>
+					<li id="50000419"><a href="<%=request.getContextPath()%>/lovlist.do?method=lovList" title="Lov List">Lov List</a>
+					<li id="50000420"><a href="<%=request.getContextPath()%>/emailnotificationsetting.do?method=emailnotificationsetting" title="Watcher Notifications">Watcher Notifications</a>
+					<li id="50000421"><a href="<%=request.getContextPath()%>/jobcategory.do?method=jobCategoryList" title="Job Category">Job Category</a>
+					<li id="50000422"><a href="<%=request.getContextPath()%>/membershiptypes.do?method=membershipTypesList" title="Membership Types">Membership Types</a>
+				</ul>
+			</li>
+		<%}%>
+					
+			<% if(menu != null && menu.isCompetencyHeader()){%>
+			<li id="5000011"><a href="#" title="Competency">Competency</a>
+				<ul width="170">
+				<% if(menu != null && menu.isCompetenciesQuestions()){%>
+					<li id="50000111"><a href="<%=request.getContextPath()%>/char.do?method=charlist" title="Competencies">Competencies</a>
+					<li id="50000410"><a href="<%=request.getContextPath()%>/accomplishment.do?method=Accomplishmentlist" title="Accomplishment">Accomplishment</a>
+					<!-- <li id="50000112"><a href="<%=request.getContextPath()%>/groupchar.do?method=groupCharlist">Competency group</a> -->
+					<!--<li id="50000113"><a href="<%=request.getContextPath()%>/evtmpl.do?method=evtmpllist">Evaluation templates</a>	 -->
+					
+                    <li id="50000117"><a href="<%=request.getContextPath()%>/questiongroup.do?method=questionsgrouplist" title="Question">Questionnaire</a>
+
+
+								<%}%>
+				<% if(menu != null && menu.isEmailTemplates()){%>
+                 <li id="50000116"><a href="<%=request.getContextPath()%>/emailtemplate.do?method=emailtemplatelist" title="Email templates">Email templates</a>
+					
+								<%}%>
+			
+				</ul>
+			</li>
+            <%}%>
+
+    <li id="50000001"><a href="<%=request.getContextPath()%>/tags.do?method=taglist" title="Tags">Tags</a>
+	<li id="50000002"><a href="<%=request.getContextPath()%>/catagory.do?method=catagorylist" title="Category">Job sector</a>	
+	<li id="50000003"><a href="<%=request.getContextPath()%>/talentpool.do?method=talentpoolListpage" title="Talent pool">Talent pool</a>
+	<li id="50000004"><a href="<%=request.getContextPath()%>/mockquestionset.do?method=mockquestionsetListpage" title="Exam sets lov">Exam sets lov</a>
+	<li id="50000005"><a href="<%=request.getContextPath()%>/massemail.do?method=massEmailListpage" title="Mass Email">Mass Email</a>
+	<li id="50000006"><a href="<%=request.getContextPath()%>/emailcampaign.do?method=emailCampaignLovList" title="Email Campaign">Email Campaign</a>
+		</ul>
+	</li>
+
+	<%} // isAdmin check %>
+	<%--
+	<% if(menu != null && menu.isNew()){%>
+    <li id="500098"><a href="#" title="New">New</a>
+
+		<ul width="180">
+
+		<% if(menu != null && menu.isApplicantCreate()){%>
+			<li id="5000981" jsFunction="createapplicant()"><a href="#" title="Applicant">Applicant</a></li>
+			<%}%>
+			<% if(menu != null && menu.isRequisitionCreate()){%>
+			<li id="5000982" jsFunction="addRequisition()"><a href="#" title="Requisition">Requisition</a></li>
+			<%}%>
+			<% if(menu != null && menu.isRequisitionTemplateCreate()){%>
+			<li id="5000983" jsFunction="addTemplate()"><a href="#" title="Template">Template</a></li>
+			<%}%>
+			
+		</ul>
+	</li>
+	<%}%>
+	--%>
+	<li id="50001"><a href="#" title="Requisition">Requisition</a>
+
+		<ul width="180">
+
+		<% if(menu != null && menu.isReqTemplates()){%>
+			<li id="500011"><a href="<%=request.getContextPath()%>/jobtemplate.do?method=templateList"  title="Requistion templates">Templates</a></li>
+			<%}%>
+			<% if(menu != null && (menu.isAllRequisitions() || menu.isAllRequisitionsRead())){%>
+			<li id="500012"><a href="<%=request.getContextPath()%>/jobreq.do?method=jobreqList" title="Search">Search</a></li>
+			<%}else if(menu != null && menu.isOwnOrganizationRequistions()){%>
+			<li id="500012" jsFunction="gotourlm('jobreq.do?method=ownorgjobreqList')"><a href="#" title="Search">Search</a></li>
+			<%}%>
+			<% if(menu != null && menu.isMyRequistionsHiringMgrScreen()){%>
+			<li id="500013"><a href="<%=request.getContextPath()%>/jobreq.do?method=myjobreqList" title="My Requistions">My Requistions</a></li>
+			<%}%>
+			<% if(menu != null && menu.isMyRequistionsRecruiterScreen()){%>
+			<li id="500014"><a href="<%=request.getContextPath()%>/jobreq.do?method=myjobreqListRecruiter" title="My Requistions">My Requistions</a></li>
+			<%}%>
+			<% if(menu != null && menu.isMyOrgRequistionsTree()){%>
+			<li id="500015" jsFunction="gotourlm('jobreq.do?method=jobreqtreelistbyorg')"><a href="#" title="My Org Requistions">My Org Requistions</a></li>
+			<%}%>
+			<li id="500017"><a href="<%=request.getContextPath()%>/jobs.do?method=jobsearch&l_code=en_US&superUserKey=<%=superUserKey%>" title="Job Search">Job Search</a></li>
+		</ul>
+	</li>
+
+	<li id="50004"><a href="#" title="Acquisition">Acquisition</a>
+		<ul width="180">
+		<% if(menu != null && menu.isAllApplicants()){%>
+			<!--  <li id="500041"><a href="<%=request.getContextPath()%>/applicant.do?method=applicantList">All Applicants</a></li>
+			<li id="500046"><a href="<%=request.getContextPath()%>/applicant.do?method=applicantsbyvendor">Search all applicants</a></li>-->
+			<li id="500046"><a href="<%=request.getContextPath()%>/applicant.do?method=applicantsbyvendor" title="Search">Search</a></li>
+			<%}%>
+			<!--<li id="500042"><a href="<%=request.getContextPath()%>/applicant.do?method=myapplicantList">My applicants</a></li>-->
+			<% if(menu != null && menu.isMyApplicants()){%>
+			<li id="500043"><a href="<%=request.getContextPath()%>/applicant.do?method=searchownapplicantinit" title="My applicants">My applicants</a></li>
+			<%}%>
+			<% if(menu != null && menu.isMyApplicantsByRuleHiringMgr()){%>
+			<li id="500044"><a href="<%=request.getContextPath()%>/jobreq.do?method=jobreqtreelist" title="Applicants tree">Applicants tree</a></li>
+			<li id="500045"><a href="<%=request.getContextPath()%>/applicant.do?method=searchownapplicantinitHiringMgr" title="Applicants">Applicants</a></li>
+			<%}%>
+			<% if(menu != null && menu.isMyApplicantsByRuleRecruiter()){%>
+			<li id="500044"><a href="<%=request.getContextPath()%>/jobreq.do?method=recruiterjobreqtreelist" title="Applicants tree">Applicants tree</a></li>
+			<li id="500048"><a href="<%=request.getContextPath()%>/applicant.do?method=searchownapplicantinitRecruiter" title="Applicants">Applicants</a></li>
+			<%}%>
+			
+			<!--<li id="500045"><a href="<%=request.getContextPath()%>/jobreq.do?method=recruiterjobreqtreelist">Recruiter applicant tree</a></li>-->
+			<% if(menu != null && menu.isBulkUploadApplicants()){%>
+			<!--<li id="500047"><a href="<%=request.getContextPath()%>/applicant.do?method=bulkresume" title="Bulk upload">Bulk upload</a></li>-->
+			<%}%>
+			
+			<% if(menu != null && menu.isApplicantUsers()){%>
+			<li id="500049"><a href="<%=request.getContextPath()%>/applicantUser.do?method=applicantUsersList" title="Applicant Users">Applicant Users</a></li>
+			<%}%>
+			<% if(menu != null && menu.isOnBoardMgmt()){%>
+			<li id="500050"><a href="<%=request.getContextPath()%>/applicant.do?method=onboardingapplicants" title="Onboarding">Onboarding</a></li>
+			<%}%>
+            <li id="500051" jsFunction="openTalentPool()"><a href="#" title="Talent pool">Talent pool</a></li>
+			
+		
+		</ul>
+	</li>
+		<% if(menu != null && menu.isRedemption()){%>
+	<li id="50007"><a href="#" title="Redemptions">Redemptions</a>
+		<ul width="160">
+		<% if(menu != null && menu.isAgencyList()){%>
+			<li id="500071"><a href="<%=request.getContextPath()%>/user.do?method=vendorlist" title="Vendor list">Vendor list</a></li>
+			<%}%>
+			<% if(menu != null && menu.isAgencyRedemption()){%>
+			<li id="500073"><a href="<%=request.getContextPath()%>/agencyredemptionsummary.do?method=agencyredemptionlist" title="Agency redemptions">Agency redemptions</a></li>
+			<%}%>
+			<% if(menu != null && menu.isReferralRedemption()){%>
+			<li id="500074"><a href="<%=request.getContextPath()%>/referralredemptionsummary.do?method=referralredemptionlist" title="Referral redemptions">Referral redemptions</a></li>
+			<%}%>
+		</ul>
+	</li>
+<%}%>
+
+
+	<!--<li id="50006"><a href="<%=request.getContextPath()%>/linkedin/test">Linked in</a></li>-->
+	<li id="50005"><a href="<%=request.getContextPath()%>/reports.do?method=firstpage" title="Reports">Reports</a></li>
+	<li id="50008"><a href="<%=request.getContextPath()%>/applicant.do?method=applicanttracking" title="My applicant tracking">My applicant tracking</a></li>
+	<li id="50003" itemType="separator"></li>
+	<li id="50002"><a href="#" title="Task">Task</a>
+		<ul width="180">
+			<li id="500021"><a href="<%=request.getContextPath()%>/lov.do?method=callist" title="<%=Constant.getResourceStringValue("task.interview",user.getLocale())%>"><%=Constant.getResourceStringValue("task.interview",user.getLocale())%></a></li>
+					<% if(menu != null && menu.isAllPendingTasks()){%>
+			<li id="500022"><a href="<%=request.getContextPath()%>/task.do?method=pendingtasks" title="pending tasks">pending tasks</a></li>
+			<%}%>
+			<li id="500023"><a href="<%=request.getContextPath()%>/task.do?method=mypendingtasks" title="<%=Constant.getResourceStringValue("task.mypendingtasks.title.mypendingtask",user.getLocale())%>"><%=Constant.getResourceStringValue("task.mypendingtasks.title.mypendingtask",user.getLocale())%></a></li>
+			<% if(menu != null && menu.isAllExportUploadTasks()){%>
+			<li id="500024"><a href="<%=request.getContextPath()%>/bulkuploadtask.do?method=bulktasklist" title="all jobs">all jobs</a></li>
+			<%}%>
+			<li id="500025"><a href="<%=request.getContextPath()%>/bulkuploadtask.do?method=mybulktasklist" title="my jobs">my jobs</a></li>
+			
+					
+		</ul>
+	</li>
+	<!--<li id="50" itemType="separator"></li>
+	<li id="51"><a href="#" title="Performance">Performance</a>
+		<ul width="180">
+		   <li id="511"><a href="<%=request.getContextPath()%>/kra.do?method=kraList" title="KRA">KRA</a></li>
+		   <li id="512"><a href="<%=request.getContextPath()%>/goal.do?method=goalorglist&orgId=1" title="Organization goals">Organization goals</a></li>
+		   <li id="513"><a href="<%=request.getContextPath()%>/goal.do?method=viewinitiatedgoals" title="initiated goals">initiated goals</a></li>
+					
+		</ul>
+	</li>-->
+	
+</ul>
+<div id="fifthMenu">
+
+</div>
+</td>
+<td align="right" width="30%">welcome&nbsp;<a href="<%=request.getContextPath()%>/user.do?method=mydetails"><%=user.getFirstName()+" "+user.getLastName()%></a>
+&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/reflogin.do?method=switchtorefferal">refferal portal</a>
+&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/dashboard.do?method=dashboardlist">home</a>&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/login.do?method=logout">logout</a>
+	  </td>
+</tr>
+
+</table>
+<%}%>
+<script type="text/javascript">
+
+// First menu
+var menuModel = new DHTMLSuite.menuModel();
+DHTMLSuite.commonObj.setCssCacheStatus(true);
+/* Fifth menu - created fro markup */
+var menuModel5 = new DHTMLSuite.menuModel();
+menuModel5.addItemsFromMarkup('menuModel5');
+menuModel5.init();
+
+var menuBar5 = new DHTMLSuite.menuBar();
+menuBar5.addMenuItems(menuModel5);
+menuBar5.setTarget('fifthMenu');
+menuBar5.init();
+</script>
+ </BODY>
+</HTML>

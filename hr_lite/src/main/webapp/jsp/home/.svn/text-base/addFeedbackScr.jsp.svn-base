@@ -1,0 +1,106 @@
+<%@ include file="../common/include.jsp" %>
+
+<bean:define id="cform" name="feedbacksForm" type="com.form.FeedbacksForm" />
+  <%
+
+User user1 = (User)request.getSession().getAttribute(Common.USER_DATA);
+  
+  if(user1 != null){
+	  String datepattern = DateUtil.getDatePatternFormat(user1.getLocale());
+  }
+
+%>
+<html>
+<head>
+<title>Add Feedback</title>
+<script language="javascript">
+
+function closewindow2(){
+	window.close();
+}	
+function discard(){
+	  var doyou = confirm("Are you sure you would like to discard these changes ( OK = yes Cancel = No)");
+	  if (doyou == true){
+		window.close();
+	   } 
+	}
+
+
+function submitdata(){
+
+
+	var comment=document.feedbacksForm.comment.value;
+
+	var alertstr="";
+	var showalert=false;
+
+
+    if(comment == "" || comment == null){
+     	alertstr = alertstr + "Comment is required <BR>";
+     	showalert = true;
+		}
+
+
+	if (showalert){
+     	alert(alertstr);
+        return false;
+          }
+	 document.feedbacksForm.action = "feedbacks.do?method=saveFeedbacks";
+  	 document.feedbacksForm.submit();
+	
+}
+
+</script>
+</head>
+<body>
+
+<html:form action="/feedbacks.do?method=saveFeedbacks" >
+<br>
+<%
+String isfeedbacksaved = (String)request.getAttribute("isfeedbacksaved");
+	
+if(isfeedbacksaved != null && isfeedbacksaved.equals("yes")){
+%>
+
+	<table border="0" width="100%">
+	
+	
+		<tr>
+				<td><img src='jsp/images/whitetick.png' border='0' width='20' height='20'/>&nbsp;&nbsp;&nbsp;<font color="green">Thanks for your feedback</font></td>
+				<td> <a href="#" onclick="closewindow2()">Close Window</a></td>
+		</tr>
+		
+	</table>
+
+<%}else{%>
+
+	<table border="0" width="100%">
+		
+	
+		<tr>
+			<td width="20%">Email-Id</td>
+			<td><html:text property="emailId" size="50" maxlength="200"/></td>
+		</tr>
+		<tr></tr><tr></tr><tr></tr><tr></tr>
+		
+		
+		<tr>
+			<td width="20%">Comment<font color="red">*</font></td>
+			<td><html:textarea property="comment" cols="60" rows="5"/></td>
+		</tr>
+		<tr></tr><tr></tr><tr></tr><tr></tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" name="login" value="Submit" onClick="submitdata()">
+				<input type="button" name="login" value="Cancel" onClick="discard()">
+			</td>
+		</tr>
+		
+	</table>
+
+
+
+<%}%>
+</html:form>
+</body>
+</html>

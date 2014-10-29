@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+     <class name="com.performance.bean.Kra" table="perf_kra">
+         <id name="kraId" column="kra_id" type="long">
+            <generator class="native"/>
+        </id>
+
+	 <property name="kraName" column="kra_name" type="string"      length="200"/>
+	 <property name="kradesc" column="kra_desc" type="string"      length="500"/>
+	  <property name="kraWeight" column="kra_weight" type="double" />
+	  <property name="isTrack" column="is_track" type="string"      length="1"/>
+	  <property name="trackStartDate" column="tracking_startdate" type="date" />
+	  <property name="trackEndDate" column="tracking_enddate" type="date" />
+	  <property name="trackingFreqency" column="tracking_frequency" type="string"      length="50"/>
+	  <property name="createdBy" column="created_by" type="string"      length="200"/>
+	  <property name="createdDate" type="timestamp" column="created_date" />
+	  <property name="updatedBy" column="updated_by" type="string"      length="200"/>
+	  <property name="updatedDate" type="timestamp" column="updated_date" />     
+	  <many-to-one name="parentKra" column="parent_kra_id" lazy="false"/>   
+		
+    </class>
+    
+    
+    <class name="com.performance.bean.KraKPI" table="perf_kra_kpi">
+         <id name="kpiId" column="kpi_id" type="long">
+            <generator class="native"/>
+        </id>
+  
+	 <property name="kraId" column="kra_id" type="long" />
+	 <property name="kpiName" column="kpi_name" type="string"      length="500"/>
+	 <property name="kraMeasure" column="kpi_measure" type="string"      length="500"/>
+    </class>
+    
+    <class name="com.performance.bean.TimePeriod" table="perf_time_period">
+         <id name="timePeriodId" column="time_period_id" type="long">
+            <generator class="native"/>
+        </id>
+ 	  <property name="startDate" column="startdate" type="date" />
+	  <property name="endDate" column="enddate" type="date" />
+    </class>
+    
+    
+    <class name="com.performance.bean.Goal" table="perf_goals">
+         <id name="goalId" column="goal_id" type="long">
+            <generator class="native"/>
+        </id>
+	 <property name="goalName" column="goal_name" type="string"      length="200"/>
+	 <property name="goalDesc" column="goal_desc" type="string"      length="500"/>
+	   <property name="goalType" column="type" type="string"      length="50"/>
+	  <property name="modifiable" column="modifiable" type="string"      length="1"/>
+	  <property name="createdBy" column="created_by" type="string"      length="200"/>
+	  <property name="createdDate" type="timestamp" column="created_date" />
+	  <property name="updatedBy" column="updated_by" type="string"      length="200"/>
+	  <property name="updatedDate" type="timestamp" column="updated_date" />    
+	  <many-to-one name="timeperiod" column="time_period_id" lazy="false"/>  
+	  <many-to-one name="organization" column="org_id" lazy="false"/> 
+	  <many-to-one name="department" column="department_id" lazy="false"/> 
+	  <many-to-one name="designation" column="designation_id" lazy="false"/>   
+    </class>
+    
+    <class name="com.performance.bean.GoalKra" table="perf_goal_kra">
+         <id name="goalKraId" column="goal_kra_id" type="long">
+            <generator class="native"/>
+        </id>
+ 	 <property name="goalId" column="goal_id" type="long" />
+  	  <property name="kraId" column="kra_id" type="long" />
+	 <property name="kraName" column="kra_name" type="string"      length="200"/>
+	 <property name="kradesc" column="kra_desc" type="string"      length="500"/>
+	  <property name="kraWeight" column="kra_weight" type="double" />
+	  <property name="parentKraId" column="parent_kra_id" type="long" />
+	  <property name="isTrack" column="is_track" type="string"      length="1"/>
+	  <property name="trackStartDate" column="tracking_startdate" type="date" />
+	  <property name="trackEndDate" column="tracking_enddate" type="date" />
+	  <property name="trackingFreqency" column="tracking_frequency" type="string"      length="50"/>
+	  <property name="createdBy" column="created_by" type="string"      length="200"/>
+	  <property name="createdDate" type="timestamp" column="created_date" />
+	  <property name="updatedBy" column="updated_by" type="string"      length="200"/>
+	  <property name="updatedDate" type="timestamp" column="updated_date" /> 
+	   <property name="modifiable" column="modifiable" type="string"      length="1"/>  
+
+		     
+    </class>
+    
+    
+   <class name="com.performance.bean.GoalKraKpi" table="perf_goal_kra_kpi">
+         <id name="goalkrakpiId" column="goal_kpi_id" type="long">
+            <generator class="native"/>
+        </id>
+  
+	 <property name="goalKraId" column="goal_kra_id" type="long" />
+	 <property name="kpiName" column="kpi_name" type="string"      length="500"/>
+	 <property name="kraMeasure" column="kpi_measure" type="string"      length="500"/>
+    </class>
+    
+    <class name="com.performance.bean.GoalInitiation" table="perf_goal_initiation">
+         <id name="goalInitiationId" column="goal_initiation_id" type="long">
+            <generator class="native"/>
+        </id>
+	 <property name="allEmployee" column="is_all_employee" type="string"      length="1"/>
+	 <property name="note" column="note" type="string"      length="500"/>
+	  <property name="createdBy" column="created_by" type="string"      length="200"/>
+	  <property name="createdDate" type="timestamp" column="created_date" />
+	  <property name="updatedBy" column="updated_by" type="string"      length="200"/>
+	  <property name="updatedDate" type="timestamp" column="updated_date" />    
+	  <many-to-one name="timeperiod" column="time_period_id" lazy="false"/>  
+	  <many-to-one name="organization" column="org_id" lazy="false"/> 
+	  <many-to-one name="department" column="department_id" lazy="false"/> 
+	  <many-to-one name="designation" column="designation_id" lazy="false"/>   
+    </class>
+    
+    
+      <class name="com.performance.bean.UserGoals" table="perf_users_goal_kra">
+         <id name="userGoalId" column="users_goal_kra_id" type="long">
+            <generator class="native"/>
+        </id>
+      <property name="goalInitiationId" column="goal_initiation_id" type="long" />
+      <property name="userId" column="user_id" type="long" />
+ 	  <property name="kraId" column="kra_id" type="long" />
+	 <property name="kraName" column="kra_name" type="string"      length="200"/>
+	 <property name="kradesc" column="kra_desc" type="string"      length="500"/>
+	  <property name="kraWeight" column="kra_weight" type="double" />
+	  <property name="parentKraId" column="parent_kra_id" type="long" />
+	  <property name="isTrack" column="is_track" type="string"      length="1"/>
+	  <property name="trackStartDate" column="tracking_startdate" type="date" />
+	  <property name="trackEndDate" column="tracking_enddate" type="date" />
+	  <property name="trackingFreqency" column="tracking_frequency" type="string"      length="50"/>
+	  <property name="createdBy" column="created_by" type="string"      length="200"/>
+	  <property name="createdDate" type="timestamp" column="created_date" />
+	  <property name="updatedBy" column="updated_by" type="string"      length="200"/>
+	  <property name="updatedDate" type="timestamp" column="updated_date" /> 
+	   <property name="modifiable" column="modifiable" type="string"      length="1"/>
+	   <property name="kramodifiable" column="kramodifiable" type="string"      length="1"/>
+	   <property name="status" column="status" type="string"      length="1"/>  
+	   <property name="achivementDetails" column="achivement_details" type="string"      length="1000"/>
+	   <property name="superiorComment" column="superior_comment" type="string"      length="1000"/> 
+	    <many-to-one name="timeperiod" column="time_period_id" lazy="false"/> 
+    	<many-to-one name="goal" column="goal_id" lazy="false"/> 
+    	 <bag name="kpiList" lazy="false">
+			<key column="users_goal_kra_id" />
+			<one-to-many
+				class="com.performance.bean.UserGoalsKpi" />
+		</bag>
+      </class>
+
+    
+     <class name="com.performance.bean.UserGoalsKpi" table="perf_users_goal_kra_kpi">
+         <id name="usergoalkpiId" column="users_goal_kpi_id" type="long">
+            <generator class="native"/>
+        </id>
+  
+	 <property name="userGoalId" column="users_goal_kra_id" type="long" />
+	 <property name="kpiName" column="kpi_name" type="string"      length="500"/>
+	 <property name="kraMeasure" column="kpi_measure" type="string"      length="500"/>
+    </class>
+    
+    
+    <class name="com.performance.bean.UserGoalActivity" table="perf_users_goal_activity">
+         <id name="userGolaActivityId" column="users_goal_activity_id" type="long">
+            <generator class="native"/>
+        </id>
+  
+	 <property name="userGoalId" column="users_goal_kra_id" type="long" />
+	 <property name="actionName" column="action_name" type="string"      length="200"/>
+	  <property name="fromUserId" column="from_user_id" type="long" />
+	  <property name="fromUserName" column="from_user_name" type="string"      length="200"/>
+	   <property name="toUserId" column="to_user_id" type="long" />
+	 <property name="toUserName" column="to_user_name" type="string"      length="200"/>
+	  <property name="createdDate" type="timestamp" column="activity_date" />
+    </class>
+        
+ </hibernate-mapping>

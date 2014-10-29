@@ -1,0 +1,318 @@
+<!--BEGIN SOURCE CODE FOR EXAMPLE =============================== -->
+  <%@ page import="com.bo.*"%>
+<%@ page import="java.util.*"%>
+<%@ page import="com.util.*"%>
+<%@ page import="com.common.*"%>
+<%@ page import="com.bean.*"%>
+<%@ page import="com.bean.lov.*"%>
+<%@ page import="com.resources.*"%>
+<%@ page import="java.io.*"%>
+<%@ page import="com.form.*"%>
+
+
+<%@ include file="../common/yahooincludes.jsp" %>
+<%@ include file="../common/greybox.jsp" %>
+<%@ page import="com.resources.*"%>
+<%@ include file="../common/autocomplete.jsp" %>
+  <%
+System.out.println("satyaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+User user = (User)request.getSession().getAttribute(Common.USER_DATA);
+%>
+<bean:define id="aform" name="taskForm" type="com.form.TaskForm" />
+<%
+String searchpagedisplay = (String)request.getAttribute("searchpagedisplaymytask");
+
+%>
+<script language="javascript">
+document.getElementById("mytaskloading").style.visibility = "hidden";
+
+function searchtasks(){
+	setTimeout("searchtasks1()",200);
+}
+ function searchtasks1(){
+
+
+var tasktype = document.taskForm.tasktype.value;
+var assignedbyUserId = document.taskForm.assignedbyUserId.value;
+document.getElementById("mytaskloading").style.visibility = "visible";
+$.ajax({
+	type: 'GET',
+  url: "task.do?method=searchmypendingtasksajax&tasktype="+tasktype+"&assignedbyUserId="+assignedbyUserId,
+  success: function(data){
+		document.getElementById("mytaskloading").style.visibility = "hidden";
+  $('#mytaskajax1').html(data);
+		
+  }
+});
+
+}
+
+
+
+
+function resetdata(){
+document.taskForm.tasktype.value="NoValue";
+document.taskForm.assignedbyUserName.value="";
+document.taskForm.assignedbyUserId.value="";
+
+}
+
+
+$(function() {
+
+	$("#assignedbyUserName").autocomplete({
+		url: 'jsp/talent/getUserData.jsp',
+	     minChars: '<%=Constant.getValue("autocomplete.min.chars")%>',
+           
+			onItemSelect: function(item) {
+		    var text = 'You selected <b>' + item.value + '</b>';
+		    if (item.data.length) {
+		        text += ' <i>' + item.data.join(', ') + '</i>';
+		    }
+			
+		 
+		document.taskForm.assignedbyUserId.value=+item.data;
+		document.taskForm.assignedbyUserNamehidden.value=item.value;
+		}
+		});
+
+		$("#assignedtoUserName").autocomplete({
+		url: 'jsp/talent/getUserData.jsp',
+	     minChars: '<%=Constant.getValue("autocomplete.min.chars")%>',
+	
+			onItemSelect: function(item) {
+		    var text = 'You selected <b>' + item.value + '</b>';
+		    if (item.data.length) {
+		        text += ' <i>' + item.data.join(', ') + '</i>';
+		    }
+		 
+		document.taskForm.assignedtoUserId.value=+item.data;
+		document.taskForm.asigndtohidden.value=item.value;
+		}
+		});
+
+		});
+
+</script>
+<div id="mytaskajax1" class="div">
+
+<span  id="mytaskloading">
+<img src="jsp/images/indicator.gif"/>
+</span>
+
+<html:form action="/task.do?method=searchpendingtasks">
+<table>
+<tr>
+ <td><%=Constant.getResourceStringValue("task.tasktype",user.getLocale())%></td>
+ <td>
+	<html:select  property="tasktype">
+	
+	<bean:define name="taskForm" property="tasktypeList" id="tasktypeList" />
+
+     <html:options collection="tasktypeList" property="key"  labelProperty="value"/>
+	 </html:select>
+	</td>
+	<td>
+        <%=Constant.getResourceStringValue("task.assignedby",user.getLocale())%>
+			
+		<input type="hidden" id="assignedbyUserNamehidden" name="assignedbyUserNamehidden" value='<%=(aform.getAssignedbyUserName()==null)?"":aform.getAssignedbyUserName()%>'/>
+		<input type="text"  id="assignedbyUserName" name="assignedbyUserName"  autocomplete="off" value="<%=(aform.getAssignedbyUserName()==null)?"":aform.getAssignedbyUserName()%>" >
+		<span id="assignedbyUserId"></span>
+		<%
+        String assignedbyuserId = String.valueOf(aform.getAssignedbyUserId());
+        %>
+       <html:hidden  property="assignedbyUserId" value="<%=assignedbyuserId%>"/>
+
+<input type="button" name="search" value="<%=Constant.getResourceStringValue("hr.button.search",user.getLocale())%>" onClick="searchtasks()" class="button">
+<input type="button" value="<%=Constant.getResourceStringValue("hr.button.reset",user.getLocale())%>" onClick="resetdata()" class="button"/>
+			</td>
+
+</table>
+</html:form>
+<br>
+
+<div id="dynamicdatamypendingtask1" class="button"></div>
+
+<script type="text/javascript">
+YAHOO.example.DynamicData4 = function() {
+
+
+var editUrl = function(elCell, oRecord, oColumn, sData) {
+
+	 var editreqd = "<a href='#' onMouseover=\"ddrivetip('<b>"+sData+"</b><br><%=Constant.getResourceStringValue("Requisition.right.click.to.view.otheroptions",user.getLocale())%>','#DFDFFF')\"; onMouseout=hideddrivetip(); onClick=taskdetails(" +"'"+ oRecord.getData("idvalue")+ "'"+","+"'"+ oRecord.getData("uuid")+ "'"+","+ "'"+escape(oRecord.getData("tasktype"))+"'"+ ")"+ ">" + oRecord.getData("taskname") + "</a>";
+	
+
+		 elCell.innerHTML = editreqd;
+
+	
+         
+        };
+       var statusCol = function(elCell, oRecord, oColumn, sData) {
+			if(oRecord.getData("status") == "A"){
+				elCell.innerHTML="<%=Constant.getResourceStringValue("task.active",user.getLocale())%>";
+			}
+           };
+
+    // Column definitions
+    var myColumnDefs = [
+			{key:"taskId", hidden:true},
+		{key:"uuid", hidden:true},
+		{key:"idvalue", hidden:true},
+           {key:"taskname", label:"<%=Constant.getResourceStringValue("task.taskname",user.getLocale())%>", sortable:true, resizeable:true,formatter:editUrl},
+             {key:"tasktype", label:"<%=Constant.getResourceStringValue("task.tasktype",user.getLocale())%>",sortable:true, resizeable:true},
+			{key:"assignedbyUserName", label:"<%=Constant.getResourceStringValue("task.assignedby",user.getLocale())%>",sortable:true, resizeable:true},
+			   {key:"createdDate", label:"<%=Constant.getResourceStringValue("task.assignedon",user.getLocale())%>",sortable:true, resizeable:true},
+		{key:"assignedtoUserName", label:"<%=Constant.getResourceStringValue("task.assignedto",user.getLocale())%>",sortable:true, resizeable:true},
+		{key:"updatedBy",label:"<%=Constant.getResourceStringValue("task.reassignedby",user.getLocale())%>", sortable:true, resizeable:true},
+		{key:"updatedDate", label:"<%=Constant.getResourceStringValue("task.reassignedon",user.getLocale())%>",sortable:true, resizeable:true},
+		{key:"status", label:"<%=Constant.getResourceStringValue("task.status",user.getLocale())%>",sortable:true, resizeable:true,formatter:statusCol},
+		{key:"eventdate", label:"<%=Constant.getResourceStringValue("task.due.date",user.getLocale())%>",sortable:true, resizeable:true},
+		{key:"assignedtoUserName1", label:"<%=Constant.getResourceStringValue("task.taskowner",user.getLocale())%>", resizeable:true}
+			
+           
+        ];
+
+
+
+
+
+    // Custom parser
+    var stringToDate = function(sData) {
+        var array = sData.split("-");
+        return new Date(array[1] + " " + array[0] + ", " + array[2]);
+    };
+    
+    // DataSource instance
+    var myDataSource = new YAHOO.util.DataSource("jsp/task/mypendingtaskslistpage.jsp?searchpagedisplay=<%=searchpagedisplay%>&tasktype=<%=aform.getTasktype()%>&assignedbyUserId=<%=aform.getAssignedbyUserId()%>&ddd="+(new Date).getTime()+"&");
+    myDataSource.responseType = YAHOO.util.DataSource.TYPE_JSON;
+    myDataSource.responseSchema = {
+        resultsList: "records",
+        fields: [
+			{key:"taskId"},
+            {key:"idvalue"},
+            {key:"tasktype"},
+            {key:"assignedbyUserName"},
+			{key:"assignedtoUserName"},
+			{key:"assignedtoUserName1"},
+			{key:"createdDate"},
+		{key:"updatedBy"},
+		{key:"updatedDate"},
+		{key:"status"},
+			{key:"taskname"},
+			{key:"eventdate"},
+			{key:"uuid"}
+			
+			
+        ],
+        metaFields: {
+            totalRecords: "totalRecords" // Access to value in the server response
+        }
+    };
+    
+    // DataTable configuration
+    var myConfigs = {
+        initialRequest: "sort=taskId&dir=desc&startIndex=0&results=15", // Initial request for first page of data
+        dynamicData: true, // Enables dynamic server-driven data
+        sortedBy : {key:"taskId", dir:YAHOO.widget.DataTable.CLASS_DESC}, // Sets UI initial sort arrow
+        paginator: new YAHOO.widget.Paginator({ rowsPerPage:15 }) // Enables pagination 
+    };
+    
+    // DataTable instance
+    var myDataTable = new YAHOO.widget.DataTable("dynamicdatamypendingtask1", myColumnDefs, myDataSource, myConfigs);
+    // Update totalRecords on the fly with value from server
+    myDataTable.handleDataReturnPayload = function(oRequest, oResponse, oPayload) {
+        oPayload.totalRecords = oResponse.meta.totalRecords;
+        return oPayload;
+    };
+
+
+
+
+	var clickHandler = function() {
+					var target = myContextMenu.contextEventTarget,
+						record = myDataTable.getRecord(target),
+						column = myDataTable.getColumn(target);
+					taskaction(record.getData('idvalue'),record.getData('uuid'),record.getData('tasktype'),this.cfg.getProperty('classname'));
+						//alert(target);
+					/*alert(
+						'Clicked on menu "' + this.cfg.getProperty('classname') +
+				'" in column "' + column.key +
+				'" for SKU "' + record.getData('idvalue') + '"'
+
+					);*/
+				};
+       
+	 var myContextMenu = new YAHOO.widget.ContextMenu("mycontextmenu",
+                {trigger:myDataTable.getTbodyEl()});
+	 myContextMenu.render("dynamicdatamypendingtask1");
+
+       myContextMenu.beforeShowEvent.subscribe(function(type, aArgs, dt) {
+					var target = this.contextEventTarget,
+						record = dt.getRecord(target),
+						column = dt.getColumn(target);
+					while (this.removeItem(0)) {}
+					
+						if(record.getData("tasktype") == '<%=Common.OFFER_APPROVAL_TASK%>'){			
+					    this.addItem({text:'Approve Offer',classname:'approve',onclick:{fn:clickHandler}});
+						this.addItem({text:'Reject Offer',classname:'reject',onclick:{fn:clickHandler}});
+						//this.clickEvent.subscribe(onContextMenuClick, myDataTable);
+						}else if(record.getData("tasktype") == '<%=Common.OFFER_RELEASE_TASK%>'){			
+					    this.addItem({text:'Release Offer',classname:'releaseoffer',onclick:{fn:clickHandler}});
+						
+						}else if(record.getData("tasktype") == '<%=Common.APPLICANT_REVIEW_TASK%>'){			
+					    this.addItem({text:'Add feedback',classname:'addfeedback',onclick:{fn:clickHandler}});
+						this.addItem({text:'Re-assign',classname:'reassign',onclick:{fn:clickHandler}});
+						this.addItem({text:'Decline',classname:'decline',onclick:{fn:clickHandler}});
+
+						}else if(record.getData("tasktype") == '<%=Common.APPLICANT_INTERVIEW_TASK%>'){			
+					    this.addItem({text:'Add feedback',classname:'addfeedback',onclick:{fn:clickHandler}});
+						this.addItem({text:'Re-assign',classname:'reassign',onclick:{fn:clickHandler}});
+						this.addItem({text:'Decline',classname:'decline',onclick:{fn:clickHandler}});
+
+						}else if(record.getData("tasktype") == '<%=Common.APPLICANT_IN_QUEUE%>'){
+							
+					    this.addItem({text:'Schedule interview',classname:'scheduleinterview',onclick:{fn:clickHandler}});
+						this.addItem({text:'Initiate offer',classname:'initiateoffer',onclick:{fn:clickHandler}});
+						
+						}else if(record.getData("tasktype") == '<%=Common.REQUISTION_APPROVAL_TASK%>'){			
+					    this.addItem({text:'Approve',classname:'approve',onclick:{fn:clickHandler}});
+						this.addItem({text:'Reject',classname:'reject',onclick:{fn:clickHandler}});
+						//this.addItem({text:'Re-assign',classname:'reassign',onclick:{fn:clickHandler}});
+
+						}else if(record.getData("tasktype") == '<%=Common.REQUISTION_PUBLISH_TASK%>'){			
+					    this.addItem({text:'Publish',classname:'publish',onclick:{fn:clickHandler}});
+						
+						}else if(record.getData("tasktype") == '<%=Common.ONBOARDING_TASK%>'){			
+					    this.addItem({text:'On-boarding',classname:'onboarding',onclick:{fn:clickHandler}});
+						
+						}else{
+						this.addItem("Under construction");
+						//this.clickEvent.subscribe(onContextMenuClick, myDataTable);
+						}
+						//this.addItems(menu);
+						//this.setHeader(column.label || column.key);
+						//this.setFooter(record.getData('jobreqName'));
+						this.render();
+					 
+				},myDataTable);
+
+
+					
+
+
+
+
+    
+    return {
+        ds: myDataSource,
+        dt: myDataTable
+    };
+        
+}();
+</script>
+
+
+
+</div>
+
+<!--END SOURCE CODE FOR EXAMPLE =============================== -->

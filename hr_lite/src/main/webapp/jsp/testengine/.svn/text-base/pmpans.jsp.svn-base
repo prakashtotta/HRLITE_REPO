@@ -1,0 +1,189 @@
+<%@ include file="../common/include.jsp" %>
+<%@ page import="java.util.*"%>
+<%@ page import="com.bean.*"%>
+<%@ page import="com.bean.testengine.*"%>
+<%@ page import="com.bo.*"%>
+<%@ page import="com.dao.*"%>
+<%@ page import="com.test.*"%>
+<%@ page import="com.util.*"%>
+
+<title>Exam result</title>
+
+<%
+User user1 = (User)request.getSession().getAttribute(Common.USER_DATA);
+
+
+
+String testid = (String)request.getParameter("testid");
+String applicantid = (String)request.getParameter("applicantid");
+String uuid = (String)request.getParameter("uuid");
+
+MockTest mocktest = BOFactory.getMockTestBO().getMockTestByTestDetails(testid,applicantid,uuid);
+
+
+
+if(mocktest != null){
+	List answersList = BOFactory.getMockTestBO().getAllMockTestResult(new Long(testid).longValue());
+%>
+<fieldset>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" height="40px">
+  <tr>
+  <td width="10%"></td><td><%=Constant.getResourceStringValue("aquisition.applicant.APPLICANT_NAME",user1.getLocale())%> : <%=mocktest.getApplicantName()%></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+  </tr>
+  
+
+
+<tr>
+<td width="10%"></td>
+<td>Exam name</td><td>Assigned by</td><td>Assigned on</td><td>Exam started on</td><td>Exam finished on</td><td>Percentage</td>
+<td>Passing score</td><td>Result</td>
+</tr>
+
+
+<tr>
+<td width="10%"></td>
+<td>
+<%=mocktest.getCat().getName()%>
+
+</td><td><%=mocktest.getCreatedBy()%></td><td><%=DateUtil.convertSourceToTargetTimezone(mocktest.getCreatedDate(), user1.getTimezone().getTimezoneCode(), user1.getLocale())%></td><td><%=DateUtil.convertSourceToTargetTimezone(mocktest.getStartTime(), user1.getTimezone().getTimezoneCode(), user1.getLocale())%></td><td><%=DateUtil.convertSourceToTargetTimezone(mocktest.getEndTime(), user1.getTimezone().getTimezoneCode(), user1.getLocale())%></td>
+<td>
+<% if(mocktest.getEndTime() != null){ %>
+<%=mocktest.getPercentage()%>
+<%}%>
+</td>
+<td><%=mocktest.getPassPercentage()%></td><td><%=mocktest.getResult()%></td>
+</tr>
+
+
+</table>
+
+</fieldset>
+
+<% if(answersList.size()>0){%>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" height="40px">
+  <tr><td width="10%"></td>
+  <td>
+<%
+ for(int i=0;i<answersList.size();i++){
+    MockTestResult mockresult = (MockTestResult)answersList.get(i);
+   MockTestQuestion mockTestQuestion = BOFactory.getMockTestBO().getMockQuestionById(mockresult.getMockQuestionId());
+   int select = mockresult.getAnsNo();
+   
+   String bcolor = "#C4D9EC";
+   if(mockresult.getIsCorrect()==1){
+	   bcolor= "green";
+   }else{
+	   bcolor= "#FF3333";
+   }
+   
+   if(mockresult.getAnsNo()==0){
+	   bcolor= "#C4D9EC";
+   }
+   
+%>
+
+<table>
+
+<tr bgcolor="<%=bcolor%>">
+		<td bordercolor="#C4D9EC" class=bodytext  width="900" valign="top">Question : <%=i+1%><br> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getQuestion())%>
+		<br></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="34" width="900">1.&nbsp;&nbsp;<input type="radio" name="group<%=i%>" value="1" <%=(select==1)?"checked":""%>>  <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns1())%></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="35" width="900">2.&nbsp;&nbsp;<input type="radio" name="group<%=i%>" value="2" <%=(select==2)?"checked":""%>> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns2())%></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="33" width="900">3.&nbsp;&nbsp;<input type="radio" name="group<%=i%>" value="3" <%=(select==3)?"checked":""%>> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns3())%></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="26" width="900">4.&nbsp;&nbsp;<input type="radio" name="group<%=i%>"  value="4"<%=(select==4)?"checked":""%>> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns4())%></td>
+	</tr>
+
+<tr bgcolor="#C4D9EC">
+		<td bordercolor="#C4D9EC" class=bodytext  width="900" valign="top">
+		Correct Answer is : <%=mockTestQuestion.getCorrect()%><br>
+		 <br> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getDesc())%>
+		<br></td>
+	</tr>
+</table>
+<%}%>
+
+
+  
+
+
+	
+
+</td>
+	</tr>
+	</table>
+
+
+<%}else{%>
+<%
+	
+List questionsList =  BOFactory.getMockTestBO().getAllMockQuestionByCatId(mocktest.getCat().getCatId());
+
+%>
+<% if(questionsList.size()>0){%>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" height="40px">
+  <tr><td width="10%"></td>
+  <td>
+<%
+ for(int i=0;i<questionsList.size();i++){
+    MockTestQuestion mockTestQuestion = (MockTestQuestion)questionsList.get(i);
+  
+   
+  
+   
+%>
+
+<table>
+
+<tr bgcolor="#C4D9EC">
+		<td bordercolor="#C4D9EC" class=bodytext  width="900" valign="top">Question : <%=i+1%><br> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getQuestion())%>
+		<br></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="34" width="900">1.&nbsp;&nbsp;<input type="radio" name="group<%=i%>" value="1" >  <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns1())%></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="35" width="900">2.&nbsp;&nbsp;<input type="radio" name="group<%=i%>" value="2" > <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns2())%></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="33" width="900">3.&nbsp;&nbsp;<input type="radio" name="group<%=i%>" value="3" > <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns3())%></td>
+	</tr>
+	<tr bgcolor="#89B8DF">
+		<td bordercolor="#C4D9EC" class=bodytext height="26" width="900">4.&nbsp;&nbsp;<input type="radio" name="group<%=i%>"  value="4"> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getAns4())%></td>
+	</tr>
+
+<tr bgcolor="#C4D9EC">
+		<td bordercolor="#C4D9EC" class=bodytext  width="900" valign="top">
+		Correct Answer is : <%=mockTestQuestion.getCorrect()%><br>
+		 <br> <%=StringUtils.doSpecialCharacters(mockTestQuestion.getDesc())%>
+		<br></td>
+	</tr>
+</table>
+<%}%>
+
+
+  
+
+
+	
+
+</td>
+	</tr>
+	</table>
+
+
+<%}%>
+
+<%}%>
+<%}else{%>
+Exam deleted (Recalled) 
+<%}%>

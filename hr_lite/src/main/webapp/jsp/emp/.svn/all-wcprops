@@ -1,0 +1,311 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/csolutions/!svn/ver/3607/trunk/hr_lite/jsp/emp
+END
+addUserSalaryComponent.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserSalaryComponent.jsp
+END
+vendorList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/emp/vendorList.jsp
+END
+addUserEducationDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserEducationDetails.jsp
+END
+editReportTodetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/editReportTodetails.jsp
+END
+editmyuser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/editmyuser.jsp
+END
+uploadPhoto.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/uploadPhoto.jsp
+END
+userDependentsdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/userDependentsdetails.jsp
+END
+emergencycontactdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/emergencycontactdetails.jsp
+END
+assignedtouserselector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/assignedtouserselector.jsp
+END
+editContact.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/editContact.jsp
+END
+uploadEmployeeBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3389/trunk/hr_lite/jsp/emp/uploadEmployeeBody.jsp
+END
+watchlistselector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/emp/watchlistselector.jsp
+END
+recruiterselector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/recruiterselector.jsp
+END
+userHomeBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/emp/userHomeBody.jsp
+END
+addUserExperienceDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserExperienceDetails.jsp
+END
+onboardTaskUserSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/onboardTaskUserSelector.jsp
+END
+vendorListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3379/trunk/hr_lite/jsp/emp/vendorListBody.jsp
+END
+changepassword.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3446/trunk/hr_lite/jsp/emp/changepassword.jsp
+END
+addUserMembershipDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserMembershipDetails.jsp
+END
+addUserSkills.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserSkills.jsp
+END
+addUserImigration.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserImigration.jsp
+END
+userProfileBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/userProfileBody.jsp
+END
+userselector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/userselector.jsp
+END
+userJobdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/userJobdetails.jsp
+END
+createVendor.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/createVendor.jsp
+END
+userImmigrationdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/userImmigrationdetails.jsp
+END
+edituserjobdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/edituserjobdetails.jsp
+END
+userListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3460/trunk/hr_lite/jsp/emp/userListBody.jsp
+END
+vendorlistselector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/vendorlistselector.jsp
+END
+myDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/csolutions/!svn/ver/3181/trunk/hr_lite/jsp/emp/myDetails.jsp
+END
+userExperienceDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/userExperienceDetails.jsp
+END
+userQualificationDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/userQualificationDetails.jsp
+END
+approverselector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/emp/approverselector.jsp
+END
+userSalarydetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/userSalarydetails.jsp
+END
+userMembershipDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/userMembershipDetails.jsp
+END
+addUserLicenseDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserLicenseDetails.jsp
+END
+contactdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/contactdetails.jsp
+END
+addUserdependents.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserdependents.jsp
+END
+createUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/createUser.jsp
+END
+addEmergencyContact.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addEmergencyContact.jsp
+END
+userGroupListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/emp/userGroupListBody.jsp
+END
+assignusernamepassword.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3559/trunk/hr_lite/jsp/emp/assignusernamepassword.jsp
+END
+userlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3460/trunk/hr_lite/jsp/emp/userlistpage.jsp
+END
+success.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/success.jsp
+END
+myDetailsBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/emp/myDetailsBody.jsp
+END
+editmyvendor.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/editmyvendor.jsp
+END
+addUserLanguages.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/emp/addUserLanguages.jsp
+END
+createusergroup.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/emp/createusergroup.jsp
+END
+userQualificationsDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/emp/userQualificationsDetails.jsp
+END
+vendorlistselectorpublish.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3607/trunk/hr_lite/jsp/emp/vendorlistselectorpublish.jsp
+END
+userReportTodetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/emp/userReportTodetails.jsp
+END

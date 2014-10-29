@@ -1,0 +1,107 @@
+perms=email%2Cuser_location%2Cuser_work_history%2Cuser_education_history%2Cfriends_location%2Cfriends_work_history%2Cfriends_education_history%2Cpublish_actions&amp;fbconnect=1&amp;_fb_noscript=1
+
+
+
+App ID: 
+
+395990430460186
+
+
+
+App Secret: 
+
+b3df098fb204ec616c04c4b3b58ed71e(reset) 
+
+
+
+id=1519351904
+name=Artonline Home
+first_name=Artonline
+last_name=Home
+link=http://www.facebook.com/artonline.home
+username=artonline.home
+hometown=[object Object]
+location=[object Object]
+bio=I am good
+work=[object Object],[object Object]
+education=[object Object],[object Object],[object Object],[object Object]
+gender=male
+email=artonlinehome@gmail.com
+timezone=5.5
+locale=en_US
+languages=[object Object]
+verified=true
+updated_time=2012-07-25T15:18:14+0000
+0=HappyTeamMate.com
+0=156137597855137
+1=Chiteswar Solutions
+1=465910630093524
+0=Parulia High School
+0=129475077093343
+0=High School
+1=National Institute of Technology,Karnataka
+1=115169361830978
+1=Graduate School
+2=National Institute of Technology,Karnataka
+2=115169361830978
+2=Graduate School
+3=STJIT
+3=102097266498160
+3=Graduate School
+id=Pune, Maharashtra
+name=Pune, Maharashtra
+
+
+http://developers.facebook.com/docs/reference/api/user/
+http://developers.facebook.com/docs/reference/fql/user/
+
+https://api.facebook.com/method/fql.query?query=SELECT name,work,current_location FROM user WHERE uid=1519351904&access_token=AAAFoJrTxKRoBACNrHqP5ZCkZB89MZADbqTAoYhZBYDOIrkLrbotHB0rcxDIwjPBV0U5pT9hAkuJ21iui2RatrKk8RSTJ6asHgoIo4uCzazMvPdyvg7ZA9
+
+https://api.facebook.com/method/fql.query?query=SELECT name,email,work,education,current_location FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1 = 100001445034987)&access_token=AAAFoJrTxKRoBAKzuhZAbsrWROpz0AZBZAqkOMU7wS4NeFXqvoXljW3eDqcRQlie6ZAdPw70mVrYx8ybWzAFcz9sbZCWS5nDg9OUUvCIgxOhvmddtBeh6M
+
+DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance(); 
+DocumentBuilder db = dbf.newDocumentBuilder(); 
+Document doc = db.parse(in); 
+
+
+public void refreshLikesSharesClicksAndTotal() throws JDOMException, IOException { 
+        URL fqlURL = new URL("https://api.facebook.com/method/fql.query?query=select%20like_count,%20total_count,%20share_count,%20click_count%20from%20link_stat%20where%20url=%22http://heise.de%22"); 
+        URLConnection openConnection = fqlURL.openConnection();      
+        String contentType = openConnection.getContentType(); 
+        Document inputXML = new SAXBuilder().build(fqlURL); 
+        DocType docType = new DocType("xml", "http://www.w3.org/2001/XMLSchema-instance"); 
+        inputXML.setDocType(docType); 
+        Element root = inputXML.getRootElement(); 
+ 
+        Element fqlResponse = root.getChild("link_stat", root.getNamespace()); 
+        Element likes = fqlResponse.getChild("like_count", root.getNamespace()); 
+        Element shares = fqlResponse.getChild("share_count", root.getNamespace()); 
+        Element clicks = fqlResponse.getChild("click_count", root.getNamespace()); 
+        Element total = fqlResponse.getChild("total_count", root.getNamespace()); 
+ 
+        int alikes = Integer.parseInt(likes.getText()); 
+        int ashares = Integer.parseInt(shares.getText()); 
+        int aclicks = Integer.parseInt(clicks.getText()); 
+        int atotal = Integer.parseInt(total.getText()); 
+ 
+    } 
+
+https://developers.facebook.com/docs/reference/dialogs/requests/
+
+function sendRequestToRecipients() {
+  FB.ui({method: 'apprequests',
+    message: 'My Great Request',
+    to: '499802820,499802852'
+  }, requestCallback);
+}
+
+
+
+http://webdesign.about.com/od/examples/l/ztab1.htm
+
+http://youhack.me/2010/05/14/an-alternative-to-pagination-facebook-and-twitter-style/
+
+
+post to friends wall
+http://stackoverflow.com/questions/5845837/posting-to-friends-wall-using-facebook-javascript-sdk
+http://stackoverflow.com/questions/9458916/using-facebook-javascript-sdk-to-post-to-users-friends-wall-getting-valid-re

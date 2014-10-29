@@ -1,0 +1,128 @@
+#main {
+	border: 1px solid #666;
+	clear: both;
+	background: white;
+	padding-top: 0em;
+
+}
+#contents {
+	padding: 1.5em;
+	background: white;
+	min-height: 400px;
+}
+
+#header {
+	position: relative;
+	width: 100%;
+	height: 3em;
+	width: 35em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
+}
+
+#header ul#primary {
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: -1px;
+	width: 45em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
+}
+
+#header ul#primary li  {
+	display: inline;
+	list-style: none;
+
+}
+
+#header ul#primary a,#header ul#primary span,#header ul#primary a.current {
+	 border-top: 1px solid #96d1f8;
+   background: #3B5999;
+   padding: 5px 10px;
+   border-radius: 8px;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ccc;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   
+}
+
+#header ul#primary span,#header ul#primary a.current,#header ul#primary a.current:hover {
+	 border-top: 1px solid #96d1f8;
+   background: #3B5999;
+   padding: 5px 10px;
+   border-radius: 8px;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ccc;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+
+#header ul#primary a {
+	 border-top: 1px solid #96d1f8;
+   background: #7f93bc;
+   padding: 5px 10px;
+   -webkit-border-radius: 4px;
+   -moz-border-radius: 4px;
+   border-radius: 4px;
+   text-shadow: rgba(0,0,0,0) 0 0px 0;
+   color: white;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#header ul#primary a:hover {
+	 border-top: 1px solid #96d1f8;
+   background: #3B5999;
+   padding: 5px 10px;
+   border-radius: 8px;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: #ccc;
+   font-size: 14px;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+#header ul#secondary {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	bottom: -1.4em;
+	left: 1px;
+	width: 50em; /* a width is required for Opera, older Mozilla browsers, and Konqueror browsers */
+}
+
+#header ul#secondary li a,#header ul#secondary li span {
+	width: auto;
+	display: block;
+	float: left;
+	padding: 0 10px;
+	margin: 0;
+	text-align: auto;
+	border: none;
+	border-right: 1px dotted #AAA;
+	background: none;
+
+}
+
+#header ul#secondary li a {
+	color: #06C;
+	text-decoration: underline;
+}
+
+#header ul#secondary li a:hover {
+	color: #333;
+	background: transparent;
+	padding: 0 10px;
+	border: none;
+	border-right: 1px dotted #AAA;
+}
+
+#header ul#secondary li a:active {
+	color: #000;
+	background: transparent;
+}
+
+#header ul#secondary li:last-child a { border: none; }

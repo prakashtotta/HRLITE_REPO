@@ -1,0 +1,1397 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/csolutions/!svn/ver/3621/trunk/hr_lite/jsp/talent
+END
+jobtypeListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobtypeListBody.jsp
+END
+certificationdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3446/trunk/hr_lite/jsp/talent/certificationdetails.jsp
+END
+createEthnicRace.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createEthnicRace.jsp
+END
+membershipTypesListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/membershipTypesListBody.jsp
+END
+applicantdetailscommon.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/applicantdetailscommon.jsp
+END
+questionsSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/questionsSelector.jsp
+END
+add_text.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/add_text.jsp
+END
+createLocation.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createLocation.jsp
+END
+declinedResonsList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3192/trunk/hr_lite/jsp/talent/declinedResonsList.jsp
+END
+resigned.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/resigned.jsp
+END
+createRefferalBudgetCode.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createRefferalBudgetCode.jsp
+END
+exportApplicants.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/exportApplicants.jsp
+END
+customvariableApplicantSearch.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/customvariableApplicantSearch.jsp
+END
+OnBoardingTaskDefilistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/OnBoardingTaskDefilistBody.jsp
+END
+reassignInterview.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3441/trunk/hr_lite/jsp/talent/reassignInterview.jsp
+END
+createProjectCodes.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createProjectCodes.jsp
+END
+declinetofferOnBehalf.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3441/trunk/hr_lite/jsp/talent/declinetofferOnBehalf.jsp
+END
+souceSubsource.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3425/trunk/hr_lite/jsp/talent/souceSubsource.jsp
+END
+questionareapplicantBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/questionareapplicantBody.jsp
+END
+departmentlistforjobreq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/departmentlistforjobreq.jsp
+END
+searchapplicantbyvendor.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csolutions/!svn/ver/3457/trunk/hr_lite/jsp/talent/searchapplicantbyvendor.jsp
+END
+emailtempltelistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/emailtempltelistpage.jsp
+END
+searchownapplicantlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/searchownapplicantlistpage.jsp
+END
+acceptofferOnBehalf.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3621/trunk/hr_lite/jsp/talent/acceptofferOnBehalf.jsp
+END
+createJobRequistion.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3588/trunk/hr_lite/jsp/talent/createJobRequistion.jsp
+END
+publishJobReqscr.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3554/trunk/hr_lite/jsp/talent/publishJobReqscr.jsp
+END
+saveSearch.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/saveSearch.jsp
+END
+onboard.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/onboard.jsp
+END
+addeducation.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/addeducation.jsp
+END
+reqtmplSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/reqtmplSelector.jsp
+END
+createRole.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createRole.jsp
+END
+customvariableReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/customvariableReq.jsp
+END
+educationBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/educationBody.jsp
+END
+applicantofferdetailsnologin.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/csolutions/!svn/ver/3196/trunk/hr_lite/jsp/talent/applicantofferdetailsnologin.jsp
+END
+workExperience.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3607/trunk/hr_lite/jsp/talent/workExperience.jsp
+END
+requistionReqTree.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3317/trunk/hr_lite/jsp/talent/requistionReqTree.jsp
+END
+assignQuestionnaireScreen.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/assignQuestionnaireScreen.jsp
+END
+createApplicantJS.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3245/trunk/hr_lite/jsp/talent/createApplicantJS.jsp
+END
+createApplicantForApplicantPool.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/csolutions/!svn/ver/3621/trunk/hr_lite/jsp/talent/createApplicantForApplicantPool.jsp
+END
+ethnicracelist.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/ethnicracelist.jsp
+END
+projectcodelistbyOrgfortemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/csolutions/!svn/ver/3221/trunk/hr_lite/jsp/talent/projectcodelistbyOrgfortemplate.jsp
+END
+searchapplicantbyvendorlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/searchapplicantbyvendorlistpage.jsp
+END
+createWorkShift.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createWorkShift.jsp
+END
+commentListReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3372/trunk/hr_lite/jsp/talent/commentListReq.jsp
+END
+applicantbutton.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/applicantbutton.jsp
+END
+budgetcodelistbyOrgfortemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/csolutions/!svn/ver/3221/trunk/hr_lite/jsp/talent/budgetcodelistbyOrgfortemplate.jsp
+END
+requistionReqTreeBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3317/trunk/hr_lite/jsp/talent/requistionReqTreeBody.jsp
+END
+AddMessageBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/AddMessageBody.jsp
+END
+filtersReqTmpl.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/filtersReqTmpl.jsp
+END
+createTechnicalSkill.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createTechnicalSkill.jsp
+END
+treejobrequisitionlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/treejobrequisitionlistpage.jsp
+END
+licensetypelist.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/licensetypelist.jsp
+END
+languageslistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/languageslistBody.jsp
+END
+questionListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/questionListBody.jsp
+END
+educationdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3446/trunk/hr_lite/jsp/talent/educationdetails.jsp
+END
+questionsGroupListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/questionsGroupListBody.jsp
+END
+createTags.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3494/trunk/hr_lite/jsp/talent/createTags.jsp
+END
+jobCategoryListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobCategoryListBody.jsp
+END
+catagoryListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/catagoryListBody.jsp
+END
+applicantsbyvendorBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/applicantsbyvendorBody.jsp
+END
+tagListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3457/trunk/hr_lite/jsp/talent/tagListBody.jsp
+END
+jobrequisitionsearchlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/jobrequisitionsearchlistpage.jsp
+END
+recallcomment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/recallcomment.jsp
+END
+jobGradeListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobGradeListBody.jsp
+END
+salaryList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/salaryList.jsp
+END
+questionnaireDetailspage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/questionnaireDetailspage.jsp
+END
+requisitionSummary.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3523/trunk/hr_lite/jsp/talent/requisitionSummary.jsp
+END
+declinedresonsListPage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3192/trunk/hr_lite/jsp/talent/declinedresonsListPage.jsp
+END
+myjobrequisitionlistpageRecruiter.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/myjobrequisitionlistpageRecruiter.jsp
+END
+createJobCategory.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createJobCategory.jsp
+END
+licensetypelistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3167/trunk/hr_lite/jsp/talent/licensetypelistBody.jsp
+END
+evaluationTab.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/evaluationTab.jsp
+END
+createApplicantCommonFields.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/csolutions/!svn/ver/3422/trunk/hr_lite/jsp/talent/createApplicantCommonFields.jsp
+END
+createRefferalScheme.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createRefferalScheme.jsp
+END
+publishInfoDetailsReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/publishInfoDetailsReq.jsp
+END
+createSystemRule.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3608/trunk/hr_lite/jsp/talent/createSystemRule.jsp
+END
+createChar.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createChar.jsp
+END
+offerApprovercomment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/offerApprovercomment.jsp
+END
+ronboard.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/ronboard.jsp
+END
+tagapplicant.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/tagapplicant.jsp
+END
+offeredApplicantsForReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csolutions/!svn/ver/3372/trunk/hr_lite/jsp/talent/offeredApplicantsForReq.jsp
+END
+createSelection.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/createSelection.jsp
+END
+projectCodeListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/projectCodeListBody.jsp
+END
+workshiftlist.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/workshiftlist.jsp
+END
+requistionExpenses.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3372/trunk/hr_lite/jsp/talent/requistionExpenses.jsp
+END
+budgetCodeListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/budgetCodeListBody.jsp
+END
+createSalary.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createSalary.jsp
+END
+initiateApprovalscr.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/initiateApprovalscr.jsp
+END
+questiongroupSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/questiongroupSelector.jsp
+END
+startrefcheck.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/startrefcheck.jsp
+END
+workshiftlistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/workshiftlistBody.jsp
+END
+createAccomplishment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createAccomplishment.jsp
+END
+addLicenseType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/addLicenseType.jsp
+END
+offermodificationrequestOnBehalf.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/offermodificationrequestOnBehalf.jsp
+END
+deletioncommentbulk.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/deletioncommentbulk.jsp
+END
+treeRecruiterJobrequisitionlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/treeRecruiterJobrequisitionlistpage.jsp
+END
+addEducationLov.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/addEducationLov.jsp
+END
+searchreqlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/searchreqlistpage.jsp
+END
+offerdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3221/trunk/hr_lite/jsp/talent/offerdetails.jsp
+END
+createQuestionGroup.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/createQuestionGroup.jsp
+END
+initiateApproval.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/initiateApproval.jsp
+END
+applicantBulkUploadBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/applicantBulkUploadBody.jsp
+END
+interviewlog.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/interviewlog.jsp
+END
+createGroupChar.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createGroupChar.jsp
+END
+createApplicant1.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createApplicant1.jsp
+END
+locationListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/locationListBody.jsp
+END
+customvariableReqTmpl.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3372/trunk/hr_lite/jsp/talent/customvariableReqTmpl.jsp
+END
+applicantTreeRightSideTab.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/applicantTreeRightSideTab.jsp
+END
+refferalBudgetCodeListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/refferalBudgetCodeListBody.jsp
+END
+myjobreqListBodyRecruiter.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/myjobreqListBodyRecruiter.jsp
+END
+orgtreejobrequisitionlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/orgtreejobrequisitionlistpage.jsp
+END
+questionsGroupDetailsBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/questionsGroupDetailsBody.jsp
+END
+createOrganizationEmailTemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createOrganizationEmailTemplate.jsp
+END
+showOrgEmailTemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/showOrgEmailTemplate.jsp
+END
+jobdetailsBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobdetailsBody.jsp
+END
+applicantDetailsBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3355/trunk/hr_lite/jsp/talent/applicantDetailsBody.jsp
+END
+applicantDetailsForCompare.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/csolutions/!svn/ver/3196/trunk/hr_lite/jsp/talent/applicantDetailsForCompare.jsp
+END
+searchownapplicantlistpageRecruiter.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/searchownapplicantlistpageRecruiter.jsp
+END
+assignExamQuestionaireToReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/assignExamQuestionaireToReq.jsp
+END
+applicantScreenCollapsableDivs.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/applicantScreenCollapsableDivs.jsp
+END
+deptListMultiple.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/deptListMultiple.jsp
+END
+applicantlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/applicantlistpage.jsp
+END
+resumesources.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3167/trunk/hr_lite/jsp/talent/resumesources.jsp
+END
+applicantDetailsPopup.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3196/trunk/hr_lite/jsp/talent/applicantDetailsPopup.jsp
+END
+competenciesHomeBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3342/trunk/hr_lite/jsp/talent/competenciesHomeBody.jsp
+END
+organizationemailfunctionmappingNew.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/organizationemailfunctionmappingNew.jsp
+END
+addskills.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/addskills.jsp
+END
+roleListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3452/trunk/hr_lite/jsp/talent/roleListBody.jsp
+END
+declinedResonsListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/declinedResonsListBody.jsp
+END
+searchownapplicantinitRecruiterBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/searchownapplicantinitRecruiterBody.jsp
+END
+refferalHomeBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3342/trunk/hr_lite/jsp/talent/refferalHomeBody.jsp
+END
+designationListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/designationListBody.jsp
+END
+offerattachmentdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/offerattachmentdetails.jsp
+END
+questionshomebody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3342/trunk/hr_lite/jsp/talent/questionshomebody.jsp
+END
+questionSelectForQuestionGroup.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/questionSelectForQuestionGroup.jsp
+END
+interviewercomment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3441/trunk/hr_lite/jsp/talent/interviewercomment.jsp
+END
+jobRequisitionListOwnOrgListpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/jobRequisitionListOwnOrgListpage.jsp
+END
+createDesignation.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createDesignation.jsp
+END
+evaluationcriteria.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/evaluationcriteria.jsp
+END
+tagsList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/tagsList.jsp
+END
+editquestiongroupnamedesc.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3513/trunk/hr_lite/jsp/talent/editquestiongroupnamedesc.jsp
+END
+addLanguage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/addLanguage.jsp
+END
+jobRequisitionListOwnOrg.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3202/trunk/hr_lite/jsp/talent/jobRequisitionListOwnOrg.jsp
+END
+requisitionReqTreeByState.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/requisitionReqTreeByState.jsp
+END
+questionare.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/questionare.jsp
+END
+test2.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/csolutions/!svn/ver/3424/trunk/hr_lite/jsp/talent/test2.jsp
+END
+releaseoffer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/releaseoffer.jsp
+END
+watchList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/csolutions/!svn/ver/3559/trunk/hr_lite/jsp/talent/watchList.jsp
+END
+requistionApprovercomment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/requistionApprovercomment.jsp
+END
+systemrulelistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/systemrulelistpage.jsp
+END
+canceloffer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/canceloffer.jsp
+END
+emailnotificationsettingpageBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/emailnotificationsettingpageBody.jsp
+END
+applicantofferdetailsnologinBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/csolutions/!svn/ver/3196/trunk/hr_lite/jsp/talent/applicantofferdetailsnologinBody.jsp
+END
+createEmailtemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/createEmailtemplate.jsp
+END
+jobGradeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/jobGradeList.jsp
+END
+myapprovaljobrequisitionlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/myapprovaljobrequisitionlistpage.jsp
+END
+createRound.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/createRound.jsp
+END
+jobRequisitionListOwnOrgBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobRequisitionListOwnOrgBody.jsp
+END
+ethnicracelistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/ethnicracelistBody.jsp
+END
+budgetcodelistforreq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/budgetcodelistforreq.jsp
+END
+systemRuleOrgListAjax.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/systemRuleOrgListAjax.jsp
+END
+searchownapplicantlistpageHiringMgr.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/searchownapplicantlistpageHiringMgr.jsp
+END
+refferalSchemeListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/refferalSchemeListBody.jsp
+END
+deletioncomment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3441/trunk/hr_lite/jsp/talent/deletioncomment.jsp
+END
+projectcodelistforjobreqbydepartment.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/projectcodelistforjobreqbydepartment.jsp
+END
+createRefferalRedemptionrule.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createRefferalRedemptionrule.jsp
+END
+editemailtemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/editemailtemplate.jsp
+END
+interviewSchedule.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3559/trunk/hr_lite/jsp/talent/interviewSchedule.jsp
+END
+technicalskillsBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/technicalskillsBody.jsp
+END
+createEvTmpl.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createEvTmpl.jsp
+END
+createQuestion.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createQuestion.jsp
+END
+createCatagory.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createCatagory.jsp
+END
+systemRuleOrgListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3610/trunk/hr_lite/jsp/talent/systemRuleOrgListBody.jsp
+END
+expDetailsInner.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3446/trunk/hr_lite/jsp/talent/expDetailsInner.jsp
+END
+jobtemplatelistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/jobtemplatelistpage.jsp
+END
+createApplicant.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/createApplicant.jsp
+END
+applicantsbyvendorBodyNew.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/csolutions/!svn/ver/3457/trunk/hr_lite/jsp/talent/applicantsbyvendorBodyNew.jsp
+END
+offermodificationrequest.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/offermodificationrequest.jsp
+END
+budgetCodeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/budgetCodeList.jsp
+END
+createJobGrade.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3607/trunk/hr_lite/jsp/talent/createJobGrade.jsp
+END
+jobGradeDetailsBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/jobGradeDetailsBody.jsp
+END
+createrefferalSchemeType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createrefferalSchemeType.jsp
+END
+stateListNologin.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3203/trunk/hr_lite/jsp/talent/stateListNologin.jsp
+END
+activityReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/activityReq.jsp
+END
+questionsGroupListSelector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/questionsGroupListSelector.jsp
+END
+salaryListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/salaryListBody.jsp
+END
+searchownapplicantListHiringMgrBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/searchownapplicantListHiringMgrBody.jsp
+END
+projectcodelistforjobreq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/projectcodelistforjobreq.jsp
+END
+interviewScheduleBulk.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3559/trunk/hr_lite/jsp/talent/interviewScheduleBulk.jsp
+END
+createQuestionforQuestiongroup.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/createQuestionforQuestiongroup.jsp
+END
+requisitionselector.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/requisitionselector.jsp
+END
+customvariableReqSearch.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/customvariableReqSearch.jsp
+END
+applicantDetailsBodytree.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/applicantDetailsBodytree.jsp
+END
+jobTemplateListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobTemplateListBody.jsp
+END
+filtersReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/filtersReq.jsp
+END
+geteducationdetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3266/trunk/hr_lite/jsp/talent/geteducationdetails.jsp
+END
+createMembershipType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createMembershipType.jsp
+END
+createReference.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/createReference.jsp
+END
+additionalDetailsajax.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/additionalDetailsajax.jsp
+END
+movetoreqtalentpool.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3479/trunk/hr_lite/jsp/talent/movetoreqtalentpool.jsp
+END
+skilldetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3446/trunk/hr_lite/jsp/talent/skilldetails.jsp
+END
+myJobRequisitionListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/myJobRequisitionListBody.jsp
+END
+charlistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/charlistBody.jsp
+END
+activityList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3196/trunk/hr_lite/jsp/talent/activityList.jsp
+END
+initiateoffer.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/initiateoffer.jsp
+END
+undodelete.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/undodelete.jsp
+END
+createBudgetCode.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createBudgetCode.jsp
+END
+createJobCode.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createJobCode.jsp
+END
+createJobTemplate.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/createJobTemplate.jsp
+END
+budgetcodelistbyorganizationforjobreq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/budgetcodelistbyorganizationforjobreq.jsp
+END
+CreateOnboardTaskDefination.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/CreateOnboardTaskDefination.jsp
+END
+createApplicantforAgency.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/createApplicantforAgency.jsp
+END
+assignExamScreen.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/assignExamScreen.jsp
+END
+calListAjax.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/calListAjax.jsp
+END
+jobrequisitionlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/jobrequisitionlistpage.jsp
+END
+declineinterview.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3441/trunk/hr_lite/jsp/talent/declineinterview.jsp
+END
+createJobType.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createJobType.jsp
+END
+addquestionpageforgroup.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/csolutions/!svn/ver/3393/trunk/hr_lite/jsp/talent/addquestionpageforgroup.jsp
+END
+salaryPlanList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/csolutions/!svn/ver/3214/trunk/hr_lite/jsp/talent/salaryPlanList.jsp
+END
+jobRequisitionList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobRequisitionList.jsp
+END
+createUser.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/createUser.jsp
+END
+questiongroupsummary.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/questiongroupsummary.jsp
+END
+myjobrequisitionlistpage.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/csolutions/!svn/ver/3258/trunk/hr_lite/jsp/talent/myjobrequisitionlistpage.jsp
+END
+createJobReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/csolutions/!svn/ver/3561/trunk/hr_lite/jsp/talent/createJobReq.jsp
+END
+jobtypeList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/jobtypeList.jsp
+END
+membershipTypesList.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/csolutions/!svn/ver/3137/trunk/hr_lite/jsp/talent/membershipTypesList.jsp
+END
+addcertifications.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/csolutions/!svn/ver/3433/trunk/hr_lite/jsp/talent/addcertifications.jsp
+END
+accomplishmentlistBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/accomplishmentlistBody.jsp
+END
+jobRequisitionListBody.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/csolutions/!svn/ver/3415/trunk/hr_lite/jsp/talent/jobRequisitionListBody.jsp
+END
+applicantDetails.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/csolutions/!svn/ver/3435/trunk/hr_lite/jsp/talent/applicantDetails.jsp
+END
+attchmentsReq.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/csolutions/!svn/ver/3335/trunk/hr_lite/jsp/talent/attchmentsReq.jsp
+END
+createDeclineReasons.jsp
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/csolutions/!svn/ver/3436/trunk/hr_lite/jsp/talent/createDeclineReasons.jsp
+END

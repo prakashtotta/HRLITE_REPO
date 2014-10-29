@@ -1,0 +1,128 @@
+
+  A.squarebutton
+{
+    DISPLAY: block;
+    PADDING-LEFT: 8px;
+    FONT-SIZE: 13px;
+    BACKGROUND: url(http://media2.monsterindia.com/v2.1/orange_left.gif) no-repeat left top;
+    FLOAT: left;
+    WIDTH: auto;
+    HEIGHT: 22px;
+    TEXT-DECORATION: none
+}
+A.squarebutton:link
+{
+    COLOR: #fff
+}
+A.squarebutton:visited
+{
+    COLOR: #fff
+}
+A.squarebutton:active
+{
+    COLOR: #fff
+}
+A.squarebutton SPAN
+{
+    PADDING-RIGHT: 7px;
+    DISPLAY: block;
+    PADDING-LEFT: 0px;
+    BACKGROUND: url(http://media2.monsterindia.com/v2.1/orange_right.gif) no-repeat right top;
+    PADDING-BOTTOM: 7px;
+    COLOR: #fff;
+    PADDING-TOP: 2px
+}
+A.squarebutton TABLE
+{
+    PADDING-RIGHT: 7px;
+    DISPLAY: block;
+    PADDING-LEFT: 0px;
+    BACKGROUND: url(http://media2.monsterindia.com/v2.1/orange_right.gif) no-repeat right top;
+    PADDING-BOTTOM: 5px;
+    COLOR: #fff;
+    PADDING-TOP: 3px;
+    HEIGHT: 100%
+}
+A.squarebutton:hover
+{
+    BACKGROUND-POSITION: left -22px;
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+A.squarebutton:hover SPAN
+{
+    BACKGROUND-POSITION: right -22px;
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+A.squarebutton:hover TABLE
+{
+    BACKGROUND-POSITION: right -22px;
+    COLOR: #fff;
+    TEXT-DECORATION: none
+}
+.buttonwrapper
+{
+    OVERFLOW: hidden;
+    HEIGHT: 22px
+}
+.button
+{
+    PADDING-RIGHT: 2px;
+    DISPLAY: inline-block;
+    BACKGROUND: url(http://media2.monsterindia.com/v2.1/button1.gif) no-repeat right top;
+    CURSOR: pointer;
+    COLOR: #fff;
+    LINE-HEIGHT: 22px;
+    HEIGHT: 22px;
+    TEXT-DECORATION: none
+}
+SPAN.button
+{
+    VERTICAL-ALIGN: middle
+}
+.button SPAN
+{
+    DISPLAY: inline-block;
+    PADDING-LEFT: 2px;
+    BACKGROUND: url(http://media2.monsterindia.com/v2.1/button1.gif) no-repeat left top;
+    LINE-HEIGHT: 22px;
+    HEIGHT: 22px
+}
+.button SPAN SPAN
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    BACKGROUND: none transparent scroll repeat 0% 0%;
+    PADDING-BOTTOM: 0px;
+    PADDING-TOP: 0px
+}
+.button SPAN INPUT
+{
+    BORDER-RIGHT: 0px;
+    BORDER-TOP: 0px;
+    FONT-SIZE: 12px;
+    BACKGROUND: none transparent scroll repeat 0% 0%;
+    BORDER-LEFT: 0px;
+    CURSOR: pointer;
+    COLOR: #fff;
+    PADDING-TOP: 2px;
+    BORDER-BOTTOM: 0px
+}
+.button:hover
+{
+    BACKGROUND-POSITION: right -32px
+}
+.button:hover SPAN
+{
+    BACKGROUND-POSITION: left -32px
+}
+.button:active
+{
+    BACKGROUND-POSITION: right -64px
+}
+.button:active SPAN
+{
+    BACKGROUND-POSITION: left -64px
+}
+

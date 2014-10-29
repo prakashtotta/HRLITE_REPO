@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EEO" language="groovy" pageWidth="900" pageHeight="842" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.8264462809917362"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="191"/>
+	<subDataset name="Table Dataset 1">
+		<parameter name="Org_id" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Dept" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="Hiring_mgr" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="year" class="java.util.List">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="super_user_key" class="java.lang.Long">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[Select ad.other_app_details_id,ad.application_id,ad.ethnic_race_id,erl.ethnic_race_name,
+count(*) as Total_app,
+(Select count(ad.other_app_details_id) from applicants_other_details ad,job_applications ja
+Where ad.application_id=ja.application_id
+and ja.interview_state = "On Board - Joined") as Total
+from applicants_other_details ad ,job_applications ja,ethnic_race_lov erl,job_requisition jr
+Where ad.application_id=ja.application_id
+and ad.ethnic_race_id=erl.ethnic_race_id
+And ja.jb_req_id=jr.jb_req_id
+and ja.interview_state = "On Board - Joined"
+and $X{IN, `jr`.`org_id`, Org_id}
+and $X{IN, `jr`.`department_id`, Dept}
+and $X{IN, `jr`.`hiring_mgr_id`, Hiring_mgr}
+and $X{IN,(YEAR(`jr`.`published_date`)), year}
+and (`jr`.`super_user_key`=$P{super_user_key} or $P{super_user_key} is null Or $P{super_user_key}=0)
+Group By ad.ethnic_race_id]]>
+		</queryString>
+		<field name="other_app_details_id" class="java.math.BigInteger"/>
+		<field name="application_id" class="java.lang.Long"/>
+		<field name="ethnic_race_id" class="java.lang.Long"/>
+		<field name="ethnic_race_name" class="java.lang.String"/>
+		<field name="Total_app" class="java.lang.Long"/>
+		<field name="Total" class="java.lang.Long"/>
+	</subDataset>
+	<parameter name="Org_id" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Dept" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Hiring_mgr" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="year" class="java.util.List">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="super_user_key" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[Select ja.req_name,ja.full_name,ja.gender,ad.other_app_details_id,ad.application_id,ad.ethnic_race_id,erl.ethnic_race_name
+from applicants_other_details ad ,job_applications ja,ethnic_race_lov erl,job_requisition jr
+Where ad.application_id=ja.application_id
+and ad.ethnic_race_id=erl.ethnic_race_id
+And ja.jb_req_id=jr.jb_req_id
+and ja.interview_state = "On Board - Joined"
+and $X{IN, `jr`.`org_id`, Org_id}
+and $X{IN, `jr`.`department_id`, Dept}
+and $X{IN, `jr`.`hiring_mgr_id`, Hiring_mgr}
+and $X{IN,(YEAR(`jr`.`published_date`)), year}
+and (`jr`.`super_user_key`=$P{super_user_key} or $P{super_user_key} is null Or $P{super_user_key}=0)]]>
+	</queryString>
+	<field name="req_name" class="java.lang.String"/>
+	<field name="full_name" class="java.lang.String"/>
+	<field name="gender" class="java.lang.String"/>
+	<field name="other_app_details_id" class="java.math.BigInteger"/>
+	<field name="application_id" class="java.lang.Long"/>
+	<field name="ethnic_race_id" class="java.lang.Long"/>
+	<field name="ethnic_race_name" class="java.lang.String"/>
+	<variable name="Count_total_applicant" class="java.lang.Integer" resetType="None" incrementType="Column" calculation="Count">
+		<variableExpression><![CDATA[]]></variableExpression>
+	</variable>
+	<title>
+		<band height="560" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="860" height="82"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="629" y="62" width="180" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="42" y="44" width="326" height="38"/>
+					<textElement textAlignment="Justified" verticalAlignment="Bottom">
+						<font fontName="Georgia" size="14" isBold="true"/>
+					</textElement>
+					<text><![CDATA[EEO]]></text>
+				</staticText>
+			</frame>
+			<stackedBar3DChart>
+				<chart evaluationTime="Report" theme="default">
+					<reportElement x="20" y="210" width="422" height="350"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="Table Dataset 1">
+							<datasetParameter name="Org_id">
+								<datasetParameterExpression><![CDATA[$P{Org_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="Dept">
+								<datasetParameterExpression><![CDATA[$P{Dept}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="Hiring_mgr">
+								<datasetParameterExpression><![CDATA[$P{Hiring_mgr}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="year">
+								<datasetParameterExpression><![CDATA[$P{year}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="super_user_key">
+								<datasetParameterExpression><![CDATA[$P{super_user_key}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{ethnic_race_name}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{ethnic_race_name}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{Total_app}/$F{Total}*100]]></valueExpression>
+						<labelExpression><![CDATA[$F{Total_app}]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot isShowLabels="true">
+					<plot/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					<categoryAxisFormat>
+						<axisFormat>
+							<labelFont/>
+							<tickLabelFont/>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat>
+							<labelFont/>
+							<tickLabelFont/>
+						</axisFormat>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</stackedBar3DChart>
+			<pie3DChart>
+				<chart evaluationTime="Report" theme="default">
+					<reportElement isPrintRepeatedValues="false" x="483" y="103" width="326" height="272"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<dataset>
+						<datasetRun subDataset="Table Dataset 1">
+							<datasetParameter name="Org_id">
+								<datasetParameterExpression><![CDATA[$P{Org_id}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="Dept">
+								<datasetParameterExpression><![CDATA[$P{Dept}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="Hiring_mgr">
+								<datasetParameterExpression><![CDATA[$P{Hiring_mgr}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="year">
+								<datasetParameterExpression><![CDATA[$P{year}]]></datasetParameterExpression>
+							</datasetParameter>
+							<datasetParameter name="super_user_key">
+								<datasetParameterExpression><![CDATA[$P{super_user_key}]]></datasetParameterExpression>
+							</datasetParameter>
+						</datasetRun>
+					</dataset>
+					<keyExpression><![CDATA[$F{ethnic_race_name}]]></keyExpression>
+					<valueExpression><![CDATA[($F{Total_app}/$F{Total}*100).intValue()]]></valueExpression>
+					<labelExpression><![CDATA[$F{Total_app}/$F{Total}*100]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</pie3DPlot>
+			</pie3DChart>
+			<componentElement>
+				<reportElement x="483" y="387" width="326" height="53"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Table Dataset 1">
+						<datasetParameter name="Org_id">
+							<datasetParameterExpression><![CDATA[$P{Org_id}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Dept">
+							<datasetParameterExpression><![CDATA[$P{Dept}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="Hiring_mgr">
+							<datasetParameterExpression><![CDATA[$P{Hiring_mgr}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="year">
+							<datasetParameterExpression><![CDATA[$P{year}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="super_user_key">
+							<datasetParameterExpression><![CDATA[$P{super_user_key}]]></datasetParameterExpression>
+						</datasetParameter>
+					</datasetRun>
+					<jr:column width="168">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="168" height="30" forecolor="#000000" backcolor="#B3CDEE"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Serif" isBold="false"/>
+								</textElement>
+								<text><![CDATA[Ethinic name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="22" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="168" height="21" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Serif"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{ethnic_race_name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="137">
+						<jr:columnHeader height="30" rowSpan="1">
+							<staticText>
+								<reportElement mode="Opaque" x="0" y="0" width="137" height="30" forecolor="#000000" backcolor="#B3CDEE"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Serif" isBold="false"/>
+								</textElement>
+								<text><![CDATA[Total On-Boarding applicant]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell height="22" rowSpan="1">
+							<textField>
+								<reportElement mode="Opaque" x="0" y="0" width="137" height="21" backcolor="#CCFFCC"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{Total_app}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<line>
+				<reportElement x="0" y="90" width="860" height="1"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="130" y="0" width="145" height="27" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    Applicant name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="275" y="0" width="151" height="27" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    Requisition  name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="426" y="0" width="138" height="27" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[    Ethinciacy name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="564" y="0" width="100" height="27" backcolor="#CCCCFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="130" y="0" width="145" height="21" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["       "+$F{full_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="275" y="0" width="151" height="21" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["       "+$F{req_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="426" y="0" width="138" height="21" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA["       "+$F{ethnic_race_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToTallestObject" mode="Transparent" x="564" y="0" width="100" height="21" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{gender}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="130" y="21" width="534" height="1"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="22">
+			<textField>
+				<reportElement x="776" y="0" width="80" height="22"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA["Page "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

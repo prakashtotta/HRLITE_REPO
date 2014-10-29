@@ -1,0 +1,453 @@
+
+
+
+<%
+User user = (User)request.getSession().getAttribute(Common.USER_DATA);
+String path1 = (String)request.getAttribute("filePath");
+
+
+%>
+<bean:define id="aform" name="applicantForm" type="com.form.ApplicantForm" />
+<%
+User hiringmgr1 = aform.getHiringmgr();
+long recruiterId1 = aform.getRecruiterid();
+%>
+<script language="javascript">
+</script>
+
+
+
+<table border="0" width="100%">
+<tr>
+<td valign="left" width="75%">
+<table border="0" width="100%">
+	<font color = red ><html:errors /> </font>
+
+		<tr>
+			<td width="35%" class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.status",user.getLocale())%> : </td>
+			<td width="65%" class="bodytext"><b><bean:write name="applicantForm" property="interviewState"/></b></td>
+		</tr>
+			
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.gender",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="gender"/></td> 
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.DATE_OF_BIRTH",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="dateofbirth"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.PassportNo",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="passportno"/></td>
+		</tr>
+
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.email",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="email"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Alternate_Email",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="alternateemail"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.phone",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="phone"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Alternate_phone",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="alternatephone"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("admin.Location.address",user.getLocale())%> : </td>
+			<td class="bodytext">         
+			<bean:write name="applicantForm" property="city"/> <br>
+			<bean:write name="applicantForm" property="countryName"/> <br>
+  			
+			</td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Prefered_location",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="preferedlocation"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Current_designation",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="currentdesignation"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Profile_Header",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="resumeHeader"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Years_of_experience",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="noofyearsexp"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Heighest_Qualification",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="heighestQualification"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("Requisition.OtherQualifications",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="qualifications"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.refferername",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="referrerName"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Referrer_Email",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="referrerEmail"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.AddedBy",user.getLocale())%> : </td>
+			<td class="bodytext"><bean:write name="applicantForm" property="createdBy"/></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.applied.date",user.getLocale())%> : </td>
+			<td class="bodytext"><%=DateUtil.convertSourceToTargetTimezone(aform.getCreatedDate(), user.getTimezone().getTimezoneCode(), user.getLocale())%></td>
+		</tr>
+		<tr>
+			<td class="bodytext"><img SRC="jsp/images/square.gif" WIDTH="9" HEIGHT="9">&nbsp;&nbsp;<%=Constant.getResourceStringValue("aquisition.applicant.Resume",user.getLocale())%>: </td>
+			<td class="bodytext">
+			<% if(aform.getResumename() != null){%>
+			<a href="<%=request.getContextPath()%>/download/file?filename=<%=path1%>"><bean:write name="applicantForm" property="resumename"/></a> 
+			<%}%>
+			</td>
+		</tr>
+	</table>
+
+	
+
+
+</td>
+		<td  width="25%">
+
+
+
+<br><br>
+<logic:equal name="applicantForm" property="interviewState" scope="request" value="<%=Common.IN_SCREENING%>">
+                 <%  
+				 
+				 if(user.getUserId() == aform.getOwnerid()){
+
+					 String goodtogo = request.getContextPath()+"/scheduleInterview.do?method=interviwercommmentpage&eventype="+aform.getInterviewState()+"&status=1&applicantId="+
+			aform.getApplicantId();
+					  String rejected = request.getContextPath()+"/scheduleInterview.do?method=interviwercommmentpage&eventype="+aform.getInterviewState()+"&status=2&applicantId="+
+			aform.getApplicantId();
+					    String holdint = request.getContextPath()+"/scheduleInterview.do?method=interviwercommmentpage&eventype="+aform.getInterviewState()+"&status=3&applicantId="+
+			aform.getApplicantId();
+						String reassign = request.getContextPath()+"/scheduleInterview.do?method=interviwreassign&eventype="+aform.getInterviewState()+"&applicantId="+
+			aform.getApplicantId();
+						String decline = request.getContextPath()+"/scheduleInterview.do?method=declineinterview&applicantId="+aform.getApplicantId()+"&eventype="+aform.getInterviewState();
+				 %>
+				 <div style="margin: 6px 6px 6px 0px; " class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:goodToGo('<%=goodtogo%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.add_feedback",user.getLocale())%></span></a> </div>
+                 
+				  
+
+			<div style="margin: 6px 6px 6px 0px; " class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:reassignReview('<%=reassign%>')">
+<span><%=Constant.getResourceStringValue("Requisition.reassign",user.getLocale())%></span></a> </div>
+			
+			
+<div style="margin: 6px 6px 6px 0px; " class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:declineReview('<%=decline%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.decline",user.getLocale())%></span></a> </div>
+			
+
+			
+
+			
+				
+				<%}%>
+				</logic:equal>
+
+				
+                 <%  
+
+				 if(aform.getInterviewState()!=null && aform.getInterviewState().startsWith(Common.INTERVIEW_ROUND)){
+				 if(user.getUserId() == hiringmgr1.getUserId() || recruiterId1 == user.getUserId()){
+				%>
+
+<div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:rescheduleInterviewround('<%=request.getContextPath()%>/scheduleInterview.do?method=interviewschedulescr&reschedule=yes&eventype=<%=aform.getInterviewState()%>&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Reschedule",user.getLocale())%> <%=aform.getInterviewState()%></span></a> </div>
+
+				<%
+				 }
+				 }
+				%>
+
+
+				<%  
+
+				 if(aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.IN_SCREENING)){
+				 if(user.getUserId() == hiringmgr1.getUserId() || recruiterId1 == user.getUserId()){
+			
+
+String sendresumeforscrreningurl1 = request.getContextPath()+"/scheduleInterview.do?method=sendbulkresumeforscreening&reschedule=yes&eventype="+Common.IN_SCREENING+"&applicantids="+aform.getApplicantId()+",";
+				 // need to implement permission
+				// if(user.getUserId() == aform.getOwnerid()){
+				 %>
+				  <div style="margin: 6px 6px 6px 0px; width: 215px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:resendResumeForScrrening('<%=sendresumeforscrreningurl1%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Re_Send_profile_for_screening",user.getLocale())%></span></a> </div>
+
+				<%
+				 }
+				 }
+				%>
+
+			
+
+
+                 <%  
+
+				 if(aform.getInterviewState()!=null && aform.getInterviewState().startsWith(Common.INTERVIEW_ROUND)){
+				 if(user.getUserId() == aform.getOwnerid()){
+
+					  String goodtogo = request.getContextPath()+"/scheduleInterview.do?method=interviwercommmentpage&eventype="+aform.getInterviewState()+"&status=1&applicantId="+
+			aform.getApplicantId();
+					  String rejected = request.getContextPath()+"/scheduleInterview.do?method=interviwercommmentpage&eventype="+aform.getInterviewState()+"&status=2&applicantId="+
+			aform.getApplicantId();
+					    String holdint = request.getContextPath()+"/scheduleInterview.do?method=interviwercommmentpage&eventype="+aform.getInterviewState()+"&status=3&applicantId="+
+			aform.getApplicantId();
+						String reassign = request.getContextPath()+"/scheduleInterview.do?method=interviwreassign&eventype="+aform.getInterviewState()+"&applicantId="+
+			aform.getApplicantId();
+						String decline = request.getContextPath()+"/scheduleInterview.do?method=declineinterview&applicantId="+aform.getApplicantId()+"&eventype="+aform.getInterviewState();
+				 %>
+               <div style="margin: 6px 6px 6px 0px; " class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:goodToGo('<%=goodtogo%>')"><span><%=Constant.getResourceStringValue("aquisition.applicant.add_feedback",user.getLocale())%></span></a> </div>
+                 
+				
+
+			<div style="margin: 6px 6px 6px 0px; " class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:reassignReview('<%=reassign%>')"><span><%=Constant.getResourceStringValue("Requisition.reassign",user.getLocale())%></span></a> </div>
+			
+			
+<div style="margin: 6px 6px 6px 0px; " class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:declineReview('<%=decline%>')"><span><%=Constant.getResourceStringValue("aquisition.applicant.decline",user.getLocale())%></span></a> </div>
+				
+				<%}}%>
+				
+
+
+
+			<logic:equal name="applicantForm" property="interviewState" scope="request" value="<%=Common.APPLICATION_SUBMITTED%>">
+			<%  
+String sendresumeforscrreningurl = request.getContextPath()+"/scheduleInterview.do?method=sendbulkresumeforscreening&eventype="+Common.IN_SCREENING+"&applicantids="+aform.getApplicantId()+",";
+				 // need to implement permission
+				 if(user.getUserId() == aform.getOwnerid() || user.getUserId() == hiringmgr1.getUserId() || recruiterId1 == user.getUserId()){
+				 %>
+				  <div style="margin: 6px 6px 6px 0px; width: 215px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:sendResumeForScrrening('<%=sendresumeforscrreningurl%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.send.profile.for.screening",user.getLocale())%></span></a> </div>
+
+<div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:initiateoffer('<%=request.getContextPath()%>/applicant.do?method=initiateoffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Initiate_offer",user.getLocale())%></span></a> </div>
+			<%
+			}
+			%>
+			</logic:equal> <br>
+
+            <logic:equal name="applicantForm" property="interviewState" scope="request" value="<%=Common.CLEARED_IN_SCREENING%>">
+			<%  
+				 
+				 if(user.getUserId() == aform.getOwnerid() || user.getUserId() == hiringmgr1.getUserId() || recruiterId1 == user.getUserId()){
+				 %>
+
+               <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:scheduleinterviewround('<%=request.getContextPath()%>/scheduleInterview.do?method=interviewschedulescr&eventype=<%=Common.INTERVIEW_ROUND%>-1&applicantId=<%=aform.getApplicantId()%>')"><span><%=Constant.getResourceStringValue("aquisition.applicant.ScheduleInterviewRound_1",user.getLocale())%></span></a> </div>
+
+<div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:initiateoffer('<%=request.getContextPath()%>/applicant.do?method=initiateoffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Initiate_offer",user.getLocale())%></span></a> </div>
+
+			<br>
+			<%}%>
+			</logic:equal> <br>
+             <%
+			         String stw = Common.CLEARED+"-"+Common.INTERVIEW_ROUND;
+                     if(aform.getInterviewState()!=null && aform.getInterviewState().startsWith(stw)){
+						 String evt = aform.getInterviewState().substring(aform.getInterviewState().lastIndexOf("-")+1);
+						int eventtype=new Integer(evt).intValue();
+
+
+			 %>
+			 <%  
+				 
+				 if((user.getUserId() == aform.getOwnerid() || user.getUserId() == hiringmgr1.getUserId() || recruiterId1 == user.getUserId()) && (aform.getInterviewState()!=null && !aform.getInterviewState().equals(Common.OFFER_INITIATED))){
+				 %>
+
+
+           <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+
+<a class="squarebutton" href="#"onClick="return GB_showCenter('ScheduleInterview','<%=request.getContextPath()%>/scheduleInterview.do?method=interviewschedulescr&eventype=<%=Common.INTERVIEW_ROUND%>-<%=eventtype+1%>&applicantId=<%=aform.getApplicantId()%>',500,900,messageret)"><span><%=Constant.getResourceStringValue("aquisition.applicant.ScheduleInterviewRound",user.getLocale())%> - <%=eventtype+1%></span></a> </div>
+
+
+           <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:onholdapplicant('<%=request.getContextPath()%>/scheduleInterview.do?method=holdpage&eventype=<%=aform.getInterviewState()%>&status=3&applicantId=<%=aform.getApplicantId()%>')"><span><%=Constant.getResourceStringValue("aquisition.applicant.On_hold",user.getLocale())%></span></a> </div>
+	
+
+			
+
+<div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:initiateoffer('<%=request.getContextPath()%>/applicant.do?method=initiateoffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Initiate_offer",user.getLocale())%></span></a> </div>
+
+
+          
+			<%}%>
+
+				
+           
+    
+
+			<%}%>
+
+			 <%  
+				 
+				 if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId()) && (aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.READY_TO_RELEASE_OFFER))){
+				 %>
+
+                 
+
+                 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:releaseoffer('<%=request.getContextPath()%>/applicant.do?method=releaseofferscr&applicantId=<%=aform.getApplicantId()%>')"><span>
+<%=Constant.getResourceStringValue("aquisition.applicant.Release_offer",user.getLocale())%></span></a> </div>
+
+				 <%}%>
+
+				 <%  
+				 
+				 if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId()) && (aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.OFFER_DECLINED))){
+				 %>
+			 
+			 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:reInitiateOffer('<%=request.getContextPath()%>/applicant.do?method=initiateoffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Re_Initiate_offer",user.getLocale())%></span></a> </div>
+
+			
+
+			<%}%>
+
+			<%if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId() ) && (aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.OFFER_IN_NEGOTIATION))){
+				 %>
+			 
+
+           			 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:reInitiateOffer('<%=request.getContextPath()%>/applicant.do?method=initiateoffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Re_Initiate_offer",user.getLocale())%></span></a> </div>
+
+			
+
+			<%}%>
+
+
+			<%if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId() ) && (aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.OFFER_APPROVAL_REJECTED))){
+				 %>
+			 
+
+           			 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:reInitiateOffer('<%=request.getContextPath()%>/applicant.do?method=initiateoffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Re_Initiate_offer",user.getLocale())%></span></a> </div>
+
+			
+
+			<%}%>
+
+
+			<%if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId() )&& aform.getInterviewState() != null && (aform.getInterviewState().equals(Common.OFFER_IN_NEGOTIATION) ||  aform.getInterviewState().equals(Common.OFFER) || aform.getInterviewState().equals(Common.OFFER_ACCEPTED))){
+				 %>
+			 
+
+<div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:canceloffer('<%=request.getContextPath()%>/applicant.do?method=canceloffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Cancel_offer",user.getLocale())%></span></a> </div>
+			
+
+			<%}%>
+
+			<%if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId()) && aform.getInterviewState() != null && (aform.getInterviewState().equals(Common.OFFER_ACCEPTED))){
+				 %>
+			 
+
+			
+
+
+<div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:onboardjoined('<%=request.getContextPath()%>/applicant.do?method=onboard&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.on_board_joined",user.getLocale())%></span></a> </div>
+
+<!--						 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:reInitiateOffer('<%=request.getContextPath()%>/applicant.do?method=initiateoffer&applicantId=<%=aform.getApplicantId()%>')">
+<span><%=Constant.getResourceStringValue("aquisition.applicant.Re_Initiate_offer",user.getLocale())%></span></a> </div>
+
+	-->		
+
+			<%}%>
+
+
+
+<%  
+				 
+				 if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId()) && (aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.OFFER))){
+				 %>
+
+                 
+
+                 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:releaseoffer('<%=request.getContextPath()%>/applicant.do?method=releaseofferscr&applicantId=<%=aform.getApplicantId()%>&resend=true')"><span>
+<%=Constant.getResourceStringValue("aquisition.applicant.Release_offer_resend",user.getLocale())%></span></a> </div>
+
+				 <%}%>
+
+
+				 <%
+					 if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId()) && (aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.ON_BOARD))){
+				 %>
+
+                 
+
+                 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:markresigned('<%=request.getContextPath()%>/applicant.do?method=markresignedscr&applicantId=<%=aform.getApplicantId()%>')"><span>
+<%=Constant.getResourceStringValue("aquisition.applicant.Mark.Resigned",user.getLocale())%></span></a> </div>
+
+				 <%}%>
+
+
+				 <%
+					 if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId()) && (aform.getInterviewState()!=null && aform.getInterviewState().equals(Common.OFFER_ACCEPTED) && aform.getInitiateJoiningProcess().equals("Not started"))){
+				 %>
+
+                 
+
+                 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:initiateOnboarding('<%=request.getContextPath()%>/onboarding.do?method=initiateOnBoarding&applicantids=<%=aform.getApplicantId()%>,')"><span>
+<%=Constant.getResourceStringValue("aquisition.applicant.Initiate_onboarding",user.getLocale())%></span></a> </div>
+
+				 <%}%>
+
+
+				<%
+				    
+					 if((user.getUserId() == aform.getOfferownerId() || user.getUserId() == hiringmgr1.getUserId()) && (aform.getInterviewState()!=null && aform.getInterviewState().startsWith(Common.REJECTED))){
+				 %>
+
+                 
+
+                 <div style="margin: 6px 6px 6px 0px;" class="buttonwrapper">
+<a class="squarebutton" href="#" onClick="javascript:recallapplicant('<%=request.getContextPath()%>/applicant.do?method=recallapplicantscr&applicantId=<%=aform.getApplicantId()%>&secureid=<%=aform.getUuid()%>')"><span>
+<%=Constant.getResourceStringValue("aquisition.applicant.Recall",user.getLocale())%></span></a> </div>
+
+				 <%}%>
+
+
+</td>
+
+</tr>
+
+
+</table>
+

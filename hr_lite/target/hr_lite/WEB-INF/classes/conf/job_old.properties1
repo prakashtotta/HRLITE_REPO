@@ -1,0 +1,149 @@
+# used to decide if the publish step needs to be skipped or not
+publish.requistion.step.skip=no
+# used to decide who would be the owner of the publish step - recruiter or hiring manager
+publish.requistion.default.owner=recruiter
+
+# restrict to use the budget code
+budget.validation.referral.redemption=yes
+#this controls whether budget validation must be triggered
+budget.validation.requisition=yes
+# used to control if an approver is required while initiating an offer if offered salary exceeds salary plan
+approval.required.ctc.morethan.salaryplan=yes
+
+
+#needed to configure dashboard as well as the emails sent uses this parameter
+external.url=http://localhost:8081/hr_lite/
+internal.url=http://localhost:8081/hr_lite/
+webservice.url=http://localhost:8081/hr_lite/
+
+#the smtp server and user details required for sending and receiving emails
+email.smtp.server=mail.chiteswarsolutions.com
+email.smtp.user=test1@chiteswarsolutions.com
+email.smtp.password=satya123
+email.smtp.port=8025
+
+
+
+
+FILE_UPLOAD=/upload/
+REPORT_DIR=e:/report/
+ATTACHMENT_PATH=c:/ta_attachment/
+status.open=Open
+status.closed=Closed
+status.deleted=Deleted
+state.draft=Draft
+state.submitted=Submitted
+state.inapproval=In Approval
+minimum.interview.rounds=2
+maximum.interview.rounds=3
+
+applicant.submit.email.send=yes
+rejection.email.sent=yes
+offer.email.sent=yes
+user.creation.email.sent=yes
+email.fromemail=test1@chiteswarsolutions.com
+email.replytoemail=test1@chiteswarsolutions.com
+email.defaultdateformat=EEE, d MMM yyyy
+email.defaultdateformatwithourday=d MMM yyyy
+email.rejection.cc=test1@chiteswarsolutions.com
+offer.email.sender=C Solutions <abc@abc.com>
+email.offer.cc=artonlinehome@gmail.com
+all.task.cc=abc@gmail.com
+all.requisition.activities.cc=abc@gmail.com
+all.applicant.activities.cc=abc@gmail.com
+task.assigner.email.included.in.notification=yes
+all.refer.friend.cc=abc@gmail.com
+email.referral.registration.fromemail=C Solutions <abc@abc.com>
+email.referral.registration.replytoemail=C Solutions <abc@abc.com>
+email.agency.registration.fromemail=C Solutions <test@test.com>
+email.agency.registration.replytoemail=C Solutions <test@test.com>
+email.applicatportal.registration.fromemail=C Solutions <abc@abc.com>
+email.applicatportal.registration.replytoemail=C Solutions <abc@abc.com>
+email.subject.append=[TA]
+
+outlook.calendar.file.required=no
+offer.modification.allowed=yes
+offer.accept.allow.onbehalf=yes
+user.cache.textarea.autosuggest=no
+cookie.age=31536000
+ref.cookie.age=31536000
+agency.cookie.age=31536000
+cookie.name=talentaqusername
+ref.cookie.name=talentrefaqusername
+agency.cookie.name=talentagencyusername
+linkedin.consumer.key=z5TZtoGX5cjsl8KjgumZ5pQxr4KWvHvy9OIhGByxgpeYv2u6t5CY2CuWYBDHsSQA
+linkedin.consumer.sercret=l2-cbqgVPP6NftZ8etGZsXUNbxFpw1Cg-Y_9e8j9RWNjR1d230y4WhmC3bd__e8_
+defaultdateformat=MMM d, yyyy
+email.resume.reader.server=mail.chiteswarsolutions.com
+email.resume.reader.user=test1@chiteswarsolutions.com
+email.resume.reader.password=satya123
+email.resume.reader.protocol=pop3
+email.resume.reader.folder=Inbox
+email.resume.reader.separator=#
+email.resume.subject.format=name#jobcode
+jobcode.start=REQ
+projectcode.required.requisition=no
+
+employee.refferal.domain.names.validate=gmail.com,yahoo.com
+auto.close.requisition.on.position.filled=no
+new.jobs.offset=1
+referral.allowed.on.applicant.submit=Y
+default.pagination.size=15
+redemption.blocked.on.applicant.resignation=yes
+system.rule.approver.publisher.preference=Department
+custom.variable.copy.template.to.requisition.preference=Requisition
+autocomplete.min.chars=2
+applicant.remove.no.of.days.after.mark.delete=2
+_SHARED_SECRET_=_SHARED_SECRET_
+applicant.user.createas.on.offer.release=yes
+default.applicant.owner=recruiter
+talentpool.default.skills.folders=yes
+csrf.security.enabled=no
+applicant.exam.workflow=no
+scribd.enabled=yes
+scribd.username=satyadas2000
+scribd.password=suchitra1
+scribd.api.key=4adlq4ukf8vffruc6g5qe
+product.name=talent660
+addthis.pubid=ra-4e97c93a106ebabb
+
+default.locale.code=en_US
+default.timezone.code=PST
+
+#recent searches default limit
+recent.searches.default.limit=12
+
+
+
+
+#cache properties
+cache.enable=yes
+cache.duration=2592000
+
+
+#email resume reader  ( should it consider pre application submit state?)
+email.resume.reader.pre.application.submit.state=yes
+talent.pool.resume.reader.pre.talent.pool.state=yes
+
+
+#LDAP 
+ldap.authonticate=no
+ldap.server=ldap://10.4.50.8:0
+ldap.domain.name=@burlington.emptoris.com
+
+#bulk user upload
+bulk.user.upload.user.creation.email.send=no
+
+drag.drop.applicants.need.task.assign=yes
+bitly.api.key=R_2c0b54223fbe6f4723c57446140b790f
+
+dashboard.noofdays.offset.config=90
+
+#applicant duplicate prevention , in days
+applicant.duplicate.not.allow.same.requisition=no
+applicant.duplicate.not.allow.timeframe=180
+
+
+
+
+

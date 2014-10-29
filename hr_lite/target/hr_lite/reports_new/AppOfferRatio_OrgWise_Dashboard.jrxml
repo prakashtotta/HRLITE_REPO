@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AppOfferRatio_OrgWise_Dashboard" language="groovy" pageWidth="900" pageHeight="842" columnWidth="860" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="0.8264462809917354"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Org_id" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     job_aplicant_view1.`interview_state` AS job_aplicant_view1_interview_state,
+     job_aplicant_view1.`org_id` AS job_aplicant_view1_org_id,
+     job_aplicant_view1.`jb_req_name` AS job_aplicant_view1_jb_req_name,
+count(*)
+FROM
+     `job_aplicant_view1` job_aplicant_view1
+where
+     job_aplicant_view1.`org_id`=$P{Org_id}
+Group By
+      job_aplicant_view1.`interview_state`]]>
+	</queryString>
+	<field name="job_aplicant_view1_interview_state" class="java.lang.String"/>
+	<field name="job_aplicant_view1_org_id" class="java.lang.Long"/>
+	<field name="job_aplicant_view1_jb_req_name" class="java.lang.String"/>
+	<field name="count(*)" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="406" splitType="Stretch">
+			<pie3DChart>
+				<chart evaluationTime="Report" theme="eye.candy.sixties">
+					<reportElement x="17" y="10" width="825" height="380"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend position="Right"/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{job_aplicant_view1_interview_state}]]></keyExpression>
+					<valueExpression><![CDATA[$F{count(*)}]]></valueExpression>
+					<labelExpression><![CDATA[$F{count(*)}]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</title>
+</jasperReport>
