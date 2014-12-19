@@ -1,3 +1,5 @@
+<%@page import="java.net.URLEncoder" %>
+<%@page import="com.util.CommonUtils" %>
 <%@ include file="../common/includeLogin.jsp" %>
 <script type="text/javascript" src="jsp/js/jquery.blockUI.js"></script>
 <html>
@@ -6,6 +8,12 @@ String rurl = (String)request.getAttribute("rurl");
 		
 System.out.println("rurl"+rurl);
 %>
+
+<%
+    String fbURL = CommonUtils.getFacebookLoginUrl();
+	System.out.println("fbURL:"+fbURL);
+%>
+
 <script language="javascript">
 $(document).ready(function() {$('#login').click(function() {    
 	 $.blockUI({ message: '<h1><img src="jsp/images/loading_circle.gif" /> Please wait...</h1>' });
@@ -17,19 +25,13 @@ $(document).ready(function() {$('#login').click(function() {
 <link rel="stylesheet" type="text/css" href="jsp/css/tabs.css" />
 <body onLoad="initfocus()">
 <html:form action="/login.do?method=logon">
-<table border="0" width="100%">
+<table border="0" width="100%" align="center">
 <tr>
 <td valign="top" >
 
 <div id="header">
-	<ul id="primary">
-		<li><span>Talent Acquisition</span></li>
-		<li><a href="alogin.do?method=login">Agency Portal</a></li>
-		<li><a href="applicantlogin.do?method=login">Applicant Login</a></li>
-	</ul>
-	</div>
-	<div id="main">
-		
+</div>
+<div id="main">
 
 <div class="subdiv">
 <input type="hidden" name="redirecturl" value="<%=rurl%>">
@@ -52,7 +54,15 @@ $(document).ready(function() {$('#login').click(function() {
 <td colspan="4" >
     <div class="container">
 	<table border="0" bordercolor="#999999" cellpadding="1">	
-
+	<tr>
+		<td colspan="2"><a class="button" href="reguser.do?method=reg&pkg=AD1F8F7D96E61267" target="new">Create a New Account </a></td>
+	</tr>
+	<tr>
+		<td colspan="2"> -- Or -- </td>
+	</tr>
+	<tr>
+		<td colspan="2"><a class="button" href="<%= fbURL %>" target="new">Sign in using Facebook </a></td>
+	</tr>
 	<tr><td><br><bean:message key="loginForm.username"/></td>
 	    <td><br><html:text property="username" size="20" styleClass="textsmall" maxlength="50" value=""/></td>
 	</tr>
@@ -69,7 +79,7 @@ $(document).ready(function() {$('#login').click(function() {
 	
 	<tr>
 	<td><br><input type="submit" id="login" name="login" value="Login" class="button" ></td>
-	<td><br><a class="button" href="login.do?method=forgotpassword" target="new">Forgot password? </a> &nbsp; &nbsp; <a class="button" href="reguser.do?method=reg&pkg=AD1F8F7D96E61267" target="new">Sign up </a></td>
+	<td><br><a class="button" href="login.do?method=forgotpassword" target="new">Forgot password? </a> &nbsp; &nbsp;</td>
 	</tr>
 	
 	<tr><td colspan="2">&nbsp;</td></tr>
@@ -99,25 +109,25 @@ $(document).ready(function() {$('#login').click(function() {
 
 </div>
  <br/><br/>
-<img src="jsp/images/login_background_half1.PNG" align="right" height="135px" width="240px"/>
  
 </td>
 <td  width="100%" align="right" valign="baseline">
+
 <br/>
 <div align="left" >
-
-<img src="jsp/images/login_background_half2.PNG" height="435px" width="509px"/>
+<br/><br/>
+<img src="jsp/images/login_background.png" height="280px" width="400px"/>
 </div>
  <!-- <a href="applicantlogin.do?method=login">Applicant login </a> -->
 </td>
 </tr>
 </table>
 
-<!-- 
+ 
 <div align="right" >
-	<img src="jsp/images/login_background_half1.PNG" height="162px" width="652px"/>
+	
 </div>
- -->
+ 
 </html:form>
 </body>
 <script language="javascript">

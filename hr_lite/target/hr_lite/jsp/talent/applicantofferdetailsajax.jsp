@@ -1,5 +1,0 @@
-
-<%@ include file="offerdetails.jsp" %>
-
-
-

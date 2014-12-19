@@ -1,7 +1,9 @@
 package com.form;
 
 import com.util.StringUtils;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.struts.action.ActionError;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
@@ -37,14 +39,20 @@ public class LoginForm
   
   public ActionErrors validate(ActionMapping mapping, HttpServletRequest request)
   {
+	  System.out.println("asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
     ActionErrors errors = new ActionErrors();
-    if ((StringUtils.isNullOrEmpty(this.username)) && (StringUtils.isNullOrEmpty(this.password))) {
-      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.emailpassword.required"));
-    } else if (StringUtils.isNullOrEmpty(this.username)) {
-      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.email.required"));
-    } else if (StringUtils.isNullOrEmpty(this.password)) {
-      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.password.required"));
+    String loginFrom = request.getParameter("loginFrom");
+    System.out.println("loginFrom::"+loginFrom);
+    if(!"facebook".equals(loginFrom)){
+    	if ((StringUtils.isNullOrEmpty(this.username)) && (StringUtils.isNullOrEmpty(this.password))) {
+    	      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.emailpassword.required"));
+    	    } else if (StringUtils.isNullOrEmpty(this.username)) {
+    	      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.email.required"));
+    	    } else if (StringUtils.isNullOrEmpty(this.password)) {
+    	      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.password.required"));
+    	    }	
     }
+    
     return errors;
   }
   

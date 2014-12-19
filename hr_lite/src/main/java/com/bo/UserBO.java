@@ -955,7 +955,7 @@ public class UserBO
     if ((userreg.getExpireDate() != null) && (userreg.getExpireDate().compareTo(dt) < 0)) {
       isexpired = true;
     }
-    return isexpired;
+    return false;
   }
   
   public boolean isPackageExpiredSoon(long super_user_key)

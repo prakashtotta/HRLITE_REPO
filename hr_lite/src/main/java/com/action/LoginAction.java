@@ -1,5 +1,27 @@
 package com.action;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
+import java.util.Date;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
+import org.apache.struts.action.ActionError;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.bean.Menu;
 import com.bean.RefferalEmployee;
 import com.bean.User;
@@ -10,21 +32,11 @@ import com.dao.UserDAO;
 import com.form.LoginForm;
 import com.manager.EmailTaskManager;
 import com.resources.Constant;
+import com.util.CommonUtils;
 import com.util.EmailTask;
 import com.util.EncryptDecrypt;
 import com.util.LDAPAuthenticator;
 import com.util.StringUtils;
-import java.util.Date;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.apache.log4j.Logger;
-import org.apache.struts.action.ActionError;
-import org.apache.struts.action.ActionErrors;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
 
 public class LoginAction
   extends CommonNoLoginAction
@@ -118,17 +130,132 @@ public class LoginAction
     return null;
   }
   
+  
+
+  
+  /**
+   * 
+   * @param req
+   * @param res
+ * @throws Exception 
+   * @throws ServletException
+   * @throws IOException
+   */
+  public String facebookLoginDetails(HttpServletRequest req, HttpServletResponse res) throws Exception {            
+      String code = req.getParameter("code");
+      if (code == null || code.equals("")) {
+         throw new Exception("Code is Null from Facebook!!");
+      }
+      String token = null;
+      try {
+    	  log.debug("URL:"+CommonUtils.getFacebookAuthURL(code));
+          URL u = new URL(CommonUtils.getFacebookAuthURL(code));
+          URLConnection c = u.openConnection();
+          BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
+          String inputLine;
+          StringBuffer b = new StringBuffer();
+          while ((inputLine = in.readLine()) != null)
+              b.append(inputLine + "\n");            
+          in.close();
+          token = b.toString();
+          if (token.startsWith("{"))
+              throw new Exception("error on requesting token: " + token + " with code: " + code);
+      } catch (Exception e) {
+             e.printStackTrace();
+             throw e;
+      }
+      log.debug("token::"+token);
+      String graph = null;
+      try {
+          String g = "https://graph.facebook.com/me?" + token;
+          URL u = new URL(g);
+          URLConnection c = u.openConnection();
+          BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
+          String inputLine;
+          StringBuffer b = new StringBuffer();
+          while ((inputLine = in.readLine()) != null)
+              b.append(inputLine + "\n");            
+          in.close();
+          graph = b.toString();
+      } catch (Exception e) {
+              e.printStackTrace();
+      }
+
+      String facebookId;
+      String firstName;
+      String middleNames;
+      String lastName;
+      String email = null;
+   
+      try {
+          JSONObject json = new JSONObject(graph);
+          facebookId = json.getString("id");
+          firstName = json.getString("first_name");
+          if (json.has("middle_name"))
+             middleNames = json.getString("middle_name");
+          else
+              middleNames = null;
+          if (middleNames != null && middleNames.equals(""))
+              middleNames = null;
+          lastName = json.getString("last_name");
+          email = json.getString("email");
+          if (json.has("gender")) {
+              String g = json.getString("gender");                         
+          }
+      } catch (JSONException e) {
+    	  e.printStackTrace();
+    	  throw e;
+      }
+      log.debug("email:::"+email);
+      return email;
+  }
+  
+  /**
+   * 
+   * @param mapping
+   * @param form
+   * @param request
+   * @param response
+   * @return
+   * @throws Exception
+   */
   public ActionForward logon(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)
     throws Exception
   {
     logger.info("Inside logon method");
     ActionErrors errors = new ActionErrors();
     ActionForward forward = new ActionForward();
+    String username = null;
+    String pwd = null;
+    String remme = null;
+    String loginFrom1 = request.getParameter("loginFrom");
+    logger.info("loginFrom1::"+loginFrom1);
+    if("facebook".equals(loginFrom1)){
+    	logger.info("Login from Facebook!!");
+    	username = facebookLoginDetails(request, response);    	
+    	if(username == null){
+    		 logger.info("Invalid Facbook account!!");
+    	      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("Invalid Facbook account!!!"));
+    	      saveErrors(request, errors);
+    	      forward = mapping.findForward("failure");
+    	      return forward;
+    	}
+    }else{
+    	logger.info("Account Login!!");
+    	username = isCookieExist(request);
+    	LoginForm loginForm = (LoginForm)form;
+    	pwd = loginForm.getPassword();
+    	remme = loginForm.getRemme();
+    	 if ((StringUtils.isNullOrEmpty(loginForm.getUsername())) && (StringUtils.isNullOrEmpty(loginForm.getPassword()))) {
+    	      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.emailpassword.required"));
+    	    } else if ((StringUtils.isNullOrEmpty(loginForm.getUsername())) && (!StringUtils.isNullOrEmpty(loginForm.getPassword()))) {
+    	      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.email.required.login"));
+    	    } else if ((StringUtils.isNullOrEmpty(loginForm.getPassword())) && (!StringUtils.isNullOrEmpty(loginForm.getUsername()))) {
+    	      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.password.required"));
+    	    }
+    }
     
-    LoginForm loginForm = (LoginForm)form;
-    
-    String username = isCookieExist(request);
-    logger.info("username from cookie" + username);
+    logger.info("username:" + username);
     if (username != null)
     {
       User user = UserDAO.getUserByUserNameTypeEmployee(username);
@@ -161,24 +288,18 @@ public class LoginAction
       return mapping.findForward("failure");
     }
     String rurl = request.getParameter("redirecturl");
-    if ((StringUtils.isNullOrEmpty(loginForm.getUsername())) && (StringUtils.isNullOrEmpty(loginForm.getPassword()))) {
-      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.emailpassword.required"));
-    } else if ((StringUtils.isNullOrEmpty(loginForm.getUsername())) && (!StringUtils.isNullOrEmpty(loginForm.getPassword()))) {
-      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.email.required.login"));
-    } else if ((StringUtils.isNullOrEmpty(loginForm.getPassword())) && (!StringUtils.isNullOrEmpty(loginForm.getUsername()))) {
-      errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError("error.password.required"));
-    }
+   
     User user = null;
     if ((!StringUtils.isNullOrEmpty(Constant.getValue("ldap.authonticate"))) && (Constant.getValue("ldap.authonticate").equals("yes")))
     {
       try
       {
         LDAPAuthenticator l = new LDAPAuthenticator();
-        boolean isSucces = l.authenticate(loginForm.getUsername(), loginForm.getPassword());
+        boolean isSucces = l.authenticate(username, pwd);
         logger.info("isSucces LDAP" + isSucces);
         if (isSucces)
         {
-          user = UserDAO.getUserByUserNameTypeEmployee(loginForm.getUsername());
+          user = UserDAO.getUserByUserNameTypeEmployee(username);
         }
         else
         {
@@ -198,7 +319,7 @@ public class LoginAction
     }
     else
     {
-      user = UserDAO.isLoginSuccessTypeEmployee(loginForm.getUsername(), EncryptDecrypt.encrypt(loginForm.getPassword()));
+      user = UserDAO.isLoginSuccessTypeEmployee(username, EncryptDecrypt.encrypt(pwd));
       if ((user != null) && (BOFactory.getUserBO().isPackageExpired(user.getSuper_user_key()))) {
         return mapping.findForward("packageexpired");
       }
@@ -212,7 +333,7 @@ public class LoginAction
       user.setMenu(menu);
       request.getSession().setAttribute("user_data", user);
       logger.info("Logon Success");
-      if ((loginForm.getRemme() != null) && (loginForm.getRemme().equals("on")))
+      if ((remme != null) && (remme.equals("on")))
       {
         Cookie userCookie = new Cookie(Constant.getValue("cookie.name"), user.getUserName());
         userCookie.setPath("/");
@@ -249,7 +370,8 @@ public class LoginAction
     errors.add("org.apache.struts.action.GLOBAL_ERROR", new ActionError(Common.LOGIN_ERROR_MESSAGE));
     saveErrors(request, errors);
     forward = mapping.findForward("failure");
-    return forward;
+
+      return forward;
   }
   
   public ActionForward ssologon(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response)

@@ -26,7 +26,7 @@ public class TalentPoolEmailReader
       for (int i = 0; i < talentPollList.size(); i++)
       {
         TalentPool tpool = (TalentPool)talentPollList.get(i);
-        EmailResumeReaderUtil.emailReadAndResumeSubmit(tpool);
+        //EmailResumeReaderUtil.emailReadAndResumeSubmit(tpool);
       }
     }
     logger.info("end TalentPoolEmailReader run");
