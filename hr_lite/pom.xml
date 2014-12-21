@@ -523,13 +523,6 @@
 			<systemPath>C:/Prakash/WSpace/hr_lite/src/main/webapp/WEB-INF/lib/cos.jar</systemPath>
 		</dependency>
 		<dependency>
-			<groupId>hr</groupId>
-			<artifactId>hr</artifactId>
-			<version>hr</version>
-			<scope>system</scope>
-			<systemPath>C:/Prakash/WSpace/hr_lite/src/main/webapp/WEB-INF/lib/hr.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>iText-2.1.7</groupId>
 			<artifactId>iText-2.1.7</artifactId>
 			<version>iText-2.1.7</version>

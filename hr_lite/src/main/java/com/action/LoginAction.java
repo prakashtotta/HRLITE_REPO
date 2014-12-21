@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
 import java.util.Date;
 
 import javax.servlet.ServletException;
@@ -228,9 +227,9 @@ public class LoginAction
     String username = null;
     String pwd = null;
     String remme = null;
-    String loginFrom1 = request.getParameter("loginFrom");
-    logger.info("loginFrom1::"+loginFrom1);
-    if("facebook".equals(loginFrom1)){
+    String loginFrom = request.getParameter("loginFrom");
+    logger.info("loginFrom::"+loginFrom);
+    if("facebook".equals(loginFrom)){
     	logger.info("Login from Facebook!!");
     	username = facebookLoginDetails(request, response);    	
     	if(username == null){
