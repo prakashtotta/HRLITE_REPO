@@ -7,14 +7,31 @@
 	<version>1.0</version>
 	<name>hr_lite Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<repositories>
+        <repository>
+            <id>org.twitter4j</id>
+            <name>org.twitter4j</name>
+            <url>http://org.twitter4j/maven2/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 	<dependencies>
-		<dependency>
-			<groupId>servlet</groupId>
-			<artifactId>servlet</artifactId>
-			<version>2.5</version>
-			<scope>system</scope>
-			<systemPath>C:/Prakash/WSpace/hr_lite/src/main/webapp/WEB-INF/lib/servlet-2.5.jar</systemPath>
-		</dependency>
+		 <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.twitter4j</groupId>
+            <artifactId>twitter4j-core</artifactId>
+            <version>[4.0,)</version>
+        </dependency>
 		<dependency>
 			<groupId>jsp-api</groupId>
 			<artifactId>jsp-api</artifactId>

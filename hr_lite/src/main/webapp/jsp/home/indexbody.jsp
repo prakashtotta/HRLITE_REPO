@@ -58,17 +58,41 @@ $(document).ready(function() {$('#login').click(function() {
 		<td colspan="2"><a class="button" href="reguser.do?method=reg&pkg=AD1F8F7D96E61267" target="new">Create a New Account </a></td>
 	</tr>
 	<tr>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr>
 		<td colspan="2"> -- Or -- </td>
+	</tr>
+	<tr>
+	<td></td>
+	<td></td>
 	</tr>
 	<tr>
 		<td colspan="2"><a class="button" href="<%= fbURL %>" target="new">Sign in using Facebook </a></td>
 	</tr>
-	<tr><td><br><bean:message key="loginForm.username"/></td>
-	    <td><br><html:text property="username" size="20" styleClass="textsmall" maxlength="50" value=""/></td>
+	<tr>
+	<td></td>
+	<td></td>
+	</tr>
+	
+	<tr>
+		<td colspan="2"> -- Or -- </td>
 	</tr>
 	<tr>
 	<td></td>
 	<td></td>
+	</tr>
+	<tr>
+		<td colspan="2"> <a href="login.do?method=twitterLogin"><img src="./jsp/images/Sign-in-with-Twitter-darker.png"/></a></td>
+	</tr>
+	
+	<tr>
+	<td></td>
+	<td></td>
+	</tr>
+	<tr><td><br><bean:message key="loginForm.username"/></td>
+	    <td><br><html:text property="username" size="20" styleClass="textsmall" maxlength="50" value=""/></td>
 	</tr>
 	<tr><td><bean:message key="loginForm.password"/></td>
 	    <td><html:password property="password" size="20" styleClass="textsmall" maxlength="50" value=""/></td>

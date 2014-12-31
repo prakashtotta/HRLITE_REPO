@@ -30,6 +30,22 @@ public class CommonUtils {
 	}
 	
 	/**
+	 * Method returns the Twitter app id configured in job.properties
+	 * @return
+	 */
+	public static String getTwitterAppId(){
+		return Constant.getValue("twitter.app.id");
+	}
+	
+	/**
+	 * Method returns the Twitter app key configured in job.properties
+	 * @return
+	 */
+	public static String getTwitterAppKey(){
+		return Constant.getValue("twitter.app.secrete.key");
+	}
+	
+	/**
 	 * Method returns the Facebook login auth url configured in job.properties
 	 * @return
 	 */
@@ -52,6 +68,8 @@ public class CommonUtils {
 	public static String getFacbookLoginUrl(){
 		return Constant.getValue("facebook.login.url");
 	}
+	
+	
 	
 	
 	/**
